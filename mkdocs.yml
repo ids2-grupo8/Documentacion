@@ -1,0 +1,39 @@
+site_name: Bazaar — Grupo 8
+site_description: Documentación del proyecto Bazaar - Marketplace
+site_url: https://ids2-grupo8.github.io/Documentacion/
+
+theme:
+  name: material
+  language: es
+  palette:
+    scheme: slate
+    primary: custom
+    accent: lime
+  font:
+    text: Fira Sans
+    code: Fira Code
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+nav:
+  - Inicio: index.md
+  - Sprints:
+      - Sprint 1: sprints/sprint-1.md
+  - Arquitectura: arquitectura/index.md
+  - Servicios:
+      - User Service: servicios/user-service.md
+      - Product Service: servicios/product-service.md
+      - Backoffice: servicios/backoffice.md
+      - Mobile App: servicios/mobile-app.md
+
+markdown_extensions:
+  - tables
+  - admonitions
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - attr_list
