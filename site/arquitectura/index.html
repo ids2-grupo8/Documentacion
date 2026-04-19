@@ -69,7 +69,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="lime">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -127,7 +127,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="lime"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
@@ -137,7 +137,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="lime"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
@@ -360,6 +360,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -376,6 +394,97 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vision-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visión general
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visión general">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-microservicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por qué microservicios?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-hace-el-api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué hace el API Gateway?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servicios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servicios-externos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servicios externos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisiones-de-tecnologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisiones de tecnología
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -577,6 +686,86 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vision-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visión general
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visión general">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-microservicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por qué microservicios?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-hace-el-api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué hace el API Gateway?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servicios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servicios-externos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servicios externos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisiones-de-tecnologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisiones de tecnología
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -593,9 +782,139 @@
 
 
 <h1 id="arquitectura-del-sistema">Arquitectura del Sistema<a class="headerlink" href="#arquitectura-del-sistema" title="Permanent link">&para;</a></h1>
-<p>Bazaar sigue una arquitectura de microservicios.</p>
+<h2 id="vision-general">Visión general<a class="headerlink" href="#vision-general" title="Permanent link">&para;</a></h2>
+<p>Bazaar está construido como un conjunto de <strong>microservicios independientes</strong>, cada uno con su propia base de datos y responsabilidad bien definida. Los clientes (app mobile y backoffice web) nunca se comunican directamente con los servicios: todas las peticiones pasan por un <strong>API Gateway</strong> que se encarga del enrutamiento y la autenticación.</p>
+<div class="highlight"><pre><span></span><code>┌─────────────┐       ┌─────────────┐
+│  Mobile App │       │  Backoffice │
+│  (Expo)     │       │  (React)    │
+└──────┬──────┘       └──────┬──────┘
+       │                     │
+       └──────────┬──────────┘
+                  │
+         ┌────────▼────────┐
+         │   Kong Gateway  │  ← Punto único de entrada
+         └───┬─────────┬───┘
+             │         │
+   ┌─────────▼───┐ ┌───▼──────────┐
+   │user-service │ │product-service│
+   │  (FastAPI)  │ │  (FastAPI)    │
+   └──────┬──────┘ └───┬──────────┘
+          │             │
+   ┌──────▼──────┐ ┌───▼──────────┐
+   │ PostgreSQL  │ │   MongoDB    │
+   └─────────────┘ └──────────────┘
+</code></pre></div>
+<h3 id="por-que-microservicios">¿Por qué microservicios?<a class="headerlink" href="#por-que-microservicios" title="Permanent link">&para;</a></h3>
+<p>En lugar de tener toda la lógica en una sola aplicación, el sistema se divide en servicios más chicos que se pueden desarrollar, testear y desplegar de forma independiente. Cada servicio tiene su propia base de datos, lo que evita acoplamientos y permite que un equipo trabaje en un servicio sin afectar a los demás.</p>
+<h3 id="que-hace-el-api-gateway">¿Qué hace el API Gateway?<a class="headerlink" href="#que-hace-el-api-gateway" title="Permanent link">&para;</a></h3>
+<p>Kong recibe todas las peticiones de los clientes y se encarga de:</p>
+<ul>
+<li><strong>Redirigirlas al servicio correcto</strong> según la URL (ej: <code>/users/*</code> va al user-service, <code>/products/*</code> va al product-service).</li>
+<li><strong>Validar el token JWT</strong> en las rutas que requieren autenticación.</li>
+<li><strong>Extraer la identidad del usuario</strong> del token y pasarla como header al servicio backend, para que los servicios sepan quién está haciendo el request sin tener que parsear el token ellos mismos.</li>
+<li><strong>Verificar el rol de administrador</strong> en las rutas del panel de admin.</li>
+</ul>
 <hr />
-<p><em>Contenido pendiente de completar.</em></p>
+<h2 id="servicios">Servicios<a class="headerlink" href="#servicios" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Servicio</th>
+<th>Lenguaje / Framework</th>
+<th>Base de datos</th>
+<th>Responsabilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>user-service</strong></td>
+<td>Python / FastAPI</td>
+<td>PostgreSQL</td>
+<td>Autenticación, perfiles, administración de usuarios</td>
+</tr>
+<tr>
+<td><strong>product-service</strong></td>
+<td>Python / FastAPI</td>
+<td>MongoDB</td>
+<td>Catálogo de productos, stock, imágenes, categorías</td>
+</tr>
+<tr>
+<td><strong>backoffice</strong></td>
+<td>TypeScript / React + Vite</td>
+<td>—</td>
+<td>Panel web de administración</td>
+</tr>
+<tr>
+<td><strong>mobileApp</strong></td>
+<td>TypeScript / React Native + Expo</td>
+<td>—</td>
+<td>App mobile para compradores y vendedores</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="servicios-externos">Servicios externos<a class="headerlink" href="#servicios-externos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Servicio</th>
+<th>Para qué lo usamos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Supabase Auth</strong></td>
+<td>Maneja el registro, login, OAuth con Google y recupero de contraseña. Emite los JWT que usa todo el sistema.</td>
+</tr>
+<tr>
+<td><strong>Cloudinary</strong></td>
+<td>Almacena las imágenes de perfil y de productos. En la base de datos solo guardamos la URL.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="decisiones-de-tecnologia">Decisiones de tecnología<a class="headerlink" href="#decisiones-de-tecnologia" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Decisión</th>
+<th>Qué elegimos</th>
+<th>Por qué</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BD del user-service</td>
+<td><strong>PostgreSQL</strong></td>
+<td>Los datos de usuarios tienen estructura fija y relaciones claras (usuario → identidades federadas). Una base relacional es lo más natural.</td>
+</tr>
+<tr>
+<td>BD del product-service</td>
+<td><strong>MongoDB</strong></td>
+<td>Los productos pueden tener atributos distintos según la categoría (ej: talle en ropa, memoria en electrónica). Un modelo de documentos permite esa flexibilidad sin tener que alterar el esquema.</td>
+</tr>
+<tr>
+<td>Autenticación</td>
+<td><strong>Supabase Auth</strong></td>
+<td>Nos da JWT, OAuth con Google, recupero de contraseña y gestión de sesiones sin tener que implementarlo desde cero.</td>
+</tr>
+<tr>
+<td>Imágenes</td>
+<td><strong>Cloudinary</strong></td>
+<td>CDN con plan gratuito suficiente para el proyecto. Subimos la imagen y obtenemos una URL pública.</td>
+</tr>
+<tr>
+<td>API Gateway</td>
+<td><strong>Kong (OSS)</strong></td>
+<td>Se integra nativamente con Kubernetes y permite agregar lógica custom con plugins Lua (validación de JWT, extracción de email, chequeo de rol admin).</td>
+</tr>
+<tr>
+<td>Despliegue</td>
+<td><strong>Kubernetes + ArgoCD</strong></td>
+<td>Despliegue declarativo con GitOps: cuando se pushea una imagen nueva, ArgoCD detecta el cambio y actualiza el servicio automáticamente.</td>
+</tr>
+</tbody>
+</table>
 
 
 
