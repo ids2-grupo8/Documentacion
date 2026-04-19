@@ -7,13 +7,13 @@ theme:
   language: es
   palette:
     - scheme: slate
-      primary: teal
+      primary: deep purple
       accent: lime
       toggle:
         icon: material/brightness-4
         name: Cambiar a modo claro
     - scheme: default
-      primary: teal
+      primary: deep purple
       accent: lime
       toggle:
         icon: material/brightness-7
