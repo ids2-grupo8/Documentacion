@@ -8,86 +8,86 @@
 
 ## Objetivo del sprint
 
-Establecer la infraestructura del proyecto, configurar CI/CD en todos los componentes, implementar los flujos de autenticación completos en el user-service, el CRUD de productos en el product-service, y las interfaces iniciales del backoffice y la app mobile con al menos un flujo funcional de punta a punta.
+Establecer la infraestructura del proyecto (Kubernetes, Kong, CI/CD), implementar los flujos de autenticación, el catálogo de productos y las interfaces iniciales del backoffice y la app mobile.
 
 ---
 
-## Historias de usuario trabajadas
+## Historias de usuario completadas
 
 ### Obligatorias
 
-| # | Historia | Puntos | Estado | Componentes involucrados |
-|---|----------|:------:|--------|--------------------------|
-| 1 | Registro de usuarios | 2 | Completada | user-service, mobileApp |
-| 2 | Login con email y contraseña | 2 | Completada | user-service, mobileApp, backoffice |
-| 3 | Recupero de contraseña | 3 | Completada | user-service, mobileApp |
-| 4 | Edición de perfil | 3 | Completada | user-service, mobileApp |
-| 5 | Visualización de perfil propio | 1 | Completada | user-service, mobileApp |
-| 6 | Home | 3 | Completada | product-service, mobileApp |
-| 7 | Listado y búsqueda de productos | 3 | Completada | product-service, mobileApp |
-| 8 | Detalle de producto | 2 | Completada | product-service, mobileApp |
-| 14 | Publicar producto | 3 | Completada | product-service, mobileApp |
-| 15 | Gestión de stock y publicaciones | 3 | Completada | product-service |
-| 17 | Listar usuarios del sistema | 1 | Completada | user-service, backoffice |
-| 18 | Bloquear y desbloquear usuario | 2 | Completada | user-service, backoffice |
+| # | Historia | Puntos |
+|---|----------|:------:|
+| 1 | Registro de usuarios | 2 |
+| 2 | Login con email y contraseña | 2 |
+| 3 | Recupero de contraseña | 3 |
+| 4 | Edición de perfil | 3 |
+| 5 | Visualización de perfil propio | 1 |
+| 8 | Detalle de producto | 2 |
+| 14 | Publicar producto | 3 |
+| 15 | Gestión de stock y publicaciones | 3 |
+| 17 | Listar usuarios del sistema | 1 |
+| 18 | Bloquear y desbloquear usuario | 2 |
 
-**Subtotal obligatorias:** 28 / 63 pts
+**Total obligatorias (enunciado):** 22 puntos
 
 ### Optativas
 
-| # | Historia | Puntos | Estado | Componentes involucrados |
-|---|----------|:------:|--------|--------------------------|
-| 22 | Login con proveedor federado (Google) | 3 | Completada | user-service, mobileApp |
-| 24 | Visualización de perfil público | 2 | Completada | user-service |
+| # | Historia | Puntos |
+|---|----------|:------:|
+| 22 | Login con proveedor federado (Google) | 3 |
+| 24 | Visualización de perfil público | 2 |
 
-**Subtotal optativas:** 5 pts
-
----
-
-## Detalle de lo implementado
-
-### User Service (Python / FastAPI + PostgreSQL)
-
-- **Autenticación completa:** registro, login email/password, login federado con Google vía Supabase Auth, y recupero de contraseña con enlace de uso único.
-- **Perfil:** edición de datos personales, subida de foto de perfil a Cloudinary, visualización del perfil propio y de perfiles públicos de otros usuarios.
-- **Administración:** listado paginado de usuarios con búsqueda, bloqueo/desbloqueo sincronizado con Supabase (el usuario bloqueado no puede iniciar sesión y ve un mensaje claro).
-- **Modelo de datos:** tablas `User` y `UserIdentity` para soportar múltiples proveedores de identidad.
-- **Observabilidad:** endpoints `/livez` y `/readyz`, métricas Prometheus con `prometheus-fastapi-instrumentator`.
-
-### Product Service (Python / FastAPI + MongoDB)
-
-- **CRUD de productos:** creación con imágenes (Cloudinary), edición de precio/descripción/stock, cambio de estado (disponible / no disponible / deshabilitado).
-- **Catálogo:** listado paginado de productos activos con stock > 0, detalle completo de producto, listado de productos por vendedor.
-- **Categorías:** soporte para categorías predefinidas (Electronics, Clothing).
-- **Comunicación inter-servicio:** consulta al user-service para obtener datos del vendedor.
-- **Observabilidad:** endpoints `/livez` y `/readyz`.
-
-### Mobile App (React Native / Expo)
-
-- **Autenticación:** login, registro, recupero de contraseña y login con Google OAuth.
-- **Home:** pantalla principal con productos recientes, íconos de categoría y barra de búsqueda.
-- **Catálogo:** navegación de productos, detalle de producto con galería de imágenes.
-- **Perfil:** visualización y edición del perfil propio.
-- **Vendedor:** pantalla de publicación de producto.
-
-### Backoffice Web (React / Vite)
-
-- **Login de administrador:** validación de rol admin, flujo exclusivo para administradores.
-- **Panel de usuarios:** listado con búsqueda, bloqueo/desbloqueo de usuarios.
-- **Dashboard:** vista inicial con secciones de navegación.
-- **UI:** estética dark/glass consistente con el sistema de diseño del proyecto.
+**Total optativas (enunciado):** 5 puntos
 
 ### Infraestructura
 
-- **Kubernetes** como orquestador de despliegue.
-- **Kong** como API Gateway (enrutamiento, CORS).
-- **ArgoCD** + Argo Image Updater para CD automático.
-- **CI:** pipelines por servicio que corren tests y buildean imágenes Docker en cada push.
-- **Helm charts** por servicio para gestión de despliegue.
+- Deploy automático en GKE  
+- API Gateway (Kong)  
+- Verificación de autenticación JWT en Kong  
+- Verificación de rol de administrador en Kong  
 
 ---
 
-## Arquitectura del sprint
+## Resumen técnico
+
+### User service (Python / FastAPI + PostgreSQL)
+
+- Autenticación: registro, login email/contraseña, OAuth con Supabase, recupero de contraseña.
+- Perfil: edición, foto en Cloudinary, perfil propio y perfil público de otros usuarios.
+- Administración: listado con búsqueda, bloqueo y desbloqueo de usuarios.
+- Modelo `User` y `UserIdentity` para identidades federadas.
+- Observabilidad: `/livez`, `/readyz`, métricas Prometheus.
+
+### Product service (Python / FastAPI + MongoDB)
+
+- CRUD de productos con imágenes (Cloudinary), stock, precio y estados.
+- Catálogo: listado, detalle y productos por vendedor; categorías predefinidas.
+- Integración con user-service para datos del vendedor.
+- Observabilidad: `/livez` y `/readyz`.
+
+### Mobile app (React Native + Expo)
+
+- Pantallas de login, registro, recupero de contraseña y OAuth con Google.
+- Exploración de productos, detalle con galería de imágenes.
+- Perfil propio (ver y editar) y publicación de productos.
+
+### Backoffice (React + Vite)
+
+- Login reservado a rol administrador.
+- Panel de usuarios con búsqueda, bloqueo y desbloqueo.
+- Dashboard con navegación a las secciones.
+
+### Infraestructura
+
+- Despliegue en Kubernetes (GKE) con Helm.
+- Kong: enrutamiento, validación JWT, comprobación de rol admin, CORS.
+- ArgoCD e Image Updater para despliegue continuo.
+- CI por repositorio: tests y build de imágenes Docker.
+
+---
+
+## Arquitectura
 
 ```
 ┌─────────────┐     ┌──────────────┐     ┌───────────────────┐
@@ -103,7 +103,7 @@ Establecer la infraestructura del proyecto, configurar CI/CD en todos los compon
                           ┌──────────┐    ┌──────┴──────┐
                           │ Supabase │    │ Cloudinary  │
                           │  Auth    │    │  (imágenes) │
-                          └──────────┘    └─────────────┘
+                          └──────────┘    └──────────────┘
 ```
 
 ---
@@ -111,14 +111,10 @@ Establecer la infraestructura del proyecto, configurar CI/CD en todos los compon
 ## Métricas del sprint
 
 | Métrica | Valor |
-|---------|-------|
-| Historias completadas | 14 |
-| Puntos obligatorios entregados | 28 / 63 |
-| Puntos optativos entregados | 5 |
-| Servicios backend | 2 (user-service, product-service) |
-| Frontends | 2 (backoffice, mobile) |
-| PRs mergeados (user-service) | ~10 |
-| PRs mergeados (product-service) | ~11 |
-
----
-
+|---------|------:|
+| Historias de usuario (obligatorias) | 10 |
+| Historias de usuario (optativas) | 2 |
+| Puntos obligatorios (según enunciado) | 22 |
+| Puntos optativos (según enunciado) | 5 |
+| Servicios backend desplegados | 2 |
+| Clientes (mobile + backoffice) | 2 |
