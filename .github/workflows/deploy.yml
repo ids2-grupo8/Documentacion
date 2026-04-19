@@ -3,6 +3,12 @@ name: Deploy docs to GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - docs/**
+      - mkdocs.yml
+      - .github/workflows/deploy.yml
+
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -19,4 +25,11 @@ jobs:
 
       - run: pip install mkdocs-material
 
-      - run: mkdocs gh-deploy --force --strict
+      - run: mkdocs build --strict
+
+      - name: Commit built site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add site/ --force
+          git diff --staged --quiet && echo "No changes to site" || (git commit -m "build: update generated docs site" && git push)
