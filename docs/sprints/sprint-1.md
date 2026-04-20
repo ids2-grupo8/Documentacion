@@ -37,8 +37,9 @@ Establecer la infraestructura del proyecto (Kubernetes, Kong, CI/CD), implementa
 |---|----------|:------:|
 | 22 | Login con proveedor federado (Google) | 3 |
 | 24 | Visualización de perfil público | 2 |
+| 25 | Compartir link de producto | 2 |
 
-**Total optativas (enunciado):** 5 puntos
+**Total optativas (enunciado):** 7 puntos
 
 ### Infraestructura
 
@@ -70,6 +71,7 @@ Establecer la infraestructura del proyecto (Kubernetes, Kong, CI/CD), implementa
 
 - Pantallas de login, registro, recupero de contraseña y OAuth con Google.
 - Exploración de productos, detalle con galería de imágenes.
+- Compartir link de producto mediante deep link (`mobileapp://product/:id`) desde la pantalla de detalle.
 - Perfil propio (ver y editar) y publicación de productos.
 
 ### Backoffice (React + Vite)
@@ -113,8 +115,8 @@ Establecer la infraestructura del proyecto (Kubernetes, Kong, CI/CD), implementa
 | Métrica | Valor |
 |---------|------:|
 | Historias de usuario (obligatorias) | 10 |
-| Historias de usuario (optativas) | 2 |
+| Historias de usuario (optativas) | 3 |
 | Puntos obligatorios (según enunciado) | 22 |
-| Puntos optativos (según enunciado) | 5 |
+| Puntos optativos (según enunciado) | 7 |
 | Servicios backend desplegados | 2 |
 | Clientes (mobile + backoffice) | 2 |
