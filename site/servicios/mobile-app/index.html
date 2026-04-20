@@ -528,6 +528,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mobile App
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -544,6 +562,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responsabilidades-implementado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilidades (implementado)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repositorio
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -577,6 +647,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responsabilidades-implementado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilidades (implementado)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repositorio
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -593,9 +704,45 @@
 
 
 <h1 id="mobile-app">Mobile App<a class="headerlink" href="#mobile-app" title="Permanent link">&para;</a></h1>
-<p>Aplicación mobile del marketplace (React Native + Expo).</p>
-<hr />
-<p><em>Contenido pendiente de completar.</em></p>
+<p>Cliente <strong>React Native (Expo)</strong> para compradores y vendedores: misma cuenta para ambos roles.</p>
+<h2 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lenguaje</td>
+<td>TypeScript</td>
+</tr>
+<tr>
+<td>Framework</td>
+<td>React Native + Expo</td>
+</tr>
+<tr>
+<td>Estado</td>
+<td>Zustand (sesión, carrito, tema, datos de usuario)</td>
+</tr>
+<tr>
+<td>API</td>
+<td>Cliente al API Gateway (<code>users</code>, <code>products</code>, …) vía helpers en <code>constants/api</code> y <code>services/</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="responsabilidades-implementado">Responsabilidades (implementado)<a class="headerlink" href="#responsabilidades-implementado" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Autenticación</strong>: registro, login email/contraseña, recupero y nueva contraseña (deep link del enlace de Supabase hacia <code>reset-password</code>); login con <strong>Google</strong> (OAuth en navegador in-app + intercambio de tokens con el backend).</li>
+<li><strong>Catálogo y compra</strong>: home con productos desde el <strong>product-service</strong>, filtros (categoría, texto, rango de precio), detalle por id, carrito persistente (hidrata desde almacenamiento).</li>
+<li><strong>Vendedor</strong>: flujo de publicación de producto con imágenes; edición de perfil en pantalla dedicada.</li>
+<li><strong>Navegación</strong>: Expo Router (tabs Home / Explore / Perfil más rutas de producto y vendedor); pestaña “Explore” aún con contenido plantilla de Expo.</li>
+<li><strong>Tema</strong>: claro/oscuro/sistema coherente con la identidad visual del proyecto.</li>
+</ul>
+<h2 id="repositorio">Repositorio<a class="headerlink" href="#repositorio" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/ids2-grupo8/mobileApp">github.com/ids2-grupo8/mobileApp</a></p>
+<p>Setup local: ver el <code>README</code> del repositorio.</p>
 
 
 

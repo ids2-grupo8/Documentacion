@@ -446,6 +446,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Service
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -462,6 +480,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responsabilidades-implementado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilidades (implementado)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repositorio
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -579,6 +649,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responsabilidades-implementado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilidades (implementado)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repositorio
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -595,9 +706,44 @@
 
 
 <h1 id="user-service">User Service<a class="headerlink" href="#user-service" title="Permanent link">&para;</a></h1>
-<p>Autenticación, gestión de perfiles y administración de usuarios.</p>
-<hr />
-<p><em>Contenido pendiente de completar.</em></p>
+<p>Microservicio de <strong>identidad y usuarios</strong>: autenticación, perfiles y operaciones de administración.</p>
+<h2 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lenguaje</td>
+<td>Python</td>
+</tr>
+<tr>
+<td>Framework</td>
+<td>FastAPI</td>
+</tr>
+<tr>
+<td>Base de datos</td>
+<td>PostgreSQL</td>
+</tr>
+<tr>
+<td>Auth externo</td>
+<td>Supabase Auth (JWT)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="responsabilidades-implementado">Responsabilidades (implementado)<a class="headerlink" href="#responsabilidades-implementado" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Autenticación (<code>/api/v1/auth</code>)</strong>: registro y login email/contraseña (tokens vía Supabase); login federado completando la sesión OAuth (<code>/auth/federated-login</code>); flujo de recupero (<code>/auth/forgot-password</code>, <code>/auth/reset-password</code>) con rate limit en “olvidé contraseña”.</li>
+<li><strong>Salud (<code>/api/v1/health</code>)</strong>: endpoints de liveness/readiness para orquestación.</li>
+<li><strong>Usuarios (<code>/api/v1</code>)</strong>: consulta por email; perfil propio (actualización de nombre y descripción); subida de foto de perfil (multipart, imágenes vía Cloudinary); perfil autenticado y perfil público. Para los perfiles con publicaciones, el servicio <strong>consulta al product-service</strong> y devuelve usuario + listado de productos del vendedor.</li>
+<li><strong>Administración (<code>/api/v1/admin</code>)</strong>: listado de usuarios con búsqueda opcional por email o nombre; bloqueo/desbloqueo por id (requiere rol admin en Supabase).</li>
+</ul>
+<h2 id="repositorio">Repositorio<a class="headerlink" href="#repositorio" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/ids2-grupo8/user-service">github.com/ids2-grupo8/user-service</a></p>
+<p>Setup local y variables de entorno: ver el <code>README</code> del repositorio.</p>
 
 
 
