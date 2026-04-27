@@ -34,6 +34,7 @@ nav:
   - Inicio: index.md
   - Sprints:
       - Sprint 1: sprints/sprint-1.md
+      - Sprint 2: sprints/sprint-2.md
   - Arquitectura: arquitectura/index.md
   - Servicios:
       - User Service: servicios/user-service.md
