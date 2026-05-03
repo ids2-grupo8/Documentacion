@@ -985,73 +985,41 @@
 <hr />
 <h2 id="seguimiento-por-historias-planificadas">Seguimiento por historias planificadas<a class="headerlink" href="#seguimiento-por-historias-planificadas" title="Permanent link">&para;</a></h2>
 <h3 id="obligatorias_1">Obligatorias<a class="headerlink" href="#obligatorias_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>#1 Home</strong> — <strong>Implementada</strong></li>
-<li>Se incorporaron secciones de descubrimiento (<code>Para vos</code> y <code>Todos los productos</code>) con manejo de loading/error.</li>
-<li>Para usuarios no autenticados se restringen acciones sensibles (agregar al carrito/publicar/abrir carrito), solicitando login.</li>
-<li>
-<p>La sección <code>Para vos</code> depende del endpoint de recomendaciones y se oculta cuando no hay datos.</p>
-</li>
-<li>
-<p><strong>#2 Listado y búsqueda de productos</strong> </p>
-</li>
-<li>Búsqueda por texto con debounce.</li>
-<li>Integración de filtros y ordenamiento sobre el fetch del catálogo.</li>
-<li>
-<p>Soporte de estados vacíos y retry ante fallos de red.</p>
-</li>
-<li>
-<p><strong>#3 Agregar producto al carrito</strong> </p>
-</li>
-<li>Alta rápida desde Home y flujo de agregado desde el catálogo.</li>
-<li>Validaciones de stock para evitar superar cantidad disponible.</li>
-<li>
-<p>Persistencia de carrito en cliente y protección para usuarios no autenticados.</p>
-</li>
-<li>
-<p><strong>#4 Listar y moderar productos</strong> </p>
-</li>
-<li>Backoffice con listado de productos para administración.</li>
-<li>Acción de moderación para bloquear/desbloquear publicaciones.</li>
-<li>
-<p>Sincronización con product-service mediante endpoints administrativos.</p>
-</li>
-<li>
-<p><strong>#5 Checkout e inicio de pago</strong> — <strong>Parcialmente implementada</strong></p>
-</li>
-<li>UI de checkout con validación de dirección, resumen de orden y selección de medio de pago.</li>
-<li>Flujo de confirmación y pantalla de éxito implementados en mobile.</li>
-<li>
-<p>Integración final con gateway real/sandbox y validaciones E2E de pago aún pendientes.</p>
-</li>
-<li>
-<p><strong>#6 Gestión del carrito</strong> </p>
-</li>
-<li>Vista completa de carrito con modificar cantidades, eliminar ítems y vaciar carrito.</li>
-<li>Cálculo de subtotal/total y control de ítems no disponibles antes de checkout.</li>
-<li>Mensajería de stock bajo/no disponible para prevenir compras inválidas.</li>
-</ul>
+<p><strong>#1 Home</strong>
+  - Se incorporaron secciones de descubrimiento (<code>Para vos</code> y <code>Todos los productos</code>) con manejo de loading/error.
+  - Para usuarios no autenticados se restringen acciones sensibles (agregar al carrito/publicar/abrir carrito), solicitando login.
+  - La sección <code>Para vos</code> depende del endpoint de recomendaciones y se oculta cuando no hay datos.</p>
+<p><strong>#2 Listado y búsqueda de productos</strong> 
+  - Búsqueda por texto con debounce.
+  - Integración de filtros y ordenamiento sobre el fetch del catálogo.
+  - Soporte de estados vacíos y retry ante fallos de red.</p>
+<p><strong>#3 Agregar producto al carrito</strong> 
+  - Alta rápida desde Home y flujo de agregado desde el catálogo.
+  - Validaciones de stock para evitar superar cantidad disponible.
+  - Persistencia de carrito en cliente y protección para usuarios no autenticados.</p>
+<p><strong>#4 Listar y moderar productos</strong> 
+  - Backoffice con listado de productos para administración.
+  - Acción de moderación para bloquear/desbloquear publicaciones.
+  - Sincronización con product-service mediante endpoints administrativos.</p>
+<p><strong>#5 Checkout e inicio de pago</strong> — <strong>Parcialmente implementada</strong>
+  - UI de checkout con validación de dirección, resumen de orden y selección de medio de pago.
+  - Flujo de confirmación y pantalla de éxito implementados en mobile.
+  - Integración final con gateway real/sandbox y validaciones E2E de pago aún pendientes.</p>
+<p><strong>#6 Gestión del carrito</strong> 
+  - Vista completa de carrito con modificar cantidades, eliminar ítems y vaciar carrito.
+  - Cálculo de subtotal/total y control de ítems no disponibles antes de checkout.
+  - Mensajería de stock bajo/no disponible para prevenir compras inválidas.</p>
 <h3 id="optativas_1">Optativas<a class="headerlink" href="#optativas_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>#22 Ordenamiento de resultados</strong> </li>
-<li>Ordenamiento por precio ascendente/descendente y más recientes.</li>
-<li>
-<p>Opción de orden predeterminado para mantener experiencia consistente.</p>
-</li>
-<li>
-<p><strong>#24 Filtros avanzados de búsqueda</strong> — <strong>Implementada</strong></p>
-</li>
-<li>Filtros por categoría y rango de precio en Home.</li>
-<li>
-<p>Aplicación y limpieza de filtros con feedback visual.</p>
-</li>
-<li>
-<p><strong>#25 Registro con PIN</strong> </p>
-</li>
-<li><strong>Mobile:</strong> pantalla de alta/cambio de PIN (<code>app/profile/pin.tsx</code>) y flujo de login por PIN (<code>app/(auth)/pin-login.tsx</code>), con PIN de 6 dígitos y <code>device_id</code> para amarrar el acceso al dispositivo.</li>
-<li><strong>API (user-service):</strong> endpoints bajo <code>/auth/pin/*</code> (enroll, login, cuentas por dispositivo, estado); persistencia en base relacional y límites de intentos </li>
-<li><strong>Alcance vs. enunciado:</strong> el registro inicial sigue siendo email/contraseña; el PIN se configura <strong>después</strong> para acceso rápido desde el dispositivo (historia optativa de PIN).</li>
-</ul>
+<p><strong>#22 Ordenamiento de resultados</strong> 
+  - Ordenamiento por precio ascendente/descendente y más recientes.
+  - Opción de orden predeterminado para mantener experiencia consistente.</p>
+<p><strong>#24 Filtros avanzados de búsqueda</strong> — <strong>Implementada</strong>
+  - Filtros por categoría y rango de precio en Home.
+  - Aplicación y limpieza de filtros con feedback visual.</p>
+<p><strong>#25 Registro con PIN</strong> 
+  - <strong>Mobile:</strong> pantalla de alta/cambio de PIN (<code>app/profile/pin.tsx</code>) y flujo de login por PIN (<code>app/(auth)/pin-login.tsx</code>), con PIN de 6 dígitos y <code>device_id</code> para amarrar el acceso al dispositivo.
+  - <strong>API (user-service):</strong> endpoints bajo <code>/auth/pin/*</code> (enroll, login, cuentas por dispositivo, estado); persistencia en base relacional y límites de intentos 
+  - <strong>Alcance vs. enunciado:</strong> el registro inicial sigue siendo email/contraseña; el PIN se configura <strong>después</strong> para acceso rápido desde el dispositivo (historia optativa de PIN).</p>
 <hr />
 <h2 id="metricas-del-sprint-objetivo">Métricas del sprint (objetivo)<a class="headerlink" href="#metricas-del-sprint-objetivo" title="Permanent link">&para;</a></h2>
 <table>
