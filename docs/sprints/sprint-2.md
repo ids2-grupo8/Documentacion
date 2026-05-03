@@ -2,7 +2,7 @@
 
 **Período:** 20/04/2026 — 12/05/2026  
 **Checkpoint cubierto:** CP2  
-**Estado:** En proceso
+**Estado:** En proceso (actualizado)
 
 ---
 
@@ -37,10 +37,9 @@ Las bases de infraestructura, autenticación y arquitectura general ya fueron do
 | 3 | Agregar producto al carrito | 5 |
 | 4 | Listar y moderar productos | 5 |
 | 5 | Checkout e inicio de pago | 13 |
-| 8 | Agregar producto al carrito | 5 |
-| 14 | Gestión del carrito | 6 |
+| 6 | Gestión del carrito | 6 |
 
-**Total obligatorias (enunciado):** 43 puntos
+**Total obligatorias (enunciado):** 38 puntos
 
 ### Optativas
 
@@ -54,20 +53,54 @@ Las bases de infraestructura, autenticación y arquitectura general ya fueron do
 
 ---
 
-## Estado de avance
+## Seguimiento por historias planificadas
 
-### En progreso
+### Obligatorias
 
-- Implementación de Home, listado/búsqueda y detalle de catálogo en mobile.
-- Flujo de carrito (alta, modificación y baja de ítems).
-- Endpoint y validaciones iniciales para checkout.
-- Vista de moderación de productos en backoffice.
+- **#1 Home** — **Implementada**
+  - Se incorporaron secciones de descubrimiento (`Para vos` y `Todos los productos`) con manejo de loading/error.
+  - Para usuarios no autenticados se restringen acciones sensibles (agregar al carrito/publicar/abrir carrito), solicitando login.
+  - La sección `Para vos` depende del endpoint de recomendaciones y se oculta cuando no hay datos.
 
-### Pendiente
+- **#2 Listado y búsqueda de productos** 
+  - Búsqueda por texto con debounce.
+  - Integración de filtros y ordenamiento sobre el fetch del catálogo.
+  - Soporte de estados vacíos y retry ante fallos de red.
 
-- Integración completa del flujo de pago en entorno de prueba.
-- Cierre de criterios de aceptación de historias optativas.
-- End-to-end y pruebas de regresión de los flujos de compra.
+- **#3 Agregar producto al carrito** 
+  - Alta rápida desde Home y flujo de agregado desde el catálogo.
+  - Validaciones de stock para evitar superar cantidad disponible.
+  - Persistencia de carrito en cliente y protección para usuarios no autenticados.
+
+- **#4 Listar y moderar productos** 
+  - Backoffice con listado de productos para administración.
+  - Acción de moderación para bloquear/desbloquear publicaciones.
+  - Sincronización con product-service mediante endpoints administrativos.
+
+- **#5 Checkout e inicio de pago** — **Parcialmente implementada**
+  - UI de checkout con validación de dirección, resumen de orden y selección de medio de pago.
+  - Flujo de confirmación y pantalla de éxito implementados en mobile.
+  - Integración final con gateway real/sandbox y validaciones E2E de pago aún pendientes.
+
+- **#6 Gestión del carrito** 
+  - Vista completa de carrito con modificar cantidades, eliminar ítems y vaciar carrito.
+  - Cálculo de subtotal/total y control de ítems no disponibles antes de checkout.
+  - Mensajería de stock bajo/no disponible para prevenir compras inválidas.
+
+### Optativas
+
+- **#22 Ordenamiento de resultados** 
+  - Ordenamiento por precio ascendente/descendente y más recientes.
+  - Opción de orden predeterminado para mantener experiencia consistente.
+
+- **#24 Filtros avanzados de búsqueda** — **Implementada**
+  - Filtros por categoría y rango de precio en Home.
+  - Aplicación y limpieza de filtros con feedback visual.
+
+- **#25 Registro con PIN** 
+  - **Mobile:** pantalla de alta/cambio de PIN (`app/profile/pin.tsx`) y flujo de login por PIN (`app/(auth)/pin-login.tsx`), con PIN de 6 dígitos y `device_id` para amarrar el acceso al dispositivo.
+  - **API (user-service):** endpoints bajo `/auth/pin/*` (enroll, login, cuentas por dispositivo, estado); persistencia en base relacional y límites de intentos 
+  - **Alcance vs. enunciado:** el registro inicial sigue siendo email/contraseña; el PIN se configura **después** para acceso rápido desde el dispositivo (historia optativa de PIN).
 
 
 ---
@@ -76,9 +109,9 @@ Las bases de infraestructura, autenticación y arquitectura general ya fueron do
 
 | Métrica | Valor |
 |---------|------:|
-| Historias de usuario (obligatorias) | 7 |
+| Historias de usuario (obligatorias) | 6 |
 | Historias de usuario (optativas) | 3 |
-| Puntos obligatorios (según enunciado) | 43 |
+| Puntos obligatorios (según enunciado) | 38 |
 | Puntos optativos (según enunciado) | 7 |
 
 ---
