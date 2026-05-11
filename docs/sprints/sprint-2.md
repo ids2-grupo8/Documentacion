@@ -2,7 +2,7 @@
 
 **Período:** 20/04/2026 — 12/05/2026  
 **Checkpoint cubierto:** CP2  
-**Estado:** En proceso (actualizado)
+**Estado:** Completado 
 
 ---
 
@@ -58,9 +58,10 @@ Las bases de infraestructura, autenticación y arquitectura general ya fueron do
 ### Obligatorias
 
 **#1 Home**
-  - Se incorporaron secciones de descubrimiento (`Para vos` y `Todos los productos`) con manejo de loading/error.
-  - Para usuarios no autenticados se restringen acciones sensibles (agregar al carrito/publicar/abrir carrito), solicitando login.
-  - La sección `Para vos` depende del endpoint de recomendaciones y se oculta cuando no hay datos.
+  - Secciones de descubrimiento: **`Recientes`** (productos marcados como recientes en la sesión de listado), **`Para vos`** (solo si aplica) y **`Todos los productos`** (rejilla a dos columnas), con loading, pull-to-refresh y manejo de error en la carga principal del catálogo.
+  - Para usuarios no autenticados se restringen acciones sensibles (agregar al carrito, publicar, abrir carrito), solicitando login.
+  - **`Para vos`**: solo usuarios **autenticados**; la app usa `GET .../recommendations/context` y muestra la sección cuando hay ítems . No se muestra en invitados; si no hay señal útil, el catálogo cae a recomendaciones **globales** y esa hilera no se trata como “Para vos” personalizado. Con filtros o búsqueda activos en Home no se pide la sección (evita mezclar contextos).
+  - **Criterio operativo actual (recomendados personalizados):** por ahora **solo** se utiliza la **visualización del detalle de producto**. La app registra cada vista autenticada con `POST /products/{id}/recent-detail-view` (identidad vía `X-User-Email`); `product-service` persiste en la colección `product_detail_views`, infiere categorías “pico” a partir de esos productos vistos y devuelve candidatos con stock excluyendo publicaciones propias . El listado global sigue como respaldo cuando no hay vistas de detalle registradas.
 
 **#2 Listado y búsqueda de productos** 
   - Búsqueda por texto con debounce.
@@ -77,10 +78,10 @@ Las bases de infraestructura, autenticación y arquitectura general ya fueron do
   - Acción de moderación para bloquear/desbloquear publicaciones.
   - Sincronización con product-service mediante endpoints administrativos.
 
-**#5 Checkout e inicio de pago** — **Parcialmente implementada**
-  - UI de checkout con validación de dirección, resumen de orden y selección de medio de pago.
-  - Flujo de confirmación y pantalla de éxito implementados en mobile.
-  - Integración final con gateway real/sandbox y validaciones E2E de pago aún pendientes.
+**#5 Checkout e inicio de pago** — **Implementada (Mercado Pago)**
+  - UI de checkout con validación de dirección, resumen de orden y medio de pago **Mercado Pago** (flujo mobile: preferencia / `init_point` vía `checkout-service`, apertura en navegador in-app, deep links a éxito / pendiente / fallo).
+  - **`checkout-service`**: SDK de Mercado Pago, creación de preferencia y **webhook** `POST /api/v1/webhook/mercadopago` para actualizar órdenes; la app hace **polling** del estado de orden hasta salir de `payment pending`.
+  - **Pendiente / variable por entorno:** credenciales y URLs de notificación válidas en cada despliegue, y pruebas E2E formales contra el sandbox productivo del corrector.
 
 **#6 Gestión del carrito** 
   - Vista completa de carrito con modificar cantidades, eliminar ítems y vaciar carrito.
@@ -93,13 +94,13 @@ Las bases de infraestructura, autenticación y arquitectura general ya fueron do
   - Ordenamiento por precio ascendente/descendente y más recientes.
   - Opción de orden predeterminado para mantener experiencia consistente.
 
-**#24 Filtros avanzados de búsqueda** — **Implementada**
-  - Filtros por categoría y rango de precio en Home.
-  - Aplicación y limpieza de filtros con feedback visual.
+**#24 Filtros avanzados de búsqueda** 
+  - Filtros por categoría y rango de precio en Home (sincronizados con el fetch del catálogo donde corresponde).
+  - Aplicación y limpieza de filtros con feedback visual; rango de precio mínimo mayor que máximo tratado como **sin resultados** (validación en cliente al armar la petición).
 
 **#25 Registro con PIN** 
   - **Mobile:** pantalla de alta/cambio de PIN (`app/profile/pin.tsx`) y flujo de login por PIN (`app/(auth)/pin-login.tsx`), con PIN de 6 dígitos y `device_id` para amarrar el acceso al dispositivo.
-  - **API (user-service):** endpoints bajo `/auth/pin/*` (enroll, login, cuentas por dispositivo, estado); persistencia en base relacional y límites de intentos 
+  - **API (user-service):** rutas versionadas bajo **`/api/v1/auth/pin/...`** (p. ej. enroll, login, cuentas por dispositivo, estado / actualización); persistencia en base relacional y límites de intentos.
   - **Alcance vs. enunciado:** el registro inicial sigue siendo email/contraseña; el PIN se configura **después** para acceso rápido desde el dispositivo (historia optativa de PIN).
 
 
