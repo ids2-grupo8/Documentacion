@@ -491,6 +491,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#mensajeria-asincrona-rabbitmq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mensajería asíncrona (RabbitMQ)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-de-una-compra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo de una compra
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#servicios-externos" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -528,6 +550,8 @@
   
     
     
+      
+        
       
         
       
@@ -630,6 +654,15 @@
       </a>
     </li>
   
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../servicios/checkout-service/" class="md-nav__link">
         
@@ -649,6 +682,7 @@
       </a>
     </li>
   
+
               
             
               
@@ -791,6 +825,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#mensajeria-asincrona-rabbitmq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mensajería asíncrona (RabbitMQ)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-de-una-compra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo de una compra
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#servicios-externos" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -832,32 +888,49 @@
 <h1 id="arquitectura-del-sistema">Arquitectura del Sistema<a class="headerlink" href="#arquitectura-del-sistema" title="Permanent link">&para;</a></h1>
 <h2 id="vision-general">Visión general<a class="headerlink" href="#vision-general" title="Permanent link">&para;</a></h2>
 <p>Bazaar está construido como un conjunto de <strong>microservicios independientes</strong>, cada uno con su propia base de datos y responsabilidad bien definida. Los clientes (app mobile y backoffice web) nunca se comunican directamente con los servicios: todas las peticiones pasan por un <strong>API Gateway</strong> que se encarga del enrutamiento y la autenticación.</p>
-<div class="highlight"><pre><span></span><code>┌─────────────┐       ┌─────────────┐
-│  Mobile App │       │  Backoffice │
-│  (Expo)     │       │  (React)    │
-└──────┬──────┘       └──────┬──────┘
-       │                     │
-       └──────────┬──────────┘
-                  │
-         ┌────────▼────────┐
-         │   Kong Gateway  │  ← Punto único de entrada
-         └───┬─────────┬───┘
-             │         │
-   ┌─────────▼───┐ ┌───▼──────────┐
-   │user-service │ │product-service│
-   │  (FastAPI)  │ │  (FastAPI)    │
-   └──────┬──────┘ └───┬──────────┘
-          │             │
-   ┌──────▼──────┐ ┌───▼──────────┐
-   │ PostgreSQL  │ │   MongoDB    │
-   └─────────────┘ └──────────────┘
+<div class="highlight"><pre><span></span><code>┌─────────────────┐         ┌─────────────────┐
+│   Mobile App    │         │   Backoffice    │
+│ (React Native)  │         │  (React + Vite) │
+└────────┬────────┘         └────────┬────────┘
+         │                           │
+         └─────────────┬─────────────┘
+                       │
+              ┌────────▼────────┐
+              │  Kong Gateway   │  ← Punto único de entrada
+              │  (JWT · roles)  │
+              └──┬──────┬───┬───┘
+                 │      │   │
+       ┌─────────▼─┐ ┌──▼──────────┐ ┌──────────────────┐
+       │user-service│ │product-svc  │ │ checkout-service │
+       │ (FastAPI)  │ │ (FastAPI)   │ │   (FastAPI)      │
+       └─────┬──────┘ └──┬──────────┘ └────────┬─────────┘
+             │            │                     │
+       ┌─────▼──────┐ ┌───▼──────┐     ┌───────▼────────┐
+       │ PostgreSQL │ │ MongoDB  │     │  PostgreSQL    │
+       └────────────┘ └──────────┘     └────────────────┘
+                           │                     │
+                           │   ┌─────────────────┘
+                           │   │  publica eventos
+                           ▼   ▼
+                    ┌─────────────┐
+                    │  RabbitMQ   │  ← Mensajería asíncrona
+                    └──────┬──────┘
+                           │ consume
+                  ┌────────▼──────────┐
+                  │notification-service│
+                  │      (Go)         │
+                  └────────┬──────────┘
+                           │
+                  ┌────────▼──────────┐
+                  │  Expo Push API    │  ← Notificaciones mobile
+                  └───────────────────┘
 </code></pre></div>
 <h3 id="por-que-microservicios">¿Por qué microservicios?<a class="headerlink" href="#por-que-microservicios" title="Permanent link">&para;</a></h3>
 <p>En lugar de tener toda la lógica en una sola aplicación, el sistema se divide en servicios más chicos que se pueden desarrollar, testear y desplegar de forma independiente. Cada servicio tiene su propia base de datos, lo que evita acoplamientos y permite que un equipo trabaje en un servicio sin afectar a los demás.</p>
 <h3 id="que-hace-el-api-gateway">¿Qué hace el API Gateway?<a class="headerlink" href="#que-hace-el-api-gateway" title="Permanent link">&para;</a></h3>
 <p>Kong recibe todas las peticiones de los clientes y se encarga de:</p>
 <ul>
-<li><strong>Redirigirlas al servicio correcto</strong> según la URL (ej: <code>/users/*</code> va al user-service, <code>/products/*</code> va al product-service).</li>
+<li><strong>Redirigirlas al servicio correcto</strong> según la URL (ej: <code>/users/*</code> va al user-service, <code>/products/*</code> va al product-service, <code>/checkout/*</code> va al checkout-service).</li>
 <li><strong>Validar el token JWT</strong> en las rutas que requieren autenticación.</li>
 <li><strong>Extraer la identidad del usuario</strong> del token y pasarla como header al servicio backend, para que los servicios sepan quién está haciendo el request sin tener que parsear el token ellos mismos.</li>
 <li><strong>Verificar el rol de administrador</strong> en las rutas del panel de admin.</li>
@@ -887,6 +960,18 @@
 <td>Catálogo de productos, stock, imágenes, categorías</td>
 </tr>
 <tr>
+<td><strong>checkout-service</strong></td>
+<td>Python / FastAPI</td>
+<td>PostgreSQL</td>
+<td>Carrito, checkout con MercadoPago, ciclo de vida de órdenes, cupones y reseñas</td>
+</tr>
+<tr>
+<td><strong>notification-service</strong></td>
+<td>Go / net/http</td>
+<td>MongoDB</td>
+<td>Push notifications a vendedores por stock bajo o agotado</td>
+</tr>
+<tr>
 <td><strong>backoffice</strong></td>
 <td>TypeScript / React + Vite</td>
 <td>—</td>
@@ -900,6 +985,60 @@
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="mensajeria-asincrona-rabbitmq">Mensajería asíncrona (RabbitMQ)<a class="headerlink" href="#mensajeria-asincrona-rabbitmq" title="Permanent link">&para;</a></h2>
+<p>Los servicios se comunican de forma asíncrona a través de RabbitMQ para desacoplarse entre sí. Los eventos fluyen así:</p>
+<table>
+<thead>
+<tr>
+<th>Exchange</th>
+<th>Routing key</th>
+<th>Publicador</th>
+<th>Consumidor</th>
+<th>Cuándo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bazaar.payments</code></td>
+<td><code>payment.confirmed</code></td>
+<td>checkout-service</td>
+<td>product-service</td>
+<td>Pago aprobado por MercadoPago → descuenta stock definitivamente</td>
+</tr>
+<tr>
+<td><code>bazaar.payments</code></td>
+<td><code>payment.rejected</code></td>
+<td>checkout-service</td>
+<td>product-service</td>
+<td>Pago rechazado o orden expirada → restaura el stock reservado</td>
+</tr>
+<tr>
+<td><code>bazaar.stock</code></td>
+<td><code>stock.updated</code></td>
+<td>product-service</td>
+<td>notification-service</td>
+<td>Stock de un producto cae por debajo del umbral → dispara push al vendedor</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="flujo-de-una-compra">Flujo de una compra<a class="headerlink" href="#flujo-de-una-compra" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Comprador           checkout-service      product-service     MercadoPago
+    │                      │                    │                  │
+    │─── POST /checkout ──▶│                    │                  │
+    │                      │── reserva stock ──▶│                  │
+    │                      │◀── OK ─────────────│                  │
+    │                      │── crea preferencia ────────────────▶ │
+    │◀── init_point ───────│                    │                  │
+    │                      │                    │                  │
+    │── paga en MP ──────────────────────────────────────────────▶│
+    │                      │◀── webhook (approved/rejected) ───────│
+    │                      │                    │                  │
+    │                      │── payment.confirmed/rejected ──▶ [RabbitMQ]
+    │                      │                    │◀── consume ──────│
+    │                      │                    │ ajusta stock     │
+</code></pre></div>
 <hr />
 <h2 id="servicios-externos">Servicios externos<a class="headerlink" href="#servicios-externos" title="Permanent link">&para;</a></h2>
 <table>
@@ -917,6 +1056,14 @@
 <tr>
 <td><strong>Cloudinary</strong></td>
 <td>Almacena las imágenes de perfil y de productos. En la base de datos solo guardamos la URL.</td>
+</tr>
+<tr>
+<td><strong>MercadoPago</strong></td>
+<td>Procesamiento de pagos. El checkout-service genera una preferencia de pago y recibe el resultado vía webhook.</td>
+</tr>
+<tr>
+<td><strong>Expo Push API</strong></td>
+<td>Envío de notificaciones push a la app mobile. El notification-service llama a esta API cuando detecta stock bajo.</td>
 </tr>
 </tbody>
 </table>
@@ -942,6 +1089,16 @@
 <td>Los productos pueden tener atributos distintos según la categoría (ej: talle en ropa, memoria en electrónica). Un modelo de documentos permite esa flexibilidad sin tener que alterar el esquema.</td>
 </tr>
 <tr>
+<td>BD del checkout-service</td>
+<td><strong>PostgreSQL</strong></td>
+<td>Las órdenes y sus ítems tienen estructura fija y relaciones claras (orden → ítems, historial). Alembic maneja las migraciones.</td>
+</tr>
+<tr>
+<td>BD del notification-service</td>
+<td><strong>MongoDB</strong></td>
+<td>Los tokens de dispositivo y notificaciones son documentos simples sin relaciones fuertes.</td>
+</tr>
+<tr>
 <td>Autenticación</td>
 <td><strong>Supabase Auth</strong></td>
 <td>Nos da JWT, OAuth con Google, recupero de contraseña y gestión de sesiones sin tener que implementarlo desde cero.</td>
@@ -952,6 +1109,21 @@
 <td>CDN con plan gratuito suficiente para el proyecto. Subimos la imagen y obtenemos una URL pública.</td>
 </tr>
 <tr>
+<td>Pagos</td>
+<td><strong>MercadoPago</strong></td>
+<td>Gateway de pagos ampliamente usado en Latinoamérica. La integración se hace vía preferencias y webhooks.</td>
+</tr>
+<tr>
+<td>Push notifications</td>
+<td><strong>Expo Push API</strong></td>
+<td>Compatible nativamente con React Native/Expo. Abstrae iOS (APNs) y Android (FCM) en un único endpoint.</td>
+</tr>
+<tr>
+<td>Mensajería</td>
+<td><strong>RabbitMQ</strong></td>
+<td>Broker de mensajería liviano que desacopla los servicios. Permite que el product-service restaure stock sin que el checkout-service lo llame directamente.</td>
+</tr>
+<tr>
 <td>API Gateway</td>
 <td><strong>Kong (OSS)</strong></td>
 <td>Se integra nativamente con Kubernetes y permite agregar lógica custom con plugins Lua (validación de JWT, extracción de email, chequeo de rol admin).</td>
@@ -960,6 +1132,11 @@
 <td>Despliegue</td>
 <td><strong>Kubernetes + ArgoCD</strong></td>
 <td>Despliegue declarativo con GitOps: cuando se pushea una imagen nueva, ArgoCD detecta el cambio y actualiza el servicio automáticamente.</td>
+</tr>
+<tr>
+<td>Lenguaje del notification-service</td>
+<td><strong>Go</strong></td>
+<td>Binario liviano ideal para un servicio que solo consume eventos y dispara llamadas HTTP. Concurrencia nativa con goroutines.</td>
 </tr>
 </tbody>
 </table>

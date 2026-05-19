@@ -16,7 +16,7 @@
         <link rel="prev" href="../product-service/">
       
       
-        <link rel="next" href="../mobile-app/">
+        <link rel="next" href="../backoffice/">
       
       
         
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#backoffice" class="md-skip">
+        <a href="#checkout-service" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -420,6 +420,8 @@
       
         
       
+        
+      
     
     
     
@@ -539,7 +541,7 @@
   <span class="md-ellipsis">
     
   
-    Backoffice
+    Checkout Service
   
 
     
@@ -557,7 +559,7 @@
   <span class="md-ellipsis">
     
   
-    Backoffice
+    Checkout Service
   
 
     
@@ -594,10 +596,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#responsabilidades-implementado" class="md-nav__link">
+  <a href="#responsabilidades" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Responsabilidades (implementado)
+        Responsabilidades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ciclo-de-vida-de-una-orden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciclo de vida de una orden
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mensajeria-rabbitmq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mensajería (RabbitMQ)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-de-entorno-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables de entorno clave
       
     </span>
   </a>
@@ -619,6 +654,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backoffice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backoffice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -697,10 +760,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#responsabilidades-implementado" class="md-nav__link">
+  <a href="#responsabilidades" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Responsabilidades (implementado)
+        Responsabilidades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ciclo-de-vida-de-una-orden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciclo de vida de una orden
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mensajeria-rabbitmq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mensajería (RabbitMQ)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-de-entorno-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables de entorno clave
       
     </span>
   </a>
@@ -735,8 +831,8 @@
 
 
 
-<h1 id="backoffice">Backoffice<a class="headerlink" href="#backoffice" title="Permanent link">&para;</a></h1>
-<p>Aplicación web para <strong>administradores</strong>: gestión de usuarios y vistas operativas del marketplace.</p>
+<h1 id="checkout-service">Checkout Service<a class="headerlink" href="#checkout-service" title="Permanent link">&para;</a></h1>
+<p>Microservicio de <strong>carrito, órdenes y pagos</strong>: gestión del carrito de compras, procesamiento del checkout con MercadoPago, ciclo de vida de órdenes, cupones de descuento y reseñas post-entrega.</p>
 <h2 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -748,28 +844,153 @@
 <tbody>
 <tr>
 <td>Lenguaje</td>
-<td>TypeScript</td>
+<td>Python</td>
 </tr>
 <tr>
 <td>Framework</td>
-<td>React (Vite)</td>
+<td>FastAPI</td>
 </tr>
 <tr>
-<td>API</td>
-<td>Cliente HTTP al API Gateway (rutas bajo <code>/users/...</code> según prefijos configurables en <code>VITE_*</code>)</td>
+<td>Base de datos</td>
+<td>PostgreSQL (Alembic para migraciones)</td>
+</tr>
+<tr>
+<td>Pagos</td>
+<td>MercadoPago SDK</td>
+</tr>
+<tr>
+<td>Mensajería</td>
+<td>RabbitMQ (aio-pika)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="responsabilidades-implementado">Responsabilidades (implementado)<a class="headerlink" href="#responsabilidades-implementado" title="Permanent link">&para;</a></h2>
+<h2 id="responsabilidades">Responsabilidades<a class="headerlink" href="#responsabilidades" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Login</strong>: email/contraseña contra el <strong>user-service</strong>; el cliente exige respuesta con rol administrador para ingresar al panel.</li>
-<li><strong>Usuarios</strong>: listado con filtro de búsqueda y bloqueo/desbloqueo vía API real (incluye protección para no bloquearse a sí mismo el admin).</li>
-<li><strong>Métricas, productos y órdenes</strong>: pantallas de métricas (KPIs y gráficos a partir de datos locales), moderación simulada de productos y bandeja de órdenes con <strong>datos semilla en el front</strong> (no hay microservicio de pedidos ni de moderación conectado en este cliente).</li>
-<li><strong>UI</strong>: layout tipo dashboard (sidebar, tabs de sección, estética “liquid glass” alineada al diseño del proyecto).</li>
+<li>
+<p><strong>Carrito (<code>/api/v1/cart/items</code>)</strong>: agregar, listar, actualizar cantidad y eliminar ítems del carrito del comprador autenticado. Cada ítem se identifica por <code>product_id</code>; si el producto ya existe, se incrementa la cantidad. El total del carrito se calcula al listar.</p>
+</li>
+<li>
+<p><strong>Checkout (<code>POST /api/v1/</code>)</strong>: inicia el proceso de compra. Valida que el carrito no esté vacío, reserva stock consultando al <strong>product-service</strong>, agrupa los productos por vendedor, aplica el cupón de descuento si se provee (proporcionalmente entre vendedores), crea una orden por vendedor en estado <code>PAYMENT_PENDING</code> y genera una preferencia en MercadoPago devolviendo el <code>init_point</code>. Incluye clave de idempotencia para evitar doble-cobro: si la orden ya existe y sigue pendiente, extiende su expiración y re-genera la preferencia.</p>
+</li>
+<li>
+<p><strong>Webhook MercadoPago (<code>POST /api/v1/webhook/mercadopago</code>)</strong>: recibe notificaciones de pago de MercadoPago. Si el pago es <code>approved</code>, confirma las órdenes, registra el uso del cupón, vacía el carrito y publica el evento <code>payment.confirmed</code> en RabbitMQ. Si es <code>rejected</code>, rechaza las órdenes y publica <code>payment.rejected</code>.</p>
+</li>
+<li>
+<p><strong>Órdenes (<code>/api/v1/order</code>)</strong>: ciclo de vida completo mediante el patrón <strong>State</strong>:</p>
+<ul>
+<li><code>GET /order/purchases</code> — listado de compras del comprador autenticado (filtrable por estado).</li>
+<li><code>GET /order/sales</code> — listado de ventas del vendedor autenticado (filtrable por estado).</li>
+<li><code>GET /order/{id}</code> — detalle de una orden (solo comprador o vendedor).</li>
+<li><code>POST /order/{id}/process</code> — vendedor marca la orden en preparación (<code>PAYMENT_CONFIRMED → PROCESSING</code>).</li>
+<li><code>POST /order/{id}/ship</code> — vendedor marca la orden como enviada (<code>PROCESSING → SHIPPED</code>), opcionalmente con código de seguimiento.</li>
+<li><code>POST /order/{id}/deliver</code> — comprador confirma recepción (<code>SHIPPED → DELIVERED</code>).</li>
 </ul>
+</li>
+<li>
+<p><strong>Expiración automática de órdenes</strong>: tarea de fondo que corre cada 30 segundos y cancela las órdenes <code>PAYMENT_PENDING</code> cuya fecha de expiración (5 minutos desde la creación) ya pasó, publicando el evento <code>payment.rejected</code> para que el product-service restaure el stock.</p>
+</li>
+<li>
+<p><strong>Cupones (<code>/api/v1/coupons</code>, <code>/api/v1/admin/coupons</code>)</strong>: validación de cupones antes del checkout; creación, listado, actualización y eliminación de cupones por admin. Los cupones tienen vigencia por fechas, límite global de usos y seguimiento por usuario.</p>
+</li>
+<li>
+<p><strong>Reseñas (<code>/api/v1/review</code>)</strong>: habilitadas únicamente sobre órdenes en estado <code>DELIVERED</code>.</p>
+<ul>
+<li><code>GET /review/order/{id}</code> — reseñas ya enviadas por el comprador para esa orden.</li>
+<li><code>POST /review/order/{id}/seller</code> — califica al vendedor (puntaje + comentario opcional).</li>
+<li><code>POST /review/order/{id}/product/{product_id}</code> — califica un producto de la orden.</li>
+</ul>
+</li>
+<li>
+<p><strong>Administración (<code>/api/v1/admin/orders</code>)</strong>: listado paginado de todas las órdenes del sistema con filtro por estado y búsqueda; detalle completo de una orden con historial de estados.</p>
+</li>
+<li>
+<p><strong>Salud (<code>/health</code>)</strong>: endpoint de liveness para orquestación y monitoreo.</p>
+</li>
+</ul>
+<h2 id="ciclo-de-vida-de-una-orden">Ciclo de vida de una orden<a class="headerlink" href="#ciclo-de-vida-de-una-orden" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>                  ┌─────────────┐
+                  │PAYMENT_PENDING│ ← orden creada (expira en 5 min)
+                  └──────┬──────┘
+           ┌─────────────┴─────────────┐
+     approved                      rejected / expired
+           ↓                            ↓
+  ┌────────────────┐          ┌──────────────────┐
+  │PAYMENT_CONFIRMED│          │ PAYMENT_REJECTED  │
+  └────────┬───────┘          └──────────────────┘
+    (vendedor)
+           ↓ /process
+     ┌───────────┐
+     │ PROCESSING │
+     └─────┬─────┘
+    (vendedor)
+           ↓ /ship
+       ┌────────┐
+       │ SHIPPED │
+       └────┬───┘
+    (comprador)
+           ↓ /deliver
+      ┌──────────┐
+      │ DELIVERED │  ← habilita reseñas
+      └──────────┘
+</code></pre></div>
+<p>Cualquier estado puede transicionar a <code>CANCELED</code> ante condiciones inválidas o acción de cancelación.</p>
+<h2 id="mensajeria-rabbitmq">Mensajería (RabbitMQ)<a class="headerlink" href="#mensajeria-rabbitmq" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Evento</th>
+<th>Routing key</th>
+<th>Cuándo se publica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pago confirmado</td>
+<td><code>payment.confirmed</code></td>
+<td>Webhook MP <code>approved</code> o confirmación manual</td>
+</tr>
+<tr>
+<td>Pago rechazado</td>
+<td><code>payment.rejected</code></td>
+<td>Webhook MP <code>rejected</code> o expiración de orden</td>
+</tr>
+</tbody>
+</table>
+<p>Exchange: <code>bazaar.payments</code> (topic, durable). El <strong>product-service</strong> consume estos eventos para actualizar el stock.</p>
+<h2 id="variables-de-entorno-clave">Variables de entorno clave<a class="headerlink" href="#variables-de-entorno-clave" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DATABASE_URL</code></td>
+<td>URL de PostgreSQL (o se arma desde <code>DATABASE_HOST/PORT/NAME/USER/PASSWORD</code>)</td>
+</tr>
+<tr>
+<td><code>MERCADOPAGO_ACCESS_TOKEN</code></td>
+<td>Token de acceso a la API de MercadoPago</td>
+</tr>
+<tr>
+<td><code>RABBITMQ_URL</code></td>
+<td>URL de conexión a RabbitMQ</td>
+</tr>
+<tr>
+<td><code>PRODUCT_SERVICE_URL</code></td>
+<td>URL base del product-service</td>
+</tr>
+<tr>
+<td><code>USER_SERVICE_BASE_URL</code></td>
+<td>URL base del user-service</td>
+</tr>
+</tbody>
+</table>
 <h2 id="repositorio">Repositorio<a class="headerlink" href="#repositorio" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/ids2-grupo8/backoffice">github.com/ids2-grupo8/backoffice</a></p>
-<p>Setup local: ver el <code>README</code> del repositorio.</p>
+<p><a href="https://github.com/ids2-grupo8/checkout-service">github.com/ids2-grupo8/checkout-service</a></p>
+<p>Setup local y variables de entorno: ver el <code>README</code> del repositorio.</p>
 
 
 
