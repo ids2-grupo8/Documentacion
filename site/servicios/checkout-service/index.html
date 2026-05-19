@@ -10,31 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://ids2-grupo8.github.io/Documentacion/site/arquitectura/">
+        <link rel="canonical" href="https://ids2-grupo8.github.io/Documentacion/site/servicios/checkout-service/">
       
       
-        <link rel="prev" href="../sprints/sprint-2/">
+        <link rel="prev" href="../product-service/">
       
       
-        <link rel="next" href="../servicios/user-service/">
+        <link rel="next" href="../mobile-app/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Arquitectura - Bazaar — Grupo 8</title>
+        <title>Checkout Service - Bazaar — Grupo 8</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +53,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#arquitectura-del-sistema" class="md-skip">
+        <a href="#backoffice" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href=".." title="Bazaar — Grupo 8" class="md-header__button md-logo" aria-label="Bazaar — Grupo 8" data-md-component="logo">
+    <a href="../.." title="Bazaar — Grupo 8" class="md-header__button md-logo" aria-label="Bazaar — Grupo 8" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 13a5 5 0 0 1-5-5h2a3 3 0 0 0 3 3 3 3 0 0 0 3-3h2a5 5 0 0 1-5 5m0-10a3 3 0 0 1 3 3H9a3 3 0 0 1 3-3m7 3h-2a5 5 0 0 0-5-5 5 5 0 0 0-5 5H5c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Arquitectura
+              Checkout Service
             
           </span>
         </div>
@@ -220,7 +220,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Bazaar — Grupo 8" class="md-nav__button md-logo" aria-label="Bazaar — Grupo 8" data-md-component="logo">
+    <a href="../.." title="Bazaar — Grupo 8" class="md-nav__button md-logo" aria-label="Bazaar — Grupo 8" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 13a5 5 0 0 1-5-5h2a3 3 0 0 0 3 3 3 3 0 0 0 3-3h2a5 5 0 0 1-5 5m0-10a3 3 0 0 1 3 3H9a3 3 0 0 1 3-3m7 3h-2a5 5 0 0 0-5-5 5 5 0 0 0-5 5H5c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"/></svg>
@@ -238,7 +238,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -318,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sprints/sprint-1/" class="md-nav__link">
+      <a href="../../sprints/sprint-1/" class="md-nav__link">
         
   
   
@@ -346,7 +346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sprints/sprint-2/" class="md-nav__link">
+      <a href="../../sprints/sprint-2/" class="md-nav__link">
         
   
   
@@ -378,37 +378,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Arquitectura
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../arquitectura/" class="md-nav__link">
         
   
   
@@ -424,98 +397,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#vision-general" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visión general
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Visión general">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#por-que-microservicios" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ¿Por qué microservicios?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#que-hace-el-api-gateway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ¿Qué hace el API Gateway?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#servicios" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Servicios
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#servicios-externos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Servicios externos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#decisiones-de-tecnologia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decisiones de tecnología
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -524,8 +405,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -541,11 +424,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -566,7 +449,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -584,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../servicios/user-service/" class="md-nav__link">
+      <a href="../user-service/" class="md-nav__link">
         
   
   
@@ -612,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../servicios/product-service/" class="md-nav__link">
+      <a href="../product-service/" class="md-nav__link">
         
   
   
@@ -630,15 +513,33 @@
       </a>
     </li>
   
-    <li class="md-nav__item">
-      <a href="../servicios/checkout-service/" class="md-nav__link">
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
         
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
   
   
   <span class="md-ellipsis">
     
   
-    Checkout Service
+    Backoffice
   
 
     
@@ -646,19 +547,10 @@
   
   
 
-      </a>
-    </li>
-  
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../servicios/backoffice/" class="md-nav__link">
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -674,6 +566,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responsabilidades-implementado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilidades (implementado)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repositorio
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -686,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../servicios/mobile-app/" class="md-nav__link">
+      <a href="../mobile-app/" class="md-nav__link">
         
   
   
@@ -741,49 +686,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#vision-general" class="md-nav__link">
+  <a href="#stack" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visión general
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Visión general">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#por-que-microservicios" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ¿Por qué microservicios?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#que-hace-el-api-gateway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ¿Qué hace el API Gateway?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#servicios" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Servicios
+        Stack
       
     </span>
   </a>
@@ -791,10 +697,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servicios-externos" class="md-nav__link">
+  <a href="#responsabilidades-implementado" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Servicios externos
+        Responsabilidades (implementado)
       
     </span>
   </a>
@@ -802,10 +708,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#decisiones-de-tecnologia" class="md-nav__link">
+  <a href="#repositorio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Decisiones de tecnología
+        Repositorio
       
     </span>
   </a>
@@ -829,140 +735,41 @@
 
 
 
-<h1 id="arquitectura-del-sistema">Arquitectura del Sistema<a class="headerlink" href="#arquitectura-del-sistema" title="Permanent link">&para;</a></h1>
-<h2 id="vision-general">Visión general<a class="headerlink" href="#vision-general" title="Permanent link">&para;</a></h2>
-<p>Bazaar está construido como un conjunto de <strong>microservicios independientes</strong>, cada uno con su propia base de datos y responsabilidad bien definida. Los clientes (app mobile y backoffice web) nunca se comunican directamente con los servicios: todas las peticiones pasan por un <strong>API Gateway</strong> que se encarga del enrutamiento y la autenticación.</p>
-<div class="highlight"><pre><span></span><code>┌─────────────┐       ┌─────────────┐
-│  Mobile App │       │  Backoffice │
-│  (Expo)     │       │  (React)    │
-└──────┬──────┘       └──────┬──────┘
-       │                     │
-       └──────────┬──────────┘
-                  │
-         ┌────────▼────────┐
-         │   Kong Gateway  │  ← Punto único de entrada
-         └───┬─────────┬───┘
-             │         │
-   ┌─────────▼───┐ ┌───▼──────────┐
-   │user-service │ │product-service│
-   │  (FastAPI)  │ │  (FastAPI)    │
-   └──────┬──────┘ └───┬──────────┘
-          │             │
-   ┌──────▼──────┐ ┌───▼──────────┐
-   │ PostgreSQL  │ │   MongoDB    │
-   └─────────────┘ └──────────────┘
-</code></pre></div>
-<h3 id="por-que-microservicios">¿Por qué microservicios?<a class="headerlink" href="#por-que-microservicios" title="Permanent link">&para;</a></h3>
-<p>En lugar de tener toda la lógica en una sola aplicación, el sistema se divide en servicios más chicos que se pueden desarrollar, testear y desplegar de forma independiente. Cada servicio tiene su propia base de datos, lo que evita acoplamientos y permite que un equipo trabaje en un servicio sin afectar a los demás.</p>
-<h3 id="que-hace-el-api-gateway">¿Qué hace el API Gateway?<a class="headerlink" href="#que-hace-el-api-gateway" title="Permanent link">&para;</a></h3>
-<p>Kong recibe todas las peticiones de los clientes y se encarga de:</p>
+<h1 id="backoffice">Backoffice<a class="headerlink" href="#backoffice" title="Permanent link">&para;</a></h1>
+<p>Aplicación web para <strong>administradores</strong>: gestión de usuarios y vistas operativas del marketplace.</p>
+<h2 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lenguaje</td>
+<td>TypeScript</td>
+</tr>
+<tr>
+<td>Framework</td>
+<td>React (Vite)</td>
+</tr>
+<tr>
+<td>API</td>
+<td>Cliente HTTP al API Gateway (rutas bajo <code>/users/...</code> según prefijos configurables en <code>VITE_*</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="responsabilidades-implementado">Responsabilidades (implementado)<a class="headerlink" href="#responsabilidades-implementado" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Redirigirlas al servicio correcto</strong> según la URL (ej: <code>/users/*</code> va al user-service, <code>/products/*</code> va al product-service).</li>
-<li><strong>Validar el token JWT</strong> en las rutas que requieren autenticación.</li>
-<li><strong>Extraer la identidad del usuario</strong> del token y pasarla como header al servicio backend, para que los servicios sepan quién está haciendo el request sin tener que parsear el token ellos mismos.</li>
-<li><strong>Verificar el rol de administrador</strong> en las rutas del panel de admin.</li>
+<li><strong>Login</strong>: email/contraseña contra el <strong>user-service</strong>; el cliente exige respuesta con rol administrador para ingresar al panel.</li>
+<li><strong>Usuarios</strong>: listado con filtro de búsqueda y bloqueo/desbloqueo vía API real (incluye protección para no bloquearse a sí mismo el admin).</li>
+<li><strong>Métricas, productos y órdenes</strong>: pantallas de métricas (KPIs y gráficos a partir de datos locales), moderación simulada de productos y bandeja de órdenes con <strong>datos semilla en el front</strong> (no hay microservicio de pedidos ni de moderación conectado en este cliente).</li>
+<li><strong>UI</strong>: layout tipo dashboard (sidebar, tabs de sección, estética “liquid glass” alineada al diseño del proyecto).</li>
 </ul>
-<hr />
-<h2 id="servicios">Servicios<a class="headerlink" href="#servicios" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Servicio</th>
-<th>Lenguaje / Framework</th>
-<th>Base de datos</th>
-<th>Responsabilidad</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>user-service</strong></td>
-<td>Python / FastAPI</td>
-<td>PostgreSQL</td>
-<td>Autenticación, perfiles, administración de usuarios</td>
-</tr>
-<tr>
-<td><strong>product-service</strong></td>
-<td>Python / FastAPI</td>
-<td>MongoDB</td>
-<td>Catálogo de productos, stock, imágenes, categorías</td>
-</tr>
-<tr>
-<td><strong>backoffice</strong></td>
-<td>TypeScript / React + Vite</td>
-<td>—</td>
-<td>Panel web de administración</td>
-</tr>
-<tr>
-<td><strong>mobileApp</strong></td>
-<td>TypeScript / React Native + Expo</td>
-<td>—</td>
-<td>App mobile para compradores y vendedores</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="servicios-externos">Servicios externos<a class="headerlink" href="#servicios-externos" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Servicio</th>
-<th>Para qué lo usamos</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Supabase Auth</strong></td>
-<td>Maneja el registro, login, OAuth con Google y recupero de contraseña. Emite los JWT que usa todo el sistema.</td>
-</tr>
-<tr>
-<td><strong>Cloudinary</strong></td>
-<td>Almacena las imágenes de perfil y de productos. En la base de datos solo guardamos la URL.</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="decisiones-de-tecnologia">Decisiones de tecnología<a class="headerlink" href="#decisiones-de-tecnologia" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Decisión</th>
-<th>Qué elegimos</th>
-<th>Por qué</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BD del user-service</td>
-<td><strong>PostgreSQL</strong></td>
-<td>Los datos de usuarios tienen estructura fija y relaciones claras (usuario → identidades federadas). Una base relacional es lo más natural.</td>
-</tr>
-<tr>
-<td>BD del product-service</td>
-<td><strong>MongoDB</strong></td>
-<td>Los productos pueden tener atributos distintos según la categoría (ej: talle en ropa, memoria en electrónica). Un modelo de documentos permite esa flexibilidad sin tener que alterar el esquema.</td>
-</tr>
-<tr>
-<td>Autenticación</td>
-<td><strong>Supabase Auth</strong></td>
-<td>Nos da JWT, OAuth con Google, recupero de contraseña y gestión de sesiones sin tener que implementarlo desde cero.</td>
-</tr>
-<tr>
-<td>Imágenes</td>
-<td><strong>Cloudinary</strong></td>
-<td>CDN con plan gratuito suficiente para el proyecto. Subimos la imagen y obtenemos una URL pública.</td>
-</tr>
-<tr>
-<td>API Gateway</td>
-<td><strong>Kong (OSS)</strong></td>
-<td>Se integra nativamente con Kubernetes y permite agregar lógica custom con plugins Lua (validación de JWT, extracción de email, chequeo de rol admin).</td>
-</tr>
-<tr>
-<td>Despliegue</td>
-<td><strong>Kubernetes + ArgoCD</strong></td>
-<td>Despliegue declarativo con GitOps: cuando se pushea una imagen nueva, ArgoCD detecta el cambio y actualiza el servicio automáticamente.</td>
-</tr>
-</tbody>
-</table>
+<h2 id="repositorio">Repositorio<a class="headerlink" href="#repositorio" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/ids2-grupo8/backoffice">github.com/ids2-grupo8/backoffice</a></p>
+<p>Setup local: ver el <code>README</code> del repositorio.</p>
 
 
 
@@ -1018,10 +825,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

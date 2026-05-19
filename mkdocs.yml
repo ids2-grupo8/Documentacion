@@ -39,6 +39,7 @@ nav:
   - Servicios:
       - User Service: servicios/user-service.md
       - Product Service: servicios/product-service.md
+      - Checkout Service: servicios/checkout-service.md
       - Backoffice: servicios/backoffice.md
       - Mobile App: servicios/mobile-app.md
 
