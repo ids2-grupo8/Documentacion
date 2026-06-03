@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ids2-grupo8.github.io/Documentacion/site/sprints/sprint-1/">
+        <link rel="canonical" href="https://ids2-grupo8.github.io/Documentacion/site/adr/adr-0003-stack-heterogeneo-python-go-postgres-mongo/">
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="../adr-0002-kong-como-api-gateway/">
       
       
-        <link rel="next" href="../sprint-2/">
+        <link rel="next" href="../adr-0004-consistencia-distribuida-saga-compensacion/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Sprint 1 - Bazaar — Grupo 8</title>
+        <title>ADR-0003 — Stack heterogéneo - Bazaar — Grupo 8</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sprint-1" class="md-skip">
+        <a href="#adr-0003-stack-heterogeneo-python-go-postgresql-mongodb" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sprint 1
+              ADR-0003 — Stack heterogéneo
             
           </span>
         </div>
@@ -262,10 +262,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -277,11 +275,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -302,7 +300,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -317,37 +315,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sprint 1
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../sprints/sprint-1/" class="md-nav__link">
         
   
   
@@ -363,181 +334,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#objetivo-del-sprint" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Objetivo del sprint
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#historias-de-usuario-completadas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Historias de usuario completadas
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Historias de usuario completadas">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#obligatorias" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Obligatorias
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optativas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Optativas
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#infraestructura" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Infraestructura
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resumen-tecnico" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resumen técnico
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Resumen técnico">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#user-service-python-fastapi-postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        User service (Python / FastAPI + PostgreSQL)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#product-service-python-fastapi-mongodb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Product service (Python / FastAPI + MongoDB)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mobile-app-react-native-expo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mobile app (React Native + Expo)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backoffice-react-vite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backoffice (React + Vite)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#infraestructura_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Infraestructura
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#arquitectura" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Arquitectura
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#metricas-del-sprint" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Métricas del sprint
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -550,7 +346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sprint-2/" class="md-nav__link">
+      <a href="../../sprints/sprint-2/" class="md-nav__link">
         
   
   
@@ -738,6 +534,8 @@
       
   
   
+    
+  
   
   
     
@@ -765,15 +563,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../adr/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -797,7 +595,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -817,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/plantilla/" class="md-nav__link">
+      <a href="../plantilla/" class="md-nav__link">
         
   
   
@@ -845,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/adr-0001-una-orden-por-vendedor-en-checkout/" class="md-nav__link">
+      <a href="../adr-0001-una-orden-por-vendedor-en-checkout/" class="md-nav__link">
         
   
   
@@ -873,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/adr-0002-kong-como-api-gateway/" class="md-nav__link">
+      <a href="../adr-0002-kong-como-api-gateway/" class="md-nav__link">
         
   
   
@@ -898,10 +696,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../adr/adr-0003-stack-heterogeneo-python-go-postgres-mongo/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0003 — Stack heterogéneo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -917,6 +742,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consecuencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consecuencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -929,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/adr-0004-consistencia-distribuida-saga-compensacion/" class="md-nav__link">
+      <a href="../adr-0004-consistencia-distribuida-saga-compensacion/" class="md-nav__link">
         
   
   
@@ -957,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/adr-0005-resiliencia-http-retry-y-circuit-breaker/" class="md-nav__link">
+      <a href="../adr-0005-resiliencia-http-retry-y-circuit-breaker/" class="md-nav__link">
         
   
   
@@ -985,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/adr-0006-despliegue-gke-en-gcp/" class="md-nav__link">
+      <a href="../adr-0006-despliegue-gke-en-gcp/" class="md-nav__link">
         
   
   
@@ -1246,10 +1135,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#objetivo-del-sprint" class="md-nav__link">
+  <a href="#estado" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Objetivo del sprint
+        Estado
       
     </span>
   </a>
@@ -1257,132 +1146,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#historias-de-usuario-completadas" class="md-nav__link">
+  <a href="#contexto" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Historias de usuario completadas
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Historias de usuario completadas">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#obligatorias" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Obligatorias
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optativas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Optativas
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#infraestructura" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Infraestructura
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resumen-tecnico" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resumen técnico
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Resumen técnico">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#user-service-python-fastapi-postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        User service (Python / FastAPI + PostgreSQL)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#product-service-python-fastapi-mongodb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Product service (Python / FastAPI + MongoDB)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mobile-app-react-native-expo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mobile app (React Native + Expo)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backoffice-react-vite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backoffice (React + Vite)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#infraestructura_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Infraestructura
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#arquitectura" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Arquitectura
+        Contexto
       
     </span>
   </a>
@@ -1390,10 +1157,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#metricas-del-sprint" class="md-nav__link">
+  <a href="#decision" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Métricas del sprint
+        Decisión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consecuencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consecuencias
       
     </span>
   </a>
@@ -1417,203 +1195,88 @@
 
 
 
-<h1 id="sprint-1">Sprint 1<a class="headerlink" href="#sprint-1" title="Permanent link">&para;</a></h1>
-<p><strong>Período:</strong> 27/03/2026 — 17/04/2026<br />
-<strong>Checkpoints cubiertos:</strong> CP0 + CP1<br />
-<strong>Estado:</strong> Completado</p>
-<hr />
-<h2 id="objetivo-del-sprint">Objetivo del sprint<a class="headerlink" href="#objetivo-del-sprint" title="Permanent link">&para;</a></h2>
-<p>Establecer la infraestructura del proyecto (Kubernetes, Kong, CI/CD), implementar los flujos de autenticación, el catálogo de productos y las interfaces iniciales del backoffice y la app mobile.</p>
-<hr />
-<h2 id="historias-de-usuario-completadas">Historias de usuario completadas<a class="headerlink" href="#historias-de-usuario-completadas" title="Permanent link">&para;</a></h2>
-<h3 id="obligatorias">Obligatorias<a class="headerlink" href="#obligatorias" title="Permanent link">&para;</a></h3>
+<h1 id="adr-0003-stack-heterogeneo-python-go-postgresql-mongodb">ADR-0003: Stack heterogéneo — Python + Go, PostgreSQL + MongoDB<a class="headerlink" href="#adr-0003-stack-heterogeneo-python-go-postgresql-mongodb" title="Permanent link">&para;</a></h1>
+<h2 id="estado">Estado<a class="headerlink" href="#estado" title="Permanent link">&para;</a></h2>
+<p>Aceptada</p>
+<p><strong>Fecha:</strong> 2026-06-02</p>
+<h2 id="contexto">Contexto<a class="headerlink" href="#contexto" title="Permanent link">&para;</a></h2>
+<p>La cátedra exige que el sistema combine <strong>al menos dos lenguajes</strong> distintos entre microservicios y <strong>al menos dos motores de base de datos</strong> distintos (uno relacional y uno no relacional). La consigna deja la elección abierta pero recomienda Python, Node.js o Go por ser los lenguajes donde el equipo docente puede acompañar mejor, y PostgreSQL y/o MongoDB como motores sugeridos.</p>
+<p>El equipo cuenta con cuatro microservicios backend (<code>user-service</code>, <code>product-service</code>, <code>checkout-service</code>, <code>notification-service</code>) y debe distribuir lenguajes y motores entre ellos respetando dos criterios prácticos:</p>
+<ul>
+<li><strong>Familiaridad del equipo:</strong> la mayor productividad y la menor cantidad de bugs se obtiene con lenguajes y motores que el grupo ya domina; el tiempo del cuatrimestre no alcanza para aprender un stack nuevo en cada servicio.</li>
+<li><strong>Encaje técnico con la naturaleza del dominio:</strong><ul>
+<li>Usuarios, carritos y órdenes son datos altamente relacionales, con esquema estable, integridad referencial fuerte (<code>buyer_email</code>, <code>seller_email</code>, FK a items) y transacciones que abarcan varias tablas.</li>
+<li>El catálogo de productos, en cambio, requiere un esquema <strong>flexible y dinámico</strong>: cada categoría define sus propios atributos (<code>Electronics</code> no comparte campos con <code>Clothing</code>), las búsquedas son full-text y por filtros heterogéneos, y los productos se agregan/quitan a alta frecuencia.</li>
+<li>Las notificaciones consumen eventos de RabbitMQ y persisten registros simples e idempotentes; conviene un runtime liviano, concurrente y con baja huella de memoria.</li>
+</ul>
+</li>
+</ul>
+<h2 id="decision">Decisión<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<p>Adoptamos la siguiente distribución de lenguajes y motores entre los servicios backend:</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Historia</th>
-<th style="text-align: center;">Puntos</th>
+<th>Servicio</th>
+<th>Lenguaje / Framework</th>
+<th>Base de datos</th>
+<th>Motivo principal</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Registro de usuarios</td>
-<td style="text-align: center;">2</td>
+<td><code>user-service</code></td>
+<td><strong>Python / FastAPI</strong></td>
+<td><strong>PostgreSQL</strong></td>
+<td>Familiaridad + datos relacionales (usuarios, roles, PIN, OAuth)</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Login con email y contraseña</td>
-<td style="text-align: center;">2</td>
+<td><code>product-service</code></td>
+<td><strong>Python / FastAPI</strong></td>
+<td><strong>MongoDB</strong></td>
+<td>Familiaridad + catálogo con atributos dinámicos por categoría y búsqueda full-text</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Recupero de contraseña</td>
-<td style="text-align: center;">3</td>
+<td><code>checkout-service</code></td>
+<td><strong>Python / FastAPI</strong></td>
+<td><strong>PostgreSQL</strong></td>
+<td>Familiaridad + transaccionalidad (carrito, órdenes, estados, idempotencia de pagos)</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Edición de perfil</td>
-<td style="text-align: center;">3</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Visualización de perfil propio</td>
-<td style="text-align: center;">1</td>
-</tr>
-<tr>
-<td>8</td>
-<td>Detalle de producto</td>
-<td style="text-align: center;">2</td>
-</tr>
-<tr>
-<td>14</td>
-<td>Publicar producto</td>
-<td style="text-align: center;">3</td>
-</tr>
-<tr>
-<td>15</td>
-<td>Gestión de stock y publicaciones</td>
-<td style="text-align: center;">3</td>
-</tr>
-<tr>
-<td>17</td>
-<td>Listar usuarios del sistema</td>
-<td style="text-align: center;">1</td>
-</tr>
-<tr>
-<td>18</td>
-<td>Bloquear y desbloquear usuario</td>
-<td style="text-align: center;">2</td>
+<td><code>notification-service</code></td>
+<td><strong>Go</strong></td>
+<td><strong>MongoDB</strong></td>
+<td>Familiaridad del subgrupo asignado + runtime liviano para un consumer de RabbitMQ</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Total obligatorias (enunciado):</strong> 22 puntos</p>
-<h3 id="optativas">Optativas<a class="headerlink" href="#optativas" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Historia</th>
-<th style="text-align: center;">Puntos</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>22</td>
-<td>Login con proveedor federado (Google)</td>
-<td style="text-align: center;">3</td>
-</tr>
-<tr>
-<td>24</td>
-<td>Visualización de perfil público</td>
-<td style="text-align: center;">2</td>
-</tr>
-<tr>
-<td>25</td>
-<td>Compartir link de producto</td>
-<td style="text-align: center;">2</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Total optativas (enunciado):</strong> 7 puntos</p>
-<h3 id="infraestructura">Infraestructura<a class="headerlink" href="#infraestructura" title="Permanent link">&para;</a></h3>
+<p>Con esta combinación se cumplen <strong>explícitamente</strong> los dos requisitos de la cátedra:</p>
 <ul>
-<li>Deploy automático en GKE  </li>
-<li>API Gateway (Kong)  </li>
-<li>Verificación de autenticación JWT en Kong  </li>
-<li>Verificación de rol de administrador en Kong  </li>
+<li><strong>Dos lenguajes distintos:</strong> Python (tres servicios) y Go (<code>notification-service</code>).</li>
+<li><strong>Dos motores distintos:</strong> PostgreSQL (relacional, en <code>user-service</code> y <code>checkout-service</code>) y MongoDB (no relacional, en <code>product-service</code> y <code>notification-service</code>).</li>
 </ul>
-<hr />
-<h2 id="resumen-tecnico">Resumen técnico<a class="headerlink" href="#resumen-tecnico" title="Permanent link">&para;</a></h2>
-<h3 id="user-service-python-fastapi-postgresql">User service (Python / FastAPI + PostgreSQL)<a class="headerlink" href="#user-service-python-fastapi-postgresql" title="Permanent link">&para;</a></h3>
+<h2 id="consecuencias">Consecuencias<a class="headerlink" href="#consecuencias" title="Permanent link">&para;</a></h2>
+<p><strong>Positivas</strong></p>
 <ul>
-<li>Autenticación: registro, login email/contraseña, OAuth con Supabase, recupero de contraseña.</li>
-<li>Perfil: edición, foto en Cloudinary, perfil propio y perfil público de otros usuarios.</li>
-<li>Administración: listado con búsqueda, bloqueo y desbloqueo de usuarios.</li>
-<li>Modelo <code>User</code> y <code>UserIdentity</code> para identidades federadas.</li>
-<li>Observabilidad: <code>/livez</code>, <code>/readyz</code>, métricas Prometheus.</li>
+<li><strong>Productividad:</strong> el grueso del backend está en Python/FastAPI, el stack más conocido por el equipo; eso nos permite avanzar rápido con los CRUDs y la lógica de negocio en el tiempo disponible del cuatrimestre.</li>
+<li><strong>Encaje del modelo de datos:</strong><ul>
+<li>PostgreSQL cubre los servicios con esquema fijo y transacciones (orden + items + estado avanzan juntos).</li>
+<li>MongoDB se aprovecha realmente: el catálogo guarda documentos heterogéneos por categoría sin migraciones y el full-text index resuelve la búsqueda nativamente.</li>
 </ul>
-<h3 id="product-service-python-fastapi-mongodb">Product service (Python / FastAPI + MongoDB)<a class="headerlink" href="#product-service-python-fastapi-mongodb" title="Permanent link">&para;</a></h3>
+</li>
+<li><strong>Go en <code>notification-service</code></strong> aporta un runtime concurrente y de baja memoria ideal para un consumer de RabbitMQ que vive idle la mayor parte del tiempo, y cumple el requisito de heterogeneidad de lenguajes sin obligar a aprender un stack desconocido (el subgrupo asignado ya lo conoce).</li>
+<li>Heterogeneidad cumplida <strong>sin fragmentación excesiva:</strong> dos lenguajes y dos motores, no cuatro de cada uno; el costo operativo de Docker images, dependencias y CI se mantiene acotado.</li>
+</ul>
+<p><strong>Negativas</strong></p>
 <ul>
-<li>CRUD de productos con imágenes (Cloudinary), stock, precio y estados.</li>
-<li>Catálogo: listado, detalle y productos por vendedor; categorías predefinidas.</li>
-<li>Integración con user-service para datos del vendedor.</li>
-<li>Observabilidad: <code>/livez</code> y <code>/readyz</code>.</li>
+<li><strong>Dos runtimes distintos en CI/CD y producción:</strong> pipelines, Dockerfiles base, observabilidad y manejo de dependencias se duplican (pip + go modules, pytest + go test). Mitigación: cada servicio tiene su propio <code>Dockerfile</code> y workflow de GHCR; ArgoCD las despliega con la misma estrategia.</li>
+<li><strong>Dos motores de base de datos distintos:</strong> los tests de integración requieren tanto un Postgres como un MongoDB; el equipo debe conocer ambos lenguajes de consulta (SQL + queries/aggregations de Mongo) y dos modelos de migración (Alembic vs. evolución de schema "soft" en Mongo).</li>
+<li><strong>Conocimiento desigual:</strong> Go vive sólo en un servicio; si el subgrupo que lo mantiene no está disponible, el resto del equipo tarda más en intervenir ahí. Mitigación: mantener <code>notification-service</code> pequeño y bien documentado, y limitar su responsabilidad a consumir eventos.</li>
 </ul>
-<h3 id="mobile-app-react-native-expo">Mobile app (React Native + Expo)<a class="headerlink" href="#mobile-app-react-native-expo" title="Permanent link">&para;</a></h3>
+<p><strong>Neutras</strong></p>
 <ul>
-<li>Pantallas de login, registro, recupero de contraseña y OAuth con Google.</li>
-<li>Exploración de productos, detalle con galería de imágenes.</li>
-<li>Compartir link de producto mediante deep link (<code>mobileapp://product/:id</code>) desde la pantalla de detalle.</li>
-<li>Perfil propio (ver y editar) y publicación de productos.</li>
+<li>La comunicación entre servicios es agnóstica del lenguaje: HTTP (Kong) y RabbitMQ (eventos). El stack heterogéneo no introduce acoplamiento, sólo políglota a nivel deployment.</li>
+<li>La elección no condiciona futuras incorporaciones: si más adelante un servicio justifica Node.js u otro lenguaje, puede integrarse sin romper el resto del sistema.</li>
 </ul>
-<h3 id="backoffice-react-vite">Backoffice (React + Vite)<a class="headerlink" href="#backoffice-react-vite" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Login reservado a rol administrador.</li>
-<li>Panel de usuarios con búsqueda, bloqueo y desbloqueo.</li>
-<li>Dashboard con navegación a las secciones.</li>
-</ul>
-<h3 id="infraestructura_1">Infraestructura<a class="headerlink" href="#infraestructura_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Despliegue en Kubernetes (GKE) con Helm.</li>
-<li>Kong: enrutamiento, validación JWT, comprobación de rol admin, CORS.</li>
-<li>ArgoCD e Image Updater para despliegue continuo.</li>
-<li>CI por repositorio: tests y build de imágenes Docker.</li>
-</ul>
-<hr />
-<h2 id="arquitectura">Arquitectura<a class="headerlink" href="#arquitectura" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>┌─────────────┐     ┌──────────────┐     ┌───────────────────┐
-│  Mobile App │────▶│  API Gateway │────▶│   user-service    │
-│  (Expo)     │     │  (Kong)      │     │  (FastAPI + PG)   │
-└─────────────┘     │              │     └───────────────────┘
-                    │              │              │
-┌─────────────┐     │              │     ┌───────────────────┐
-│  Backoffice │────▶│              │────▶│ product-service   │
-│  (React)    │     └──────────────┘     │ (FastAPI + Mongo) │
-└─────────────┘                          └───────────────────┘
-                                                 │
-                          ┌──────────┐    ┌──────┴──────┐
-                          │ Supabase │    │ Cloudinary  │
-                          │  Auth    │    │  (imágenes) │
-                          └──────────┘    └──────────────┘
-</code></pre></div>
-<hr />
-<h2 id="metricas-del-sprint">Métricas del sprint<a class="headerlink" href="#metricas-del-sprint" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Métrica</th>
-<th style="text-align: right;">Valor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Historias de usuario (obligatorias)</td>
-<td style="text-align: right;">10</td>
-</tr>
-<tr>
-<td>Historias de usuario (optativas)</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr>
-<td>Puntos obligatorios (según enunciado)</td>
-<td style="text-align: right;">22</td>
-</tr>
-<tr>
-<td>Puntos optativos (según enunciado)</td>
-<td style="text-align: right;">7</td>
-</tr>
-<tr>
-<td>Servicios backend desplegados</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr>
-<td>Clientes (mobile + backoffice)</td>
-<td style="text-align: right;">2</td>
-</tr>
-</tbody>
-</table>
 
 
 

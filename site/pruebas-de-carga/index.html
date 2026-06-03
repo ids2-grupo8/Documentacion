@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ids2-grupo8.github.io/Documentacion/site/arquitectura/">
+        <link rel="canonical" href="https://ids2-grupo8.github.io/Documentacion/site/pruebas-de-carga/">
       
       
-        <link rel="prev" href="../sprints/sprint-2/">
+        <link rel="prev" href="../arquitectura/">
       
       
-        <link rel="next" href="../pruebas-de-carga/">
+        <link rel="next" href="optimizaciones/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Arquitectura - Bazaar — Grupo 8</title>
+        <title>Resumen - Bazaar — Grupo 8</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#arquitectura-del-sistema" class="md-skip">
+        <a href="#pruebas-de-carga-checkout-service" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Arquitectura
+              Resumen
             
           </span>
         </div>
@@ -378,37 +378,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Arquitectura
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../arquitectura/" class="md-nav__link">
         
   
   
@@ -424,120 +397,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#vision-general" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visión general
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Visión general">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#por-que-microservicios" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ¿Por qué microservicios?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#que-hace-el-api-gateway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ¿Qué hace el API Gateway?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#servicios" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Servicios
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mensajeria-asincrona-rabbitmq" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mensajería asíncrona (RabbitMQ)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#flujo-de-una-compra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flujo de una compra
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#servicios-externos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Servicios externos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#decisiones-de-tecnologia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decisiones de tecnología
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -546,6 +405,8 @@
       
   
   
+    
+  
   
   
     
@@ -563,15 +424,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../pruebas-de-carga/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -589,13 +450,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -615,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pruebas-de-carga/optimizaciones/" class="md-nav__link">
+      <a href="optimizaciones/" class="md-nav__link">
         
   
   
@@ -643,7 +504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pruebas-de-carga/como-ejecutar/" class="md-nav__link">
+      <a href="como-ejecutar/" class="md-nav__link">
         
   
   
@@ -1183,22 +1044,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#vision-general" class="md-nav__link">
+  <a href="#por-que-medimos-checkout-service" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visión general
+        Por qué medimos checkout-service
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Visión general">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramienta-k6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramienta: k6
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-medido-por-iteracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo medido por iteración
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-final-despues-de-las-optimizaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultado final — después de las optimizaciones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resultado final — después de las optimizaciones">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#por-que-microservicios" class="md-nav__link">
+  <a href="#load-test-20-vus" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ¿Por qué microservicios?
+        Load test (20 VUs)
       
     </span>
   </a>
@@ -1206,10 +1100,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#que-hace-el-api-gateway" class="md-nav__link">
+  <a href="#stress-test-150-vus-con-mercadopago-mockeado" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ¿Qué hace el API Gateway?
+        Stress test (150 VUs, con MercadoPago mockeado)
       
     </span>
   </a>
@@ -1222,10 +1116,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servicios" class="md-nav__link">
+  <a href="#como-interpretar-los-reportes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Servicios
+        Cómo interpretar los reportes
       
     </span>
   </a>
@@ -1233,43 +1127,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mensajeria-asincrona-rabbitmq" class="md-nav__link">
+  <a href="#paginas-relacionadas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mensajería asíncrona (RabbitMQ)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#flujo-de-una-compra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flujo de una compra
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#servicios-externos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Servicios externos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#decisiones-de-tecnologia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decisiones de tecnología
+        Páginas relacionadas
       
     </span>
   </a>
@@ -1293,261 +1154,157 @@
 
 
 
-<h1 id="arquitectura-del-sistema">Arquitectura del Sistema<a class="headerlink" href="#arquitectura-del-sistema" title="Permanent link">&para;</a></h1>
-<h2 id="vision-general">Visión general<a class="headerlink" href="#vision-general" title="Permanent link">&para;</a></h2>
-<p>Bazaar está construido como un conjunto de <strong>microservicios independientes</strong>, cada uno con su propia base de datos y responsabilidad bien definida. Los clientes (app mobile y backoffice web) nunca se comunican directamente con los servicios: todas las peticiones pasan por un <strong>API Gateway</strong> que se encarga del enrutamiento y la autenticación.</p>
-<div class="highlight"><pre><span></span><code>┌─────────────────┐         ┌─────────────────┐
-│   Mobile App    │         │   Backoffice    │
-│ (React Native)  │         │  (React + Vite) │
-└────────┬────────┘         └────────┬────────┘
-         │                           │
-         └─────────────┬─────────────┘
-                       │
-              ┌────────▼────────┐
-              │  Kong Gateway   │  ← Punto único de entrada
-              │  (JWT · roles)  │
-              └──┬──────┬───┬───┘
-                 │      │   │
-       ┌─────────▼─┐ ┌──▼──────────┐ ┌──────────────────┐
-       │user-service│ │product-svc  │ │ checkout-service │
-       │ (FastAPI)  │ │ (FastAPI)   │ │   (FastAPI)      │
-       └─────┬──────┘ └──┬──────────┘ └────────┬─────────┘
-             │            │                     │
-       ┌─────▼──────┐ ┌───▼──────┐     ┌───────▼────────┐
-       │ PostgreSQL │ │ MongoDB  │     │  PostgreSQL    │
-       └────────────┘ └──────────┘     └────────────────┘
-                           │                     │
-                           │   ┌─────────────────┘
-                           │   │  publica eventos
-                           ▼   ▼
-                    ┌─────────────┐
-                    │  RabbitMQ   │  ← Mensajería asíncrona
-                    └──────┬──────┘
-                           │ consume
-                  ┌────────▼──────────┐
-                  │notification-service│
-                  │      (Go)         │
-                  └────────┬──────────┘
-                           │
-                  ┌────────▼──────────┐
-                  │  Expo Push API    │  ← Notificaciones mobile
-                  └───────────────────┘
-</code></pre></div>
-<h3 id="por-que-microservicios">¿Por qué microservicios?<a class="headerlink" href="#por-que-microservicios" title="Permanent link">&para;</a></h3>
-<p>En lugar de tener toda la lógica en una sola aplicación, el sistema se divide en servicios más chicos que se pueden desarrollar, testear y desplegar de forma independiente. Cada servicio tiene su propia base de datos, lo que evita acoplamientos y permite que un equipo trabaje en un servicio sin afectar a los demás.</p>
-<h3 id="que-hace-el-api-gateway">¿Qué hace el API Gateway?<a class="headerlink" href="#que-hace-el-api-gateway" title="Permanent link">&para;</a></h3>
-<p>Kong recibe todas las peticiones de los clientes y se encarga de:</p>
+<h1 id="pruebas-de-carga-checkout-service">Pruebas de carga — Checkout Service<a class="headerlink" href="#pruebas-de-carga-checkout-service" title="Permanent link">&para;</a></h1>
+<p>Esta sección documenta la estrategia de pruebas de carga y estrés del <code>checkout-service</code>, las herramientas usadas, el conjunto de optimizaciones que se aplicaron al sistema a partir de los resultados, y cómo correr el suite localmente.</p>
+<h2 id="por-que-medimos-checkout-service">Por qué medimos checkout-service<a class="headerlink" href="#por-que-medimos-checkout-service" title="Permanent link">&para;</a></h2>
+<p><code>checkout-service</code> es el cuello del sistema: cada compra atraviesa cuatro endpoints suyos (<code>POST /cart/items</code>, <code>GET /cart/items</code>, <code>POST /</code> para checkout, <code>GET /order/purchases</code>) y coordina llamadas a <code>product-service</code>, <code>user-service</code>, PostgreSQL, RabbitMQ y MercadoPago. Si algún componente del flujo se satura, el comprador lo siente acá.</p>
+<p>El objetivo de las pruebas es:</p>
 <ul>
-<li><strong>Redirigirlas al servicio correcto</strong> según la URL (ej: <code>/users/*</code> va al user-service, <code>/products/*</code> va al product-service, <code>/checkout/*</code> va al checkout-service).</li>
-<li><strong>Validar el token JWT</strong> en las rutas que requieren autenticación.</li>
-<li><strong>Extraer la identidad del usuario</strong> del token y pasarla como header al servicio backend, para que los servicios sepan quién está haciendo el request sin tener que parsear el token ellos mismos.</li>
-<li><strong>Verificar el rol de administrador</strong> en las rutas del panel de admin.</li>
+<li><strong>Validar que el flujo end-to-end funciona</strong> bajo carga realista.</li>
+<li><strong>Encontrar el punto de quiebre</strong> del sistema bajo carga extrema.</li>
+<li><strong>Medir el impacto</strong> de cada optimización aplicada, con números antes/después.</li>
 </ul>
-<hr />
-<h2 id="servicios">Servicios<a class="headerlink" href="#servicios" title="Permanent link">&para;</a></h2>
+<h2 id="herramienta-k6">Herramienta: k6<a class="headerlink" href="#herramienta-k6" title="Permanent link">&para;</a></h2>
+<p>Usamos <a href="https://k6.io/">k6</a> — herramienta open-source de load testing escrita en Go con scripts en JavaScript. Permite simular usuarios virtuales (VUs) que ejecutan un flujo de iteraciones con asserts, métricas y umbrales declarativos.</p>
+<p>Dos scripts (<a href="https://github.com/ids2-grupo8/checkout-service/blob/development/load-tests/load_test.js"><code>load-tests/load_test.js</code></a> y <a href="https://github.com/ids2-grupo8/checkout-service/blob/development/load-tests/stress_test.js"><code>stress_test.js</code></a>) cubren los dos casos:</p>
 <table>
 <thead>
 <tr>
-<th>Servicio</th>
-<th>Lenguaje / Framework</th>
-<th>Base de datos</th>
-<th>Responsabilidad</th>
+<th>Test</th>
+<th>VUs máximos</th>
+<th>Duración</th>
+<th>Objetivo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>user-service</strong></td>
-<td>Python / FastAPI</td>
-<td>PostgreSQL</td>
-<td>Autenticación, perfiles, administración de usuarios</td>
+<td><strong>Load</strong></td>
+<td>20</td>
+<td>3m30s</td>
+<td>Carga sostenida realista — el sistema debe <strong>responder bien</strong></td>
 </tr>
 <tr>
-<td><strong>product-service</strong></td>
-<td>Python / FastAPI</td>
-<td>MongoDB</td>
-<td>Catálogo de productos, stock, imágenes, categorías</td>
-</tr>
-<tr>
-<td><strong>checkout-service</strong></td>
-<td>Python / FastAPI</td>
-<td>PostgreSQL</td>
-<td>Carrito, checkout con MercadoPago, ciclo de vida de órdenes, cupones y reseñas</td>
-</tr>
-<tr>
-<td><strong>notification-service</strong></td>
-<td>Go / net/http</td>
-<td>MongoDB</td>
-<td>Push notifications a vendedores por stock bajo o agotado</td>
-</tr>
-<tr>
-<td><strong>backoffice</strong></td>
-<td>TypeScript / React + Vite</td>
-<td>—</td>
-<td>Panel web de administración</td>
-</tr>
-<tr>
-<td><strong>mobileApp</strong></td>
-<td>TypeScript / React Native + Expo</td>
-<td>—</td>
-<td>App mobile para compradores y vendedores</td>
+<td><strong>Stress</strong></td>
+<td>150</td>
+<td>4m</td>
+<td>Carga extrema — buscamos el punto de quiebre</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="mensajeria-asincrona-rabbitmq">Mensajería asíncrona (RabbitMQ)<a class="headerlink" href="#mensajeria-asincrona-rabbitmq" title="Permanent link">&para;</a></h2>
-<p>Los servicios se comunican de forma asíncrona a través de RabbitMQ para desacoplarse entre sí. Los eventos fluyen así:</p>
-<table>
-<thead>
-<tr>
-<th>Exchange</th>
-<th>Routing key</th>
-<th>Publicador</th>
-<th>Consumidor</th>
-<th>Cuándo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>bazaar.payments</code></td>
-<td><code>payment.confirmed</code></td>
-<td>checkout-service</td>
-<td>product-service</td>
-<td>Pago aprobado por MercadoPago → descuenta stock definitivamente</td>
-</tr>
-<tr>
-<td><code>bazaar.payments</code></td>
-<td><code>payment.rejected</code></td>
-<td>checkout-service</td>
-<td>product-service</td>
-<td>Pago rechazado o orden expirada → restaura el stock reservado</td>
-</tr>
-<tr>
-<td><code>bazaar.stock</code></td>
-<td><code>stock.updated</code></td>
-<td>product-service</td>
-<td>notification-service</td>
-<td>Stock de un producto cae por debajo del umbral → dispara push al vendedor</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="flujo-de-una-compra">Flujo de una compra<a class="headerlink" href="#flujo-de-una-compra" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>Comprador           checkout-service      product-service     MercadoPago
-    │                      │                    │                  │
-    │─── POST /checkout ──▶│                    │                  │
-    │                      │── reserva stock ──▶│                  │
-    │                      │◀── OK ─────────────│                  │
-    │                      │── crea preferencia ────────────────▶ │
-    │◀── init_point ───────│                    │                  │
-    │                      │                    │                  │
-    │── paga en MP ──────────────────────────────────────────────▶│
-    │                      │◀── webhook (approved/rejected) ───────│
-    │                      │                    │                  │
-    │                      │── payment.confirmed/rejected ──▶ [RabbitMQ]
-    │                      │                    │◀── consume ──────│
-    │                      │                    │ ajusta stock     │
+<p>Cada iteración simula un comprador: agregar producto al carrito → consultar carrito → iniciar checkout → listar órdenes. Los emails son únicos por iteración para que cada VU empiece con carrito vacío.</p>
+<h2 id="flujo-medido-por-iteracion">Flujo medido por iteración<a class="headerlink" href="#flujo-medido-por-iteracion" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>1. POST /api/v1/cart/items      → cart_add_duration   + check &quot;cart add → 2xx&quot;
+2. sleep 0.5s
+3. GET  /api/v1/cart/items      → cart_get_duration   + check &quot;cart get → 200&quot;
+4. sleep 0.5s
+5. POST /api/v1/                → checkout_duration   + check &quot;checkout → sin 5xx&quot;
+6. sleep 0.5s
+7. GET  /api/v1/order/purchases → orders_list_duration + check &quot;orders list → 200&quot;
+8. sleep 1s (load) / 0.2s (stress)
 </code></pre></div>
-<hr />
-<h2 id="servicios-externos">Servicios externos<a class="headerlink" href="#servicios-externos" title="Permanent link">&para;</a></h2>
+<p>Los <code>sleep</code> simulan "tiempo de pensamiento" del usuario; sin ellos cada VU pegaría 1000+ req/s y mediríamos una carga irrealista.</p>
+<h2 id="resultado-final-despues-de-las-optimizaciones">Resultado final — después de las optimizaciones<a class="headerlink" href="#resultado-final-despues-de-las-optimizaciones" title="Permanent link">&para;</a></h2>
+<p>Después de aplicar las optimizaciones (ver <a href="optimizaciones/">Optimizaciones aplicadas</a>), el sistema cumple:</p>
+<h3 id="load-test-20-vus">Load test (20 VUs)<a class="headerlink" href="#load-test-20-vus" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Servicio</th>
-<th>Para qué lo usamos</th>
+<th>Métrica</th>
+<th>Valor</th>
+<th>Umbral</th>
+<th>Estado</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Supabase Auth</strong></td>
-<td>Maneja el registro, login, OAuth con Google y recupero de contraseña. Emite los JWT que usa todo el sistema.</td>
+<td>Throughput</td>
+<td>17.7 req/s</td>
+<td>—</td>
+<td>✓</td>
 </tr>
 <tr>
-<td><strong>Cloudinary</strong></td>
-<td>Almacena las imágenes de perfil y de productos. En la base de datos solo guardamos la URL.</td>
+<td>http_req_duration p95</td>
+<td>47 ms</td>
+<td>&lt; 500 ms</td>
+<td>✓</td>
 </tr>
 <tr>
-<td><strong>MercadoPago</strong></td>
-<td>Procesamiento de pagos. El checkout-service genera una preferencia de pago y recibe el resultado vía webhook.</td>
+<td>checkout p95</td>
+<td>44 ms</td>
+<td>&lt; 800 ms</td>
+<td>✓</td>
 </tr>
 <tr>
-<td><strong>Expo Push API</strong></td>
-<td>Envío de notificaciones push a la app mobile. El notification-service llama a esta API cuando detecta stock bajo.</td>
+<td>http_req_failed</td>
+<td>0.00%</td>
+<td>&lt; 5%</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Checks funcionales</td>
+<td>100% (4/4)</td>
+<td>100%</td>
+<td>✓</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="decisiones-de-tecnologia">Decisiones de tecnología<a class="headerlink" href="#decisiones-de-tecnologia" title="Permanent link">&para;</a></h2>
+<h3 id="stress-test-150-vus-con-mercadopago-mockeado">Stress test (150 VUs, con MercadoPago mockeado)<a class="headerlink" href="#stress-test-150-vus-con-mercadopago-mockeado" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Decisión</th>
-<th>Qué elegimos</th>
-<th>Por qué</th>
+<th>Métrica</th>
+<th>Valor</th>
+<th>Umbral</th>
+<th>Estado</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>BD del user-service</td>
-<td><strong>PostgreSQL</strong></td>
-<td>Los datos de usuarios tienen estructura fija y relaciones claras (usuario → identidades federadas). Una base relacional es lo más natural.</td>
+<td>Throughput</td>
+<td>115.95 req/s</td>
+<td>—</td>
+<td>✓</td>
 </tr>
 <tr>
-<td>BD del product-service</td>
-<td><strong>MongoDB</strong></td>
-<td>Los productos pueden tener atributos distintos según la categoría (ej: talle en ropa, memoria en electrónica). Un modelo de documentos permite esa flexibilidad sin tener que alterar el esquema.</td>
+<td>http_req_duration p95</td>
+<td>1733 ms</td>
+<td>&lt; 2000 ms</td>
+<td>✓</td>
 </tr>
 <tr>
-<td>BD del checkout-service</td>
-<td><strong>PostgreSQL</strong></td>
-<td>Las órdenes y sus ítems tienen estructura fija y relaciones claras (orden → ítems, historial). Alembic maneja las migraciones.</td>
+<td>checkout p95</td>
+<td>2593 ms</td>
+<td>&lt; 3000 ms</td>
+<td>✓</td>
 </tr>
 <tr>
-<td>BD del notification-service</td>
-<td><strong>MongoDB</strong></td>
-<td>Los tokens de dispositivo y notificaciones son documentos simples sin relaciones fuertes.</td>
+<td>http_req_failed</td>
+<td>0.00%</td>
+<td>&lt; 10%</td>
+<td>✓</td>
 </tr>
 <tr>
-<td>Autenticación</td>
-<td><strong>Supabase Auth</strong></td>
-<td>Nos da JWT, OAuth con Google, recupero de contraseña y gestión de sesiones sin tener que implementarlo desde cero.</td>
-</tr>
-<tr>
-<td>Imágenes</td>
-<td><strong>Cloudinary</strong></td>
-<td>CDN con plan gratuito suficiente para el proyecto. Subimos la imagen y obtenemos una URL pública.</td>
-</tr>
-<tr>
-<td>Pagos</td>
-<td><strong>MercadoPago</strong></td>
-<td>Gateway de pagos ampliamente usado en Latinoamérica. La integración se hace vía preferencias y webhooks.</td>
-</tr>
-<tr>
-<td>Push notifications</td>
-<td><strong>Expo Push API</strong></td>
-<td>Compatible nativamente con React Native/Expo. Abstrae iOS (APNs) y Android (FCM) en un único endpoint.</td>
-</tr>
-<tr>
-<td>Mensajería</td>
-<td><strong>RabbitMQ</strong></td>
-<td>Broker de mensajería liviano que desacopla los servicios. Permite que el product-service restaure stock sin que el checkout-service lo llame directamente.</td>
-</tr>
-<tr>
-<td>API Gateway</td>
-<td><strong>Kong (OSS)</strong></td>
-<td>Se integra nativamente con Kubernetes y permite agregar lógica custom con plugins Lua (validación de JWT, extracción de email, chequeo de rol admin).</td>
-</tr>
-<tr>
-<td>Despliegue</td>
-<td><strong>Kubernetes + ArgoCD</strong></td>
-<td>Despliegue declarativo con GitOps: cuando se pushea una imagen nueva, ArgoCD detecta el cambio y actualiza el servicio automáticamente.</td>
-</tr>
-<tr>
-<td>Lenguaje del notification-service</td>
-<td><strong>Go</strong></td>
-<td>Binario liviano ideal para un servicio que solo consume eventos y dispara llamadas HTTP. Concurrencia nativa con goroutines.</td>
+<td>Checks funcionales</td>
+<td>100% (4/4)</td>
+<td>100%</td>
+<td>✓</td>
 </tr>
 </tbody>
 </table>
+<p>Con <strong>MercadoPago real</strong> (sandbox) bajo el mismo stress, el throughput cae a 96 req/s y el checkout p95 sube a 5.3 s — el bottleneck queda demostradamente del lado del integrador externo.</p>
+<h2 id="como-interpretar-los-reportes">Cómo interpretar los reportes<a class="headerlink" href="#como-interpretar-los-reportes" title="Permanent link">&para;</a></h2>
+<p>El generador automático (<a href="https://github.com/ids2-grupo8/checkout-service/blob/development/load-tests/generate_report.py"><code>generate_report.py</code></a>) produce un <code>RESULTS.md</code> con tablas por métrica, percentiles, umbrales y un <strong>diagnóstico data-driven</strong> que identifica si el flujo se ejecutó funcionalmente o si los números reflejan errores enmascarados como respuestas rápidas.</p>
+<p>Reglas para leerlos:</p>
+<ul>
+<li><strong>Umbrales de latencia</strong> miden tiempos sobre <strong>cualquier</strong> respuesta del servidor, incluso 4xx/5xx. Que el p95 pase no implica que el flujo haya funcionado.</li>
+<li><strong>Checks individuales</strong> son la métrica real de funcionalidad. Si están por debajo del 80%, el reporte de latencias describe un comportamiento que <strong>no representa el caso de uso</strong>.</li>
+<li><strong><code>http_req_failed</code></strong> marca cualquier HTTP fallido (timeouts + 4xx/5xx). Cerca de 100% conviene <code>curl</code> manual antes de interpretar percentiles.</li>
+</ul>
+<h2 id="paginas-relacionadas">Páginas relacionadas<a class="headerlink" href="#paginas-relacionadas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="optimizaciones/">Optimizaciones aplicadas</a> — historia del antes/después de cada cambio.</li>
+<li><a href="como-ejecutar/">Cómo ejecutar las pruebas</a> — pasos para correr el suite en local.</li>
+</ul>
 
 
 

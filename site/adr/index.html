@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ids2-grupo8.github.io/Documentacion/site/arquitectura/">
+        <link rel="canonical" href="https://ids2-grupo8.github.io/Documentacion/site/adr/">
       
       
-        <link rel="prev" href="../sprints/sprint-2/">
+        <link rel="prev" href="../pruebas-de-carga/como-ejecutar/">
       
       
-        <link rel="next" href="../pruebas-de-carga/">
+        <link rel="next" href="plantilla/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Arquitectura - Bazaar — Grupo 8</title>
+        <title>Índice - Bazaar — Grupo 8</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#arquitectura-del-sistema" class="md-skip">
+        <a href="#architecture-decision-records-adr" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Arquitectura
+              Índice
             
           </span>
         </div>
@@ -378,37 +378,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Arquitectura
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../arquitectura/" class="md-nav__link">
         
   
   
@@ -424,120 +397,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#vision-general" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visión general
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Visión general">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#por-que-microservicios" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ¿Por qué microservicios?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#que-hace-el-api-gateway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ¿Qué hace el API Gateway?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#servicios" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Servicios
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mensajeria-asincrona-rabbitmq" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mensajería asíncrona (RabbitMQ)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#flujo-de-una-compra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flujo de una compra
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#servicios-externos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Servicios externos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#decisiones-de-tecnologia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decisiones de tecnología
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -675,6 +534,8 @@
       
   
   
+    
+  
   
   
     
@@ -702,15 +563,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../adr/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -728,13 +589,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -754,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr/plantilla/" class="md-nav__link">
+      <a href="plantilla/" class="md-nav__link">
         
   
   
@@ -782,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr/adr-0001-una-orden-por-vendedor-en-checkout/" class="md-nav__link">
+      <a href="adr-0001-una-orden-por-vendedor-en-checkout/" class="md-nav__link">
         
   
   
@@ -810,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr/adr-0002-kong-como-api-gateway/" class="md-nav__link">
+      <a href="adr-0002-kong-como-api-gateway/" class="md-nav__link">
         
   
   
@@ -838,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr/adr-0003-stack-heterogeneo-python-go-postgres-mongo/" class="md-nav__link">
+      <a href="adr-0003-stack-heterogeneo-python-go-postgres-mongo/" class="md-nav__link">
         
   
   
@@ -866,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr/adr-0004-consistencia-distribuida-saga-compensacion/" class="md-nav__link">
+      <a href="adr-0004-consistencia-distribuida-saga-compensacion/" class="md-nav__link">
         
   
   
@@ -894,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr/adr-0005-resiliencia-http-retry-y-circuit-breaker/" class="md-nav__link">
+      <a href="adr-0005-resiliencia-http-retry-y-circuit-breaker/" class="md-nav__link">
         
   
   
@@ -922,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr/adr-0006-despliegue-gke-en-gcp/" class="md-nav__link">
+      <a href="adr-0006-despliegue-gke-en-gcp/" class="md-nav__link">
         
   
   
@@ -1183,49 +1044,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#vision-general" class="md-nav__link">
+  <a href="#convenciones" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visión general
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Visión general">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#por-que-microservicios" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ¿Por qué microservicios?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#que-hace-el-api-gateway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ¿Qué hace el API Gateway?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#servicios" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Servicios
+        Convenciones
       
     </span>
   </a>
@@ -1233,43 +1055,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mensajeria-asincrona-rabbitmq" class="md-nav__link">
+  <a href="#registro" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mensajería asíncrona (RabbitMQ)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#flujo-de-una-compra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flujo de una compra
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#servicios-externos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Servicios externos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#decisiones-de-tecnologia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decisiones de tecnología
+        Registro
       
     </span>
   </a>
@@ -1293,258 +1082,62 @@
 
 
 
-<h1 id="arquitectura-del-sistema">Arquitectura del Sistema<a class="headerlink" href="#arquitectura-del-sistema" title="Permanent link">&para;</a></h1>
-<h2 id="vision-general">Visión general<a class="headerlink" href="#vision-general" title="Permanent link">&para;</a></h2>
-<p>Bazaar está construido como un conjunto de <strong>microservicios independientes</strong>, cada uno con su propia base de datos y responsabilidad bien definida. Los clientes (app mobile y backoffice web) nunca se comunican directamente con los servicios: todas las peticiones pasan por un <strong>API Gateway</strong> que se encarga del enrutamiento y la autenticación.</p>
-<div class="highlight"><pre><span></span><code>┌─────────────────┐         ┌─────────────────┐
-│   Mobile App    │         │   Backoffice    │
-│ (React Native)  │         │  (React + Vite) │
-└────────┬────────┘         └────────┬────────┘
-         │                           │
-         └─────────────┬─────────────┘
-                       │
-              ┌────────▼────────┐
-              │  Kong Gateway   │  ← Punto único de entrada
-              │  (JWT · roles)  │
-              └──┬──────┬───┬───┘
-                 │      │   │
-       ┌─────────▼─┐ ┌──▼──────────┐ ┌──────────────────┐
-       │user-service│ │product-svc  │ │ checkout-service │
-       │ (FastAPI)  │ │ (FastAPI)   │ │   (FastAPI)      │
-       └─────┬──────┘ └──┬──────────┘ └────────┬─────────┘
-             │            │                     │
-       ┌─────▼──────┐ ┌───▼──────┐     ┌───────▼────────┐
-       │ PostgreSQL │ │ MongoDB  │     │  PostgreSQL    │
-       └────────────┘ └──────────┘     └────────────────┘
-                           │                     │
-                           │   ┌─────────────────┘
-                           │   │  publica eventos
-                           ▼   ▼
-                    ┌─────────────┐
-                    │  RabbitMQ   │  ← Mensajería asíncrona
-                    └──────┬──────┘
-                           │ consume
-                  ┌────────▼──────────┐
-                  │notification-service│
-                  │      (Go)         │
-                  └────────┬──────────┘
-                           │
-                  ┌────────▼──────────┐
-                  │  Expo Push API    │  ← Notificaciones mobile
-                  └───────────────────┘
-</code></pre></div>
-<h3 id="por-que-microservicios">¿Por qué microservicios?<a class="headerlink" href="#por-que-microservicios" title="Permanent link">&para;</a></h3>
-<p>En lugar de tener toda la lógica en una sola aplicación, el sistema se divide en servicios más chicos que se pueden desarrollar, testear y desplegar de forma independiente. Cada servicio tiene su propia base de datos, lo que evita acoplamientos y permite que un equipo trabaje en un servicio sin afectar a los demás.</p>
-<h3 id="que-hace-el-api-gateway">¿Qué hace el API Gateway?<a class="headerlink" href="#que-hace-el-api-gateway" title="Permanent link">&para;</a></h3>
-<p>Kong recibe todas las peticiones de los clientes y se encarga de:</p>
+<h1 id="architecture-decision-records-adr">Architecture Decision Records (ADR)<a class="headerlink" href="#architecture-decision-records-adr" title="Permanent link">&para;</a></h1>
+<p>Registro de decisiones arquitectónicas del sistema Bazaar. Cada ADR sigue la plantilla de <a href="https://github.com/architecture-decision-record/architecture-decision-record/blob/main/locales/en/templates/decision-record-template-by-michael-nygard/index.md">Michael Nygard</a>.</p>
+<h2 id="convenciones">Convenciones<a class="headerlink" href="#convenciones" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Redirigirlas al servicio correcto</strong> según la URL (ej: <code>/users/*</code> va al user-service, <code>/products/*</code> va al product-service, <code>/checkout/*</code> va al checkout-service).</li>
-<li><strong>Validar el token JWT</strong> en las rutas que requieren autenticación.</li>
-<li><strong>Extraer la identidad del usuario</strong> del token y pasarla como header al servicio backend, para que los servicios sepan quién está haciendo el request sin tener que parsear el token ellos mismos.</li>
-<li><strong>Verificar el rol de administrador</strong> en las rutas del panel de admin.</li>
+<li><strong>Ubicación:</strong> <code>docs/adr/</code></li>
+<li><strong>Nombre de archivo:</strong> <code>adr-NNNN-titulo-corto.md</code> (numeración correlativa, 4 dígitos).</li>
+<li><strong>Plantilla:</strong> <a href="plantilla/">Plantilla ADR</a></li>
+<li><strong>Inmutabilidad:</strong> una vez aceptado, el contenido no se edita. Si la decisión cambia, se crea un nuevo ADR que reemplaza al anterior y se marca el viejo como <code>Reemplazada por ADR-XXXX</code>.</li>
+<li><strong>Estados válidos:</strong> Propuesta, Aceptada, Rechazada, Obsoleta, Reemplazada.</li>
 </ul>
-<hr />
-<h2 id="servicios">Servicios<a class="headerlink" href="#servicios" title="Permanent link">&para;</a></h2>
+<h2 id="registro">Registro<a class="headerlink" href="#registro" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Servicio</th>
-<th>Lenguaje / Framework</th>
-<th>Base de datos</th>
-<th>Responsabilidad</th>
+<th>#</th>
+<th>Título</th>
+<th>Estado</th>
+<th>Fecha</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>user-service</strong></td>
-<td>Python / FastAPI</td>
-<td>PostgreSQL</td>
-<td>Autenticación, perfiles, administración de usuarios</td>
+<td><a href="adr-0001-una-orden-por-vendedor-en-checkout/">0001</a></td>
+<td>Una orden por vendedor en checkout</td>
+<td>Aceptada</td>
+<td>2026-06-02</td>
 </tr>
 <tr>
-<td><strong>product-service</strong></td>
-<td>Python / FastAPI</td>
-<td>MongoDB</td>
-<td>Catálogo de productos, stock, imágenes, categorías</td>
+<td><a href="adr-0002-kong-como-api-gateway/">0002</a></td>
+<td>Kong como API Gateway</td>
+<td>Aceptada</td>
+<td>2026-06-02</td>
 </tr>
 <tr>
-<td><strong>checkout-service</strong></td>
-<td>Python / FastAPI</td>
-<td>PostgreSQL</td>
-<td>Carrito, checkout con MercadoPago, ciclo de vida de órdenes, cupones y reseñas</td>
+<td><a href="adr-0003-stack-heterogeneo-python-go-postgres-mongo/">0003</a></td>
+<td>Stack heterogéneo: Python+Go / PostgreSQL+MongoDB</td>
+<td>Aceptada</td>
+<td>2026-06-02</td>
 </tr>
 <tr>
-<td><strong>notification-service</strong></td>
-<td>Go / net/http</td>
-<td>MongoDB</td>
-<td>Push notifications a vendedores por stock bajo o agotado</td>
+<td><a href="adr-0004-consistencia-distribuida-saga-compensacion/">0004</a></td>
+<td>Consistencia distribuida — Saga con compensación basada en eventos</td>
+<td>Aceptada</td>
+<td>2026-06-02</td>
 </tr>
 <tr>
-<td><strong>backoffice</strong></td>
-<td>TypeScript / React + Vite</td>
-<td>—</td>
-<td>Panel web de administración</td>
+<td><a href="adr-0005-resiliencia-http-retry-y-circuit-breaker/">0005</a></td>
+<td>Resiliencia HTTP — Retry exponencial + Circuit Breaker</td>
+<td>Aceptada</td>
+<td>2026-06-02</td>
 </tr>
 <tr>
-<td><strong>mobileApp</strong></td>
-<td>TypeScript / React Native + Expo</td>
-<td>—</td>
-<td>App mobile para compradores y vendedores</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="mensajeria-asincrona-rabbitmq">Mensajería asíncrona (RabbitMQ)<a class="headerlink" href="#mensajeria-asincrona-rabbitmq" title="Permanent link">&para;</a></h2>
-<p>Los servicios se comunican de forma asíncrona a través de RabbitMQ para desacoplarse entre sí. Los eventos fluyen así:</p>
-<table>
-<thead>
-<tr>
-<th>Exchange</th>
-<th>Routing key</th>
-<th>Publicador</th>
-<th>Consumidor</th>
-<th>Cuándo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>bazaar.payments</code></td>
-<td><code>payment.confirmed</code></td>
-<td>checkout-service</td>
-<td>product-service</td>
-<td>Pago aprobado por MercadoPago → descuenta stock definitivamente</td>
-</tr>
-<tr>
-<td><code>bazaar.payments</code></td>
-<td><code>payment.rejected</code></td>
-<td>checkout-service</td>
-<td>product-service</td>
-<td>Pago rechazado o orden expirada → restaura el stock reservado</td>
-</tr>
-<tr>
-<td><code>bazaar.stock</code></td>
-<td><code>stock.updated</code></td>
-<td>product-service</td>
-<td>notification-service</td>
-<td>Stock de un producto cae por debajo del umbral → dispara push al vendedor</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="flujo-de-una-compra">Flujo de una compra<a class="headerlink" href="#flujo-de-una-compra" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>Comprador           checkout-service      product-service     MercadoPago
-    │                      │                    │                  │
-    │─── POST /checkout ──▶│                    │                  │
-    │                      │── reserva stock ──▶│                  │
-    │                      │◀── OK ─────────────│                  │
-    │                      │── crea preferencia ────────────────▶ │
-    │◀── init_point ───────│                    │                  │
-    │                      │                    │                  │
-    │── paga en MP ──────────────────────────────────────────────▶│
-    │                      │◀── webhook (approved/rejected) ───────│
-    │                      │                    │                  │
-    │                      │── payment.confirmed/rejected ──▶ [RabbitMQ]
-    │                      │                    │◀── consume ──────│
-    │                      │                    │ ajusta stock     │
-</code></pre></div>
-<hr />
-<h2 id="servicios-externos">Servicios externos<a class="headerlink" href="#servicios-externos" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Servicio</th>
-<th>Para qué lo usamos</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Supabase Auth</strong></td>
-<td>Maneja el registro, login, OAuth con Google y recupero de contraseña. Emite los JWT que usa todo el sistema.</td>
-</tr>
-<tr>
-<td><strong>Cloudinary</strong></td>
-<td>Almacena las imágenes de perfil y de productos. En la base de datos solo guardamos la URL.</td>
-</tr>
-<tr>
-<td><strong>MercadoPago</strong></td>
-<td>Procesamiento de pagos. El checkout-service genera una preferencia de pago y recibe el resultado vía webhook.</td>
-</tr>
-<tr>
-<td><strong>Expo Push API</strong></td>
-<td>Envío de notificaciones push a la app mobile. El notification-service llama a esta API cuando detecta stock bajo.</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="decisiones-de-tecnologia">Decisiones de tecnología<a class="headerlink" href="#decisiones-de-tecnologia" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Decisión</th>
-<th>Qué elegimos</th>
-<th>Por qué</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BD del user-service</td>
-<td><strong>PostgreSQL</strong></td>
-<td>Los datos de usuarios tienen estructura fija y relaciones claras (usuario → identidades federadas). Una base relacional es lo más natural.</td>
-</tr>
-<tr>
-<td>BD del product-service</td>
-<td><strong>MongoDB</strong></td>
-<td>Los productos pueden tener atributos distintos según la categoría (ej: talle en ropa, memoria en electrónica). Un modelo de documentos permite esa flexibilidad sin tener que alterar el esquema.</td>
-</tr>
-<tr>
-<td>BD del checkout-service</td>
-<td><strong>PostgreSQL</strong></td>
-<td>Las órdenes y sus ítems tienen estructura fija y relaciones claras (orden → ítems, historial). Alembic maneja las migraciones.</td>
-</tr>
-<tr>
-<td>BD del notification-service</td>
-<td><strong>MongoDB</strong></td>
-<td>Los tokens de dispositivo y notificaciones son documentos simples sin relaciones fuertes.</td>
-</tr>
-<tr>
-<td>Autenticación</td>
-<td><strong>Supabase Auth</strong></td>
-<td>Nos da JWT, OAuth con Google, recupero de contraseña y gestión de sesiones sin tener que implementarlo desde cero.</td>
-</tr>
-<tr>
-<td>Imágenes</td>
-<td><strong>Cloudinary</strong></td>
-<td>CDN con plan gratuito suficiente para el proyecto. Subimos la imagen y obtenemos una URL pública.</td>
-</tr>
-<tr>
-<td>Pagos</td>
-<td><strong>MercadoPago</strong></td>
-<td>Gateway de pagos ampliamente usado en Latinoamérica. La integración se hace vía preferencias y webhooks.</td>
-</tr>
-<tr>
-<td>Push notifications</td>
-<td><strong>Expo Push API</strong></td>
-<td>Compatible nativamente con React Native/Expo. Abstrae iOS (APNs) y Android (FCM) en un único endpoint.</td>
-</tr>
-<tr>
-<td>Mensajería</td>
-<td><strong>RabbitMQ</strong></td>
-<td>Broker de mensajería liviano que desacopla los servicios. Permite que el product-service restaure stock sin que el checkout-service lo llame directamente.</td>
-</tr>
-<tr>
-<td>API Gateway</td>
-<td><strong>Kong (OSS)</strong></td>
-<td>Se integra nativamente con Kubernetes y permite agregar lógica custom con plugins Lua (validación de JWT, extracción de email, chequeo de rol admin).</td>
-</tr>
-<tr>
-<td>Despliegue</td>
-<td><strong>Kubernetes + ArgoCD</strong></td>
-<td>Despliegue declarativo con GitOps: cuando se pushea una imagen nueva, ArgoCD detecta el cambio y actualiza el servicio automáticamente.</td>
-</tr>
-<tr>
-<td>Lenguaje del notification-service</td>
-<td><strong>Go</strong></td>
-<td>Binario liviano ideal para un servicio que solo consume eventos y dispara llamadas HTTP. Concurrencia nativa con goroutines.</td>
+<td><a href="adr-0006-despliegue-gke-en-gcp/">0006</a></td>
+<td>Despliegue en GKE sobre GCP</td>
+<td>Aceptada</td>
+<td>2026-06-02</td>
 </tr>
 </tbody>
 </table>

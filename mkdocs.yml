@@ -36,6 +36,19 @@ nav:
       - Sprint 1: sprints/sprint-1.md
       - Sprint 2: sprints/sprint-2.md
   - Arquitectura: arquitectura/index.md
+  - Pruebas de carga:
+      - Resumen: pruebas-de-carga/index.md
+      - Optimizaciones aplicadas: pruebas-de-carga/optimizaciones.md
+      - Cómo ejecutar: pruebas-de-carga/como-ejecutar.md
+  - ADR:
+      - Índice: adr/index.md
+      - Plantilla: adr/plantilla.md
+      - ADR-0001 — Una orden por vendedor: adr/adr-0001-una-orden-por-vendedor-en-checkout.md
+      - ADR-0002 — Kong como API Gateway: adr/adr-0002-kong-como-api-gateway.md
+      - ADR-0003 — Stack heterogéneo: adr/adr-0003-stack-heterogeneo-python-go-postgres-mongo.md
+      - ADR-0004 — Consistencia distribuida (saga): adr/adr-0004-consistencia-distribuida-saga-compensacion.md
+      - ADR-0005 — Resiliencia HTTP (Retry + CB): adr/adr-0005-resiliencia-http-retry-y-circuit-breaker.md
+      - ADR-0006 — Despliegue en GKE/GCP: adr/adr-0006-despliegue-gke-en-gcp.md
   - Servicios:
       - User Service: servicios/user-service.md
       - Product Service: servicios/product-service.md
