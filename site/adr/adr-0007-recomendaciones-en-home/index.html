@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ids2-grupo8.github.io/Documentacion/site/pruebas-de-carga/optimizaciones/">
+        <link rel="canonical" href="https://ids2-grupo8.github.io/Documentacion/site/adr/adr-0007-recomendaciones-en-home/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../adr-0006-despliegue-gke-en-gcp/">
       
       
-        <link rel="next" href="../como-ejecutar/">
+        <link rel="next" href="../../servicios/user-service/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Optimizaciones aplicadas - Bazaar — Grupo 8</title>
+        <title>ADR-0007 — Recomendaciones en Home - Bazaar — Grupo 8</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#optimizaciones-aplicadas" class="md-skip">
+        <a href="#adr-0007-recomendaciones-personalizadas-en-home" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Optimizaciones aplicadas
+              ADR-0007 — Recomendaciones en Home
             
           </span>
         </div>
@@ -435,8 +435,6 @@
       
   
   
-    
-  
   
   
     
@@ -454,15 +452,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../pruebas-de-carga/" class="md-nav__link ">
               
   
   
@@ -486,7 +484,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -503,37 +501,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Optimizaciones aplicadas
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../pruebas-de-carga/optimizaciones/" class="md-nav__link">
         
   
   
@@ -549,114 +520,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#linea-base" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Línea base
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-capa-de-resiliencia-http-retry-circuit-breaker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Capa de resiliencia HTTP (retry + circuit breaker)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-cliente-mercadopago-async" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Cliente MercadoPago async
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-pool-de-conexiones-postgresql-ampliado" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Pool de conexiones PostgreSQL ampliado
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-cache-lruttl-de-datos-de-product-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Cache LRU+TTL de datos de product-service
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-modo-mock-de-mercadopago-para-load-testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Modo mock de MercadoPago para load testing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resumen-mejoras-acumuladas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resumen — mejoras acumuladas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lecciones" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lecciones
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -669,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../como-ejecutar/" class="md-nav__link">
+      <a href="../../pruebas-de-carga/como-ejecutar/" class="md-nav__link">
         
   
   
@@ -701,6 +564,8 @@
       
   
   
+    
+  
   
   
     
@@ -730,15 +595,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../adr/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -762,7 +627,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -782,7 +647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/plantilla/" class="md-nav__link">
+      <a href="../plantilla/" class="md-nav__link">
         
   
   
@@ -810,7 +675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/adr-0001-una-orden-por-vendedor-en-checkout/" class="md-nav__link">
+      <a href="../adr-0001-una-orden-por-vendedor-en-checkout/" class="md-nav__link">
         
   
   
@@ -838,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/adr-0002-kong-como-api-gateway/" class="md-nav__link">
+      <a href="../adr-0002-kong-como-api-gateway/" class="md-nav__link">
         
   
   
@@ -866,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/adr-0003-stack-heterogeneo-python-go-postgres-mongo/" class="md-nav__link">
+      <a href="../adr-0003-stack-heterogeneo-python-go-postgres-mongo/" class="md-nav__link">
         
   
   
@@ -894,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/adr-0004-consistencia-distribuida-saga-compensacion/" class="md-nav__link">
+      <a href="../adr-0004-consistencia-distribuida-saga-compensacion/" class="md-nav__link">
         
   
   
@@ -922,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/adr-0005-resiliencia-http-retry-y-circuit-breaker/" class="md-nav__link">
+      <a href="../adr-0005-resiliencia-http-retry-y-circuit-breaker/" class="md-nav__link">
         
   
   
@@ -950,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/adr-0006-despliegue-gke-en-gcp/" class="md-nav__link">
+      <a href="../adr-0006-despliegue-gke-en-gcp/" class="md-nav__link">
         
   
   
@@ -975,10 +840,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../adr/adr-0007-recomendaciones-en-home/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0007 — Recomendaciones en Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -994,6 +886,142 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisión
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decisión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cadena-de-senales-prioridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Cadena de señales (prioridad)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-captura-de-historial-de-navegacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Captura de historial de navegación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-seleccion-de-productos-candidatos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Selección de productos candidatos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-degradacion-y-contrato-de-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Degradación y contrato de API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-comportamiento-en-mobile-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Comportamiento en mobile (Home)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-alternativas-descartadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Alternativas descartadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consecuencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consecuencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1239,10 +1267,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#linea-base" class="md-nav__link">
+  <a href="#estado" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Línea base
+        Estado
       
     </span>
   </a>
@@ -1250,10 +1278,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-capa-de-resiliencia-http-retry-circuit-breaker" class="md-nav__link">
+  <a href="#contexto" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Capa de resiliencia HTTP (retry + circuit breaker)
+        Contexto
       
     </span>
   </a>
@@ -1261,65 +1289,93 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-cliente-mercadopago-async" class="md-nav__link">
+  <a href="#decision" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Cliente MercadoPago async
+        Decisión
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decisión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cadena-de-senales-prioridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Cadena de señales (prioridad)
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-pool-de-conexiones-postgresql-ampliado" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#2-captura-de-historial-de-navegacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Pool de conexiones PostgreSQL ampliado
+        2. Captura de historial de navegación
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4-cache-lruttl-de-datos-de-product-service" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#3-seleccion-de-productos-candidatos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Cache LRU+TTL de datos de product-service
+        3. Selección de productos candidatos
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5-modo-mock-de-mercadopago-para-load-testing" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#4-degradacion-y-contrato-de-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Modo mock de MercadoPago para load testing
+        4. Degradación y contrato de API
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#resumen-mejoras-acumuladas" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#5-comportamiento-en-mobile-home" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resumen — mejoras acumuladas
+        5. Comportamiento en mobile (Home)
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#lecciones" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#6-alternativas-descartadas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lecciones
+        6. Alternativas descartadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consecuencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consecuencias
       
     </span>
   </a>
@@ -1343,174 +1399,120 @@
 
 
 
-<h1 id="optimizaciones-aplicadas">Optimizaciones aplicadas<a class="headerlink" href="#optimizaciones-aplicadas" title="Permanent link">&para;</a></h1>
-<p>Las pruebas de k6 sirvieron como <strong>herramienta diagnóstica</strong>: cada iteración expuso un cuello de botella, lo arreglamos, medimos de nuevo. Esta página resume las cinco rondas, con números antes/después de cada una.</p>
-<h2 id="linea-base">Línea base<a class="headerlink" href="#linea-base" title="Permanent link">&para;</a></h2>
-<p>Primera corrida del suite contra el sistema sin tocar. Resultado:</p>
-<div class="highlight"><pre><span></span><code>Load test (20 VUs)
-  http_req_duration p95 = 5604 ms
-  cart_add success      = 99%
-  Throughput            = 4.45 req/s
-
-Stress test (150 VUs)
-  http_req_duration p95 = 30470 ms
-  cart_add success      = 84%
-  http_req_failed       = 10.75%
-  Throughput            = 7.16 req/s
-</code></pre></div>
-<p>El sistema <strong>funciona</strong> pero <strong>no escala</strong>. Latencias inaceptables con apenas 20 VUs, errores cascada bajo 150 VUs.</p>
-<hr />
-<h2 id="1-capa-de-resiliencia-http-retry-circuit-breaker">1. Capa de resiliencia HTTP (retry + circuit breaker)<a class="headerlink" href="#1-capa-de-resiliencia-http-retry-circuit-breaker" title="Permanent link">&para;</a></h2>
-<p><strong>Diagnóstico:</strong> los clientes HTTP en <code>checkout-service</code> no tenían retry ni circuit breaker. Un transitorio puntual de <code>product-service</code> se traducía en degradación, y un servicio caído saturaba los workers con timeouts repetidos.</p>
-<p><strong>Cambio:</strong></p>
+<h1 id="adr-0007-recomendaciones-personalizadas-en-home">ADR-0007: Recomendaciones personalizadas en Home<a class="headerlink" href="#adr-0007-recomendaciones-personalizadas-en-home" title="Permanent link">&para;</a></h1>
+<h2 id="estado">Estado<a class="headerlink" href="#estado" title="Permanent link">&para;</a></h2>
+<p>Aceptada</p>
+<p><strong>Fecha:</strong> 2026-05-12</p>
+<h2 id="contexto">Contexto<a class="headerlink" href="#contexto" title="Permanent link">&para;</a></h2>
+<p>El enunciado exige en <strong>Home</strong> (CA-4) una sección de recomendaciones personalizadas cuando el sistema tenga historial disponible para ese usuario. El alcance es cumplir ese criterio de aceptación dentro de la pantalla de inicio.</p>
+<p>En Bazaar el descubrimiento ocurre en la app mobile (sección <strong>Para vos</strong>), con datos repartidos entre servicios:</p>
 <ul>
-<li>Nuevo módulo <a href="https://github.com/ids2-grupo8/checkout-service/blob/development/app/clients/resilience.py"><code>app/clients/resilience.py</code></a> con:<ul>
-<li>Retry exponencial con <code>tenacity</code>: 3 intentos, backoff 0.2 s → 2 s. Sólo errores transitorios (timeouts, 5xx, 429).</li>
-<li>Circuit breaker async in-house: abre tras 5 fallos consecutivos, reset_timeout 30 s, half-open con trial.</li>
-<li>Una instancia de breaker por upstream (<code>product_service_breaker</code>, <code>user_service_breaker</code>).</li>
+<li><strong>checkout-service</strong> concentra el historial de compras del comprador.</li>
+<li><strong>product-service</strong> concentra el catálogo y debe devolver candidatos con stock y visibles.</li>
+<li><strong>user-service</strong> aporta el estado de los vendedores (bloqueos) al filtrar visibilidad.</li>
 </ul>
-</li>
-<li>Los clientes <code>ProductServiceClient</code> y <code>UserServiceClient</code> envuelven cada call con <code>call_with_resilience(breaker, fn)</code>.</li>
-<li>Contrato externo se mantiene <strong>fail-soft</strong>: ante error definitivo o circuito abierto, los clientes devuelven <code>None</code>/<code>[]</code> y los endpoints siguen respondiendo con datos parciales.</li>
-</ul>
-<p>Decisión completa en <a href="../../adr/adr-0005-resiliencia-http-retry-y-circuit-breaker/">ADR-0005</a>.</p>
-<p><strong>Impacto:</strong> la capa de resiliencia no se mide directamente en performance — su valor es en <strong>resiliencia operativa</strong>. Habilitó el resto de las optimizaciones sin riesgo de cascadas durante la experimentación.</p>
-<hr />
-<h2 id="2-cliente-mercadopago-async">2. Cliente MercadoPago async<a class="headerlink" href="#2-cliente-mercadopago-async" title="Permanent link">&para;</a></h2>
-<p><strong>Diagnóstico:</strong> el SDK oficial de MercadoPago es síncrono (basado en <code>requests</code>). Cada <code>mp.preference().create(...)</code> bloqueaba el event loop de FastAPI durante 0.6 – 2 s, impidiendo que el worker atendiera otras requests en paralelo.</p>
-<p><strong>Cambio:</strong></p>
+<p>Fuerzas en juego:</p>
 <ul>
-<li>Eliminado <code>import mercadopago</code> y el global <code>mp = mercadopago.SDK(...)</code>.</li>
-<li>Nuevo cliente async en <a href="https://github.com/ids2-grupo8/checkout-service/blob/development/app/clients/mercadopago.py"><code>app/clients/mercadopago.py</code></a>: <code>AsyncMercadoPagoClient</code> con <code>httpx.AsyncClient</code> compartido (<code>max_connections=500</code>, <code>max_keepalive=200</code>).</li>
-<li>Métodos <code>create_preference()</code> y <code>get_payment()</code> ahora son <code>async</code> y no bloquean el event loop.</li>
-<li>Cliente cerrado en shutdown de FastAPI.</li>
+<li><strong>Simplicidad operativa:</strong> evitar un microservicio de recomendaciones solo para el MVP; el algoritmo inicial debe ser explicable y testeable.</li>
+<li><strong>Cold start:</strong> usuarios nuevos o sin señal deben ver contenido útil (productos recientes globales), no una sección vacía.</li>
+<li><strong>Consistencia de catálogo:</strong> las mismas reglas de visibilidad del listado público (stock, estado, moderación, vendedor bloqueado) deben aplicar a las recomendaciones.</li>
+<li><strong>Señales disponibles:</strong> compras recientes son la señal más fuerte; la navegación complementa cuando no hay compras o son antiguas.</li>
+<li><strong>Resiliencia:</strong> una caída de checkout-service no debe romper Home; el browse local puede seguir aportando señal o degradar a global.</li>
+<li><strong>UX en mobile:</strong> la sección <strong>Para vos</strong> no debe mezclarse con búsqueda/filtros activos en Home.</li>
 </ul>
-<p><strong>Impacto solo:</strong> mejora moderada en cifras (era un cambio pre-requisito de las siguientes optimizaciones, su valor se ve combinado con #3 y #4).</p>
-<hr />
-<h2 id="3-pool-de-conexiones-postgresql-ampliado">3. Pool de conexiones PostgreSQL ampliado<a class="headerlink" href="#3-pool-de-conexiones-postgresql-ampliado" title="Permanent link">&para;</a></h2>
-<p><strong>Diagnóstico:</strong> <code>asyncpg</code> con <code>pool_size=20, max_overflow=10</code> (30 conexiones máximo). Bajo 20 VUs concurrentes con cada checkout abriendo 2-3 conexiones (cart + order + estado), el pool se saturaba.</p>
-<p><strong>Cambio:</strong></p>
+<p>Alternativas consideradas:</p>
+<ol>
+<li><strong>Microservicio de recomendaciones</strong> dedicado.</li>
+<li><strong>Log append-only</strong> de cada vista a detalle de producto (un documento por evento).</li>
+<li><strong>Solo historial de navegación</strong>, sin consultar compras.</li>
+<li><strong>Solo historial de compras</strong>, sin capturar navegación.</li>
+<li><strong>Filtrado colaborativo o ML</strong> sobre interacciones.</li>
+</ol>
+<h2 id="decision">Decisión<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<p>Centralizamos la lógica de recomendaciones en <strong>product-service</strong>. El mobile registra navegación y consume un único endpoint con metadata de personalización. Las compras se obtienen por HTTP desde checkout-service.</p>
+<h3 id="1-cadena-de-senales-prioridad">1. Cadena de señales (prioridad)<a class="headerlink" href="#1-cadena-de-senales-prioridad" title="Permanent link">&para;</a></h3>
+<p>Para usuarios autenticados, resolvemos señal en este orden:</p>
+<ol>
+<li><strong>Compras recientes</strong> — ítems de órdenes en estados de pago confirmado o posteriores (<code>payment confirmed</code>, <code>processing</code>, <code>shipped</code>, <code>delivered</code>) dentro de una ventana de <strong>30 días</strong> (<code>RECOMMENDATION_PURCHASE_RECENCY_DAYS</code>). Se infieren categorías pico ponderadas por cantidad comprada.</li>
+<li><strong>Blend compras + navegación</strong> — si no hay compras recientes, se combinan todas las compras históricas (mismo criterio de estado) con contadores de navegación por categoría. Peso configurable: compras <strong>×2</strong>, navegación <strong>×1</strong> (<code>RECOMMENDATION_PURCHASE_CATEGORY_WEIGHT</code> / <code>RECOMMENDATION_BROWSE_CATEGORY_WEIGHT</code>).</li>
+<li><strong>Solo navegación</strong> — si no hay compras pero sí contadores de categoría, se usa browse como única señal.</li>
+<li><strong>Global (cold start)</strong> — usuarios anónimos, sin señal o con señal que no produce resultados visibles: productos disponibles más recientes, excluyendo publicaciones propias del usuario.</li>
+</ol>
+<p>Órdenes en <code>payment pending</code>, <code>payment rejected</code> o <code>canceled</code> <strong>no</strong> alimentan la señal de compras.</p>
+<h3 id="2-captura-de-historial-de-navegacion">2. Captura de historial de navegación<a class="headerlink" href="#2-captura-de-historial-de-navegacion" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Configuración por env: <code>DB_POOL_SIZE=40</code>, <code>DB_MAX_OVERFLOW=60</code> → <strong>100 conexiones totales</strong>.</li>
-<li><a href="https://github.com/ids2-grupo8/checkout-service/blob/development/app/db/async_session.py"><code>app/db/async_session.py</code></a> lee los valores de settings.</li>
+<li>Al abrir el <strong>detalle de producto</strong>, la app mobile (usuario autenticado) envía <code>POST /api/v1/products/{id}/recent-detail-view</code>.</li>
+<li>product-service incrementa un contador <strong>por categoría</strong> en MongoDB (<code>user_category_interest</code>), no un log de eventos por visita.</li>
+<li>Se registra la categoría del producto visto, no el ID del producto en el historial de browse (los IDs ya comprados se excluyen vía señal de compras).</li>
 </ul>
-<p><strong>Impacto combinado (#2 + #3):</strong></p>
-<div class="highlight"><pre><span></span><code>Load test
-  p95           : 5604 → 841 ms    (6.7× más rápido)
-  Throughput    : 4.45 → 12.5 req/s  (2.8×)
-
-Stress test
-  p95           : 30470 → 7398 ms  (4.1×)
-  Throughput    : 7.16 → 32 req/s  (4.5×)
-  http_req_failed: 10.75% → 0.47%  (22× mejor)
-</code></pre></div>
-<p>El sistema pasó de "se traba con 20 usuarios" a "procesa 150 con menos de 1% de fallas".</p>
-<hr />
-<h2 id="4-cache-lruttl-de-datos-de-product-service">4. Cache LRU+TTL de datos de product-service<a class="headerlink" href="#4-cache-lruttl-de-datos-de-product-service" title="Permanent link">&para;</a></h2>
-<p><strong>Diagnóstico:</strong> <code>cart_get</code> quedaba como el endpoint más lento por mucho (p95 = 939 ms en load, 10.5 s en stress). El <code>min</code> de 669 ms reveló que <strong>incluso la mejor request</strong> pagaba un round-trip HTTP a <code>product-service</code> para enriquecer cada carrito con <code>name</code>, <code>price</code>, <code>image_urls</code>, <code>status</code>.</p>
-<p><strong>Cambio:</strong></p>
+<h3 id="3-seleccion-de-productos-candidatos">3. Selección de productos candidatos<a class="headerlink" href="#3-seleccion-de-productos-candidatos" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Cache <code>cachetools.TTLCache</code> en <a href="https://github.com/ids2-grupo8/checkout-service/blob/development/app/clients/product_service.py"><code>app/clients/product_service.py</code></a>, indexado por <code>product_id</code>.</li>
-<li><code>get_product</code>: lookup → si miss, fetch + store. Siempre devuelve dict plano.</li>
-<li><code>get_products</code>: split en cached/missing → batch sólo de los missing → fallback per-id si batch devuelve incompletos.</li>
-<li>TTL configurable (<code>PRODUCT_CACHE_TTL_SECONDS=60</code>), tamaño máximo (<code>PRODUCT_CACHE_MAX_SIZE=2000</code>).</li>
-<li>Función <code>invalidate_product_cache(product_id)</code> como hook para futuras invalidaciones explícitas.</li>
+<li>A partir de las categorías pico (empates incluidos), se buscan productos <code>available</code> con <code>actual_stock &gt; 0</code> en esas categorías.</li>
+<li>Orden: <strong>más recientes primero</strong> (<code>created_at</code> descendente).</li>
+<li>Exclusiones: publicaciones del propio usuario y productos ya presentes en la señal de compras (<code>exclude_product_ids</code>).</li>
+<li>Tras la query, se aplican las mismas reglas de visibilidad del catálogo público (vendedor no bloqueado, producto no moderado).</li>
 </ul>
-<p><strong>Trade-offs aceptados:</strong></p>
+<h3 id="4-degradacion-y-contrato-de-api">4. Degradación y contrato de API<a class="headerlink" href="#4-degradacion-y-contrato-de-api" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Datos stale hasta TTL en <code>name</code>/<code>price</code>/<code>image_urls</code>. Para display del carrito es deseable (el precio que vio el usuario al agregar es el que paga).</li>
-<li><strong>No se cachea <code>reserve_products</code></strong> — ese va siempre directo a <code>product-service</code> porque ajusta stock real.</li>
-<li>Sin stampede protection: si N VUs piden el mismo <code>product_id</code> con cache vacío, hacen N fetches en paralelo. Aceptable para el régimen actual.</li>
+<li>Si la lista personalizada queda vacía (sin señal o filtrada por visibilidad), se repite la búsqueda con criterio <strong>global</strong> y <code>source: global</code>.</li>
+<li><code>GET /api/v1/products/recommendations/context</code> devuelve:</li>
+<li><code>items</code>: productos recomendados.</li>
+<li><code>source</code>: <code>purchases</code> | <code>blended</code> | <code>browse</code> | <code>global</code>.</li>
+<li><code>is_personalized</code>: <code>true</code> cuando <code>source</code> ∈ {<code>purchases</code>, <code>blended</code>, <code>browse</code>}.</li>
+<li>Errores de red hacia checkout-service devuelven listas de compra vacías; el flujo continúa con browse o global.</li>
 </ul>
-<p><strong>Impacto:</strong></p>
-<div class="highlight"><pre><span></span><code>Load test
-  cart_get p50    : 769 → 5.5 ms    (140×!)
-  cart_get min    : 669 → 3 ms      (223×)
-  http_req p95    : 841 → 312 ms    (2.7×)
-  Throughput      : 12.5 → 16.2 req/s
-
-Stress test
-  cart_get p95    : 10469 → 443 ms  (24×!)
-  Throughput      : 32 → 96.25 req/s  (3×)
-  http_req_failed : 0.47% → 0.00%
-  Checks          : 99% → 100%
-</code></pre></div>
-<p>La distribución de <code>cart_get</code> se volvió <strong>bimodal</strong>: p50 = 5.5 ms (hits del cache), p95 = 671 ms (las ~5% misses que pagan el round-trip). Aceptable para el SLA actual; si se quisiera cerrar ese tail, las opciones son TTL más largo o stale-while-revalidate.</p>
-<hr />
-<h2 id="5-modo-mock-de-mercadopago-para-load-testing">5. Modo mock de MercadoPago para load testing<a class="headerlink" href="#5-modo-mock-de-mercadopago-para-load-testing" title="Permanent link">&para;</a></h2>
-<p><strong>Diagnóstico:</strong> con todo lo anterior aplicado, el único bottleneck restante en stress era <strong>checkout</strong>, con p95 = 5.3 s. La razón: el round-trip a MP sandbox. <code>checkout_min = 257 ms</code> confirmaba que incluso la mejor request pagaba un viaje a MercadoPago.</p>
-<p><strong>Cambio:</strong> no es una optimización del sistema, es una <strong>herramienta de diagnóstico</strong> que permite aislar la performance del código propio de la latencia upstream.</p>
+<h3 id="5-comportamiento-en-mobile-home">5. Comportamiento en mobile (Home)<a class="headerlink" href="#5-comportamiento-en-mobile-home" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Nueva variable <code>MERCADOPAGO_MOCK_MODE</code> en settings (default <code>False</code>).</li>
-<li><code>AsyncMercadoPagoClient.create_preference</code> y <code>get_payment</code> cortocircuitan a respuestas sintéticas cuando el flag está en <code>True</code>.</li>
-<li><code>is_configured()</code> también respeta el flag (no requiere token en modo mock).</li>
-<li>Log de WARNING en startup para que sea obvio que está activo.</li>
-<li>En el <code>compose.yml</code> local, el flag está en <code>true</code> por default. En GKE/producción no se setea — el cliente pega a MP real.</li>
+<li><strong>Para vos</strong> se muestra solo si el usuario está autenticado, <code>is_personalized === true</code> y hay ítems.</li>
+<li>Con <strong>búsqueda o filtros activos</strong> en Home no se solicitan recomendaciones (evita mezclar contextos).</li>
+<li>Si el endpoint falla, la sección no se muestra; <strong>Todos los productos</strong> sigue operativo.</li>
+<li><strong>Recientes</strong> es independiente: productos vistos en la sesión de exploración local, no confundir con la señal de browse persistida.</li>
 </ul>
-<p><strong>Impacto medido (stress test, 150 VUs):</strong></p>
-<div class="highlight"><pre><span></span><code>                       Con MP sandbox    Con MP mock
-checkout p95           5338 ms           2593 ms
-checkout min            257 ms             19 ms
-http_req_duration p95  2660 ms           1733 ms
-Throughput               96 req/s         116 req/s
-</code></pre></div>
-<p><strong>MercadoPago aporta ~2.7 segundos al p95 de checkout bajo stress y limita el throughput a 96 req/s.</strong> Sin él, el sistema cumple los 8/8 umbrales de stress test.</p>
-<hr />
-<h2 id="resumen-mejoras-acumuladas">Resumen — mejoras acumuladas<a class="headerlink" href="#resumen-mejoras-acumuladas" title="Permanent link">&para;</a></h2>
-<p>Comparación de la <strong>línea base</strong> contra el sistema con las 5 optimizaciones aplicadas:</p>
+<h3 id="6-alternativas-descartadas">6. Alternativas descartadas<a class="headerlink" href="#6-alternativas-descartadas" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Métrica</th>
-<th>Baseline</th>
-<th>Final (MP mock)</th>
-<th>Mejora</th>
+<th>Alternativa</th>
+<th>Motivo de descarte</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Load — p95</strong></td>
-<td>5604 ms</td>
-<td><strong>47 ms</strong></td>
-<td><strong>119×</strong></td>
+<td>Microservicio de recomendaciones</td>
+<td>Costo operativo y de despliegue desproporcionado para el alcance del MVP.</td>
 </tr>
 <tr>
-<td><strong>Load — throughput</strong></td>
-<td>4.45 req/s</td>
-<td><strong>17.7 req/s</strong></td>
-<td>4×</td>
+<td>Log append-only por vista</td>
+<td>Mayor volumen de escrituras y agregaciones más costosas; los contadores por categoría cubren el CA de Home con menos almacenamiento.</td>
 </tr>
 <tr>
-<td><strong>Stress — p95</strong></td>
-<td>30470 ms</td>
-<td><strong>1733 ms</strong></td>
-<td><strong>17.5×</strong></td>
+<td>Solo navegación / solo compras</td>
+<td>Limitaría la calidad de <strong>Para vos</strong>; el blend mejora personalización dentro del CA-4 sin scope de la optativa #39.</td>
 </tr>
 <tr>
-<td><strong>Stress — throughput</strong></td>
-<td>7.16 req/s</td>
-<td><strong>115.95 req/s</strong></td>
-<td><strong>16×</strong></td>
-</tr>
-<tr>
-<td><strong>Stress — http_req_failed</strong></td>
-<td>10.75%</td>
-<td><strong>0.00%</strong></td>
-<td>✓ eliminado</td>
-</tr>
-<tr>
-<td><strong>Stress — checks funcionales</strong></td>
-<td>84% (peor)</td>
-<td><strong>100%</strong></td>
-<td>✓</td>
+<td>ML / filtrado colaborativo</td>
+<td>Complejidad y opacidad fuera del alcance del checkpoint; el enfoque por categorías es auditable en defensa.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="lecciones">Lecciones<a class="headerlink" href="#lecciones" title="Permanent link">&para;</a></h2>
+<h2 id="consecuencias">Consecuencias<a class="headerlink" href="#consecuencias" title="Permanent link">&para;</a></h2>
+<p><strong>Positivas</strong></p>
 <ul>
-<li><strong>Las herramientas de carga no miden performance, miden el sistema.</strong> Con MP real y sin las optimizaciones, los números parecían "la app es lenta"; con el diagnóstico encima se vio que el bottleneck era arquitectural (sync MP, pool chico, HTTP repetido), no de FastAPI.</li>
-<li><strong>Cada optimización abrió la siguiente.</strong> Sin la capa de resiliencia, experimentar con pool grande o cache hubiera sido peligroso (riesgo de cascada). Sin MP async, agrandar el pool no movía el throughput. Sin cache, MP era el cuello visible pero no el único.</li>
-<li><strong>Aislar dependencias externas con un flag es subestimado.</strong> El modo mock de MP convirtió un debate "es nuestro código vs el integrador" en evidencia con números.</li>
+<li>Una sola fuente de verdad para recomendaciones (<code>product-service</code>), alineada con el dueño del catálogo.</li>
+<li>Algoritmo determinista, cubierto por tests en <code>test_recommendations.py</code>.</li>
+<li>Degradación graceful: checkout caído → browse o global; sin señal → global; API caída en mobile → Home usable sin <strong>Para vos</strong>.</li>
+<li>La UI distingue claramente personalizado vs. global mediante <code>is_personalized</code>, sin mostrar <strong>Para vos</strong> con picks globales.</li>
+</ul>
+<p><strong>Negativas</strong></p>
+<ul>
+<li>product-service depende de checkout-service en runtime para la señal de compras (acoplamiento HTTP sincrónico).</li>
+<li>Los contadores por categoría pierden granularidad a nivel producto en browse (solo la categoría del detalle visitado).</li>
+<li>La ventana de 30 días y los pesos 2:1 son heurísticas fijas; ajustarlos requiere configuración/despliegue.</li>
+</ul>
+<p><strong>Neutras</strong></p>
+<ul>
+<li>El valor <code>profile</code> en el DTO de <code>source</code> queda reservado; la implementación actual no lo emite.</li>
+<li>El mismo endpoint puede reutilizarse si en el futuro se implementa la optativa #39 como pantalla dedicada; queda fuera del alcance actual.</li>
 </ul>
 
 

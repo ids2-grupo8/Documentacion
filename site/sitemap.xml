@@ -2,82 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/adr/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/adr/adr-0001-una-orden-por-vendedor-en-checkout/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/adr/adr-0002-kong-como-api-gateway/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/adr/adr-0003-stack-heterogeneo-python-go-postgres-mongo/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/adr/adr-0004-consistencia-distribuida-saga-compensacion/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/adr/adr-0005-resiliencia-http-retry-y-circuit-breaker/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/adr/adr-0006-despliegue-gke-en-gcp/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://ids2-grupo8.github.io/Documentacion/site/adr/adr-0007-recomendaciones-en-home/</loc>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/adr/plantilla/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/arquitectura/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/pruebas-de-carga/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/pruebas-de-carga/como-ejecutar/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/pruebas-de-carga/optimizaciones/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/servicios/backoffice/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/servicios/checkout-service/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/servicios/mobile-app/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/servicios/product-service/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/servicios/user-service/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/sprints/sprint-1/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
     </url>
     <url>
          <loc>https://ids2-grupo8.github.io/Documentacion/site/sprints/sprint-2/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-07</lastmod>
+    </url>
+    <url>
+         <loc>https://ids2-grupo8.github.io/Documentacion/site/sprints/sprint-3/</loc>
+         <lastmod>2026-06-07</lastmod>
     </url>
 </urlset>

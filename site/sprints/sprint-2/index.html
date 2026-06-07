@@ -16,7 +16,7 @@
         <link rel="prev" href="../sprint-1/">
       
       
-        <link rel="next" href="../../arquitectura/">
+        <link rel="next" href="../sprint-3/">
       
       
         
@@ -268,6 +268,8 @@
   
     
     
+      
+        
       
         
       
@@ -527,6 +529,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -701,6 +731,8 @@
       
         
           
+        
+      
         
       
         
@@ -949,6 +981,34 @@
     
   
     ADR-0006 — Despliegue en GKE/GCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/adr-0007-recomendaciones-en-home/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-0007 — Recomendaciones en Home
   
 
     
@@ -1423,11 +1483,19 @@
 <hr />
 <h2 id="seguimiento-por-historias-planificadas">Seguimiento por historias planificadas<a class="headerlink" href="#seguimiento-por-historias-planificadas" title="Permanent link">&para;</a></h2>
 <h3 id="obligatorias_1">Obligatorias<a class="headerlink" href="#obligatorias_1" title="Permanent link">&para;</a></h3>
-<p><strong>#1 Home</strong>
-  - Secciones de descubrimiento: <strong><code>Recientes</code></strong> (productos marcados como recientes en la sesión de listado), <strong><code>Para vos</code></strong> (solo si aplica) y <strong><code>Todos los productos</code></strong> (rejilla a dos columnas), con loading, pull-to-refresh y manejo de error en la carga principal del catálogo.
-  - Para usuarios no autenticados se restringen acciones sensibles (agregar al carrito, publicar, abrir carrito), solicitando login.
-  - <strong><code>Para vos</code></strong>: solo usuarios <strong>autenticados</strong>; la app usa <code>GET .../recommendations/context</code> y muestra la sección cuando hay ítems . No se muestra en invitados; si no hay señal útil, el catálogo cae a recomendaciones <strong>globales</strong> y esa hilera no se trata como “Para vos” personalizado. Con filtros o búsqueda activos en Home no se pide la sección (evita mezclar contextos).
-  - <strong>Criterio operativo actual (recomendados personalizados):</strong> por ahora <strong>solo</strong> se utiliza la <strong>visualización del detalle de producto</strong>. La app registra cada vista autenticada con <code>POST /products/{id}/recent-detail-view</code> (identidad vía <code>X-User-Email</code>); <code>product-service</code> persiste en la colección <code>product_detail_views</code>, infiere categorías “pico” a partir de esos productos vistos y devuelve candidatos con stock excluyendo publicaciones propias . El listado global sigue como respaldo cuando no hay vistas de detalle registradas.</p>
+<p><strong>#1 Home</strong></p>
+<ul>
+<li>Pantalla de inicio con secciones <strong>Recientes</strong>, <strong>Para vos</strong> (cuando aplica) y <strong>Todos los productos</strong> en rejilla de dos columnas.</li>
+<li>Loading, pull-to-refresh y mensaje de error ante fallos de carga.</li>
+<li>Usuarios no autenticados pueden explorar el catálogo; acciones como agregar al carrito o publicar solicitan login.</li>
+</ul>
+<p><strong>Sección “Para vos”</strong></p>
+<ul>
+<li>Visible solo para usuarios autenticados, cuando el backend indica personalización (<code>is_personalized</code>) y hay ítems.</li>
+<li>No aparece con filtros o búsqueda activos en Home.</li>
+<li>Sin señal de personalización, la sección no se muestra; el catálogo general sigue disponible en <strong>Todos los productos</strong>.</li>
+</ul>
+<p><strong>Recomendaciones (CA-4 de Home):</strong> criterios, señales y decisiones de diseño en <a href="../../adr/adr-0007-recomendaciones-en-home/">ADR-0007</a>.</p>
 <p><strong>#2 Listado y búsqueda de productos</strong> 
   - Búsqueda por texto con debounce.
   - Integración de filtros y ordenamiento sobre el fetch del catálogo.
