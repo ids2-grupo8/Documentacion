@@ -35,6 +35,7 @@ nav:
   - Sprints:
       - Sprint 1: sprints/sprint-1.md
       - Sprint 2: sprints/sprint-2.md
+      - Sprint 3: sprints/sprint-3.md
   - Arquitectura: arquitectura/index.md
   - Pruebas de carga:
       - Resumen: pruebas-de-carga/index.md
@@ -49,6 +50,7 @@ nav:
       - ADR-0004 — Consistencia distribuida (saga): adr/adr-0004-consistencia-distribuida-saga-compensacion.md
       - ADR-0005 — Resiliencia HTTP (Retry + CB): adr/adr-0005-resiliencia-http-retry-y-circuit-breaker.md
       - ADR-0006 — Despliegue en GKE/GCP: adr/adr-0006-despliegue-gke-en-gcp.md
+      - ADR-0007 — Recomendaciones en Home: adr/adr-0007-recomendaciones-en-home.md
   - Servicios:
       - User Service: servicios/user-service.md
       - Product Service: servicios/product-service.md

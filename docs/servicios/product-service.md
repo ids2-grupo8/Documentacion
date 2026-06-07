@@ -13,10 +13,10 @@ Microservicio del **catálogo**: publicaciones, stock, imágenes y exposición a
 
 ## Responsabilidades
 
-
 - CRUD de productos del vendedor (precio, stock, estado, imágenes).
 - Listado y detalle para el catálogo; productos por vendedor.
-- Consultas al user-service para datos públicos del vendedor.
+- Consultas al user-service para datos públicos del vendedor y visibilidad (vendedores bloqueados).
+- **Recomendaciones personalizadas** para Home: captura de navegación, señal de compras vía checkout-service, endpoint `/recommendations/context`. Ver [ADR-0007](../adr/adr-0007-recomendaciones-en-home.md).
 - **Salud (`/api/v1/health`)**: comprobaciones para despliegue y monitoreo.
 
 ## Repositorio

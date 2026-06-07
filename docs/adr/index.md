@@ -20,3 +20,4 @@ Registro de decisiones arquitectónicas del sistema Bazaar. Cada ADR sigue la pl
 | [0004](adr-0004-consistencia-distribuida-saga-compensacion.md)          | Consistencia distribuida — Saga con compensación basada en eventos | Aceptada | 2026-06-02 |
 | [0005](adr-0005-resiliencia-http-retry-y-circuit-breaker.md)            | Resiliencia HTTP — Retry exponencial + Circuit Breaker | Aceptada | 2026-06-02 |
 | [0006](adr-0006-despliegue-gke-en-gcp.md)                               | Despliegue en GKE sobre GCP         | Aceptada | 2026-06-02 |
+| [0007](adr-0007-recomendaciones-en-home.md)                            | Recomendaciones personalizadas en Home | Aceptada | 2026-05-12 |

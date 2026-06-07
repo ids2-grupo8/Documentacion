@@ -58,10 +58,18 @@ Las bases de infraestructura, autenticación y arquitectura general ya fueron do
 ### Obligatorias
 
 **#1 Home**
-  - Secciones de descubrimiento: **`Recientes`** (productos marcados como recientes en la sesión de listado), **`Para vos`** (solo si aplica) y **`Todos los productos`** (rejilla a dos columnas), con loading, pull-to-refresh y manejo de error en la carga principal del catálogo.
-  - Para usuarios no autenticados se restringen acciones sensibles (agregar al carrito, publicar, abrir carrito), solicitando login.
-  - **`Para vos`**: solo usuarios **autenticados**; la app usa `GET .../recommendations/context` y muestra la sección cuando hay ítems . No se muestra en invitados; si no hay señal útil, el catálogo cae a recomendaciones **globales** y esa hilera no se trata como “Para vos” personalizado. Con filtros o búsqueda activos en Home no se pide la sección (evita mezclar contextos).
-  - **Criterio operativo actual (recomendados personalizados):** por ahora **solo** se utiliza la **visualización del detalle de producto**. La app registra cada vista autenticada con `POST /products/{id}/recent-detail-view` (identidad vía `X-User-Email`); `product-service` persiste en la colección `product_detail_views`, infiere categorías “pico” a partir de esos productos vistos y devuelve candidatos con stock excluyendo publicaciones propias . El listado global sigue como respaldo cuando no hay vistas de detalle registradas.
+
+  - Pantalla de inicio con secciones **Recientes**, **Para vos** (cuando aplica) y **Todos los productos** en rejilla de dos columnas.
+  - Loading, pull-to-refresh y mensaje de error ante fallos de carga.
+  - Usuarios no autenticados pueden explorar el catálogo; acciones como agregar al carrito o publicar solicitan login.
+
+  **Sección “Para vos”**
+
+  - Visible solo para usuarios autenticados, cuando el backend indica personalización (`is_personalized`) y hay ítems.
+  - No aparece con filtros o búsqueda activos en Home.
+  - Sin señal de personalización, la sección no se muestra; el catálogo general sigue disponible en **Todos los productos**.
+
+  **Recomendaciones (CA-4 de Home):** criterios, señales y decisiones de diseño en [ADR-0007](../adr/adr-0007-recomendaciones-en-home.md).
 
 **#2 Listado y búsqueda de productos** 
   - Búsqueda por texto con debounce.
