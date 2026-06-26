@@ -36,7 +36,9 @@ nav:
       - Sprint 1: sprints/sprint-1.md
       - Sprint 2: sprints/sprint-2.md
       - Sprint 3: sprints/sprint-3.md
-  - Arquitectura: arquitectura/index.md
+  - Arquitectura:
+      - Resumen: arquitectura/index.md
+      - Diagramas C4: arquitectura/diagramas-c4.md
   - Pruebas de carga:
       - Resumen: pruebas-de-carga/index.md
       - Optimizaciones aplicadas: pruebas-de-carga/optimizaciones.md
@@ -58,11 +60,24 @@ nav:
       - Backoffice: servicios/backoffice.md
       - Mobile App: servicios/mobile-app.md
 
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - kroki:
+      server_url: !ENV [KROKI_SERVER_URL, 'http://localhost:8001']
+      tag_format: svg
+
 markdown_extensions:
   - tables
   - admonition
   - pymdownx.highlight
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.details
   - attr_list
   - toc:

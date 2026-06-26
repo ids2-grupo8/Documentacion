@@ -16,6 +16,24 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    # Kroki renderiza los diagramas Structurizr (workspace.dsl) durante el build.
+    # tag_format=svg incrusta los SVG en el HTML, así que el sitio publicado no
+    # depende de Kroki en runtime; solo se necesita durante la compilación.
+    services:
+      kroki:
+        image: yuzutech/kroki
+        ports:
+          - 8001:8000
+
+    env:
+      KROKI_SERVER_URL: http://localhost:8001
+      DISABLE_MKDOCS_2_WARNING: "true"
+      # El plugin Kroki lee workspace.dsl con open() sin encoding; forzamos
+      # UTF-8 para que los acentos no se corrompan (clave en Windows; en Linux
+      # ya es el default, pero lo dejamos explícito).
+      PYTHONUTF8: "1"
+
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +41,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install mkdocs-material
+      - run: pip install -r requirements.txt
 
       - run: mkdocs build --strict
 

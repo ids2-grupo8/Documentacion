@@ -16,7 +16,7 @@
         <link rel="prev" href="../sprints/sprint-3/">
       
       
-        <link rel="next" href="../pruebas-de-carga/">
+        <link rel="next" href="diagramas-c4/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Arquitectura - Bazaar — Grupo 8</title>
+        <title>Resumen - Bazaar — Grupo 8</title>
       
     
     
@@ -52,6 +52,8 @@
         <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Code"}</style>
       
     
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -114,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Arquitectura
+              Resumen
             
           </span>
         </div>
@@ -412,16 +414,29 @@
   
   
   
-    <li class="md-nav__item md-nav__item--active">
+    
+    
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
+        
+          
+        
       
         
       
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
           
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
   
   
   <span class="md-ellipsis">
@@ -435,17 +450,43 @@
   
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitectura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="diagramas-c4/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Arquitectura
+    Diagramas C4
   
 
     
@@ -454,119 +495,13 @@
   
 
       </a>
-      
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#vision-general" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visión general
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Visión general">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#por-que-microservicios" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ¿Por qué microservicios?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#que-hace-el-api-gateway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ¿Qué hace el API Gateway?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#servicios" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Servicios
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mensajeria-asincrona-rabbitmq" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mensajería asíncrona (RabbitMQ)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#flujo-de-una-compra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flujo de una compra
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#servicios-externos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Servicios externos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#decisiones-de-tecnologia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decisiones de tecnología
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
+              
+            
+          </ul>
+        </nav>
       
     </li>
   

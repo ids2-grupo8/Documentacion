@@ -1,0 +1,23 @@
+/* ---------------------------------------------------------------------------
+   Diagramas Structurizr (renderizados por Kroki e incrustados como SVG)
+   - Tamaño responsivo: se ajustan al ancho de la columna sin desbordar.
+   - Fondo transparente: adoptan el fondo del tema (claro u oscuro) del sitio.
+   - "Ink" de PlantUML (#444444: título, boundaries, flechas y etiquetas)
+     recoloreado al color de texto del tema para que se lea en ambos modos.
+--------------------------------------------------------------------------- */
+
+.md-typeset svg[data-diagram-type] {
+  display: block;
+  margin: 1.2rem auto;
+  max-width: 100% !important;
+  height: auto !important;
+  background: transparent !important;
+}
+
+.md-typeset svg[data-diagram-type] [fill="#444444"] {
+  fill: var(--md-typeset-color) !important;
+}
+
+.md-typeset svg[data-diagram-type] [style*="stroke:#444444"] {
+  stroke: var(--md-typeset-color) !important;
+}
