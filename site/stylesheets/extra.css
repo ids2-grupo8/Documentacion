@@ -6,11 +6,22 @@
      recoloreado al color de texto del tema para que se lea en ambos modos.
 --------------------------------------------------------------------------- */
 
+/* El plugin envuelve cada SVG en un <div>; lo hacemos scrollable en horizontal
+   para los diagramas anchos (Contenedores/Componentes) sin encogerlos. */
+.md-typeset div:has(> svg[data-diagram-type]) {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 .md-typeset svg[data-diagram-type] {
   display: block;
   margin: 1.2rem auto;
-  max-width: 100% !important;
+  width: auto !important;
   height: auto !important;
+  /* Se limita por alto (legible) y el ancho se desborda con scroll en vez de
+     encogerse hasta volverse ilegible. */
+  max-width: none !important;
+  max-height: 80vh !important;
   background: transparent !important;
 }
 
@@ -20,4 +31,11 @@
 
 .md-typeset svg[data-diagram-type] [style*="stroke:#444444"] {
   stroke: var(--md-typeset-color) !important;
+}
+
+/* Los recuadros de boundary (límite del sistema / contenedor) vienen con
+   relleno blanco que tapa el fondo; los hacemos transparentes para que adopten
+   el fondo del tema. Solo afecta <rect> (el texto blanco usa <text fill=...>). */
+.md-typeset svg[data-diagram-type] rect[fill="#FFFFFF"] {
+  fill: transparent !important;
 }
