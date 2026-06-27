@@ -1192,10 +1192,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#navegacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navegación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#responsabilidades" class="md-nav__link">
     <span class="md-ellipsis">
       
         Responsabilidades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resiliencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resiliencia
       
     </span>
   </a>
@@ -1267,10 +1289,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#navegacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navegación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#responsabilidades" class="md-nav__link">
     <span class="md-ellipsis">
       
         Responsabilidades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resiliencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resiliencia
       
     </span>
   </a>
@@ -1306,7 +1350,7 @@
 
 
 <h1 id="mobile-app">Mobile App<a class="headerlink" href="#mobile-app" title="Permanent link">&para;</a></h1>
-<p>Cliente <strong>React Native (Expo)</strong> para compradores y vendedores: misma cuenta para ambos roles.</p>
+<p>Cliente <strong>React Native (Expo)</strong> para compradores y vendedores: la misma cuenta habilita ambos roles sin fricción. Se distribuye como app nativa (Android/iOS) y como <strong>PWA</strong> (deploy web en Vercel).</p>
 <h2 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1322,26 +1366,51 @@
 </tr>
 <tr>
 <td>Framework</td>
-<td>React Native + Expo</td>
+<td>React Native + Expo (Expo Router)</td>
 </tr>
 <tr>
 <td>Estado</td>
-<td>Zustand (sesión, carrito, tema, datos de usuario)</td>
+<td>Zustand (sesión, carrito, tema, notificaciones, datos de usuario)</td>
 </tr>
 <tr>
 <td>API</td>
-<td>Cliente al API Gateway (<code>users</code>, <code>products</code>, …) vía helpers en <code>constants/api</code> y <code>services/</code></td>
+<td>Cliente al API Gateway (<code>users</code>, <code>products</code>, <code>checkout</code>, <code>notification</code>) vía helpers en <code>constants/api</code> y <code>services/</code></td>
+</tr>
+<tr>
+<td>Pagos</td>
+<td>MercadoPago (checkout hosteado)</td>
+</tr>
+<tr>
+<td>Push</td>
+<td>Expo Push Notifications (nativo) + Web Push (PWA)</td>
 </tr>
 </tbody>
 </table>
+<p>Toda la comunicación pasa <strong>exclusivamente</strong> por el API Gateway; la app no llama directo a los servicios backend.</p>
+<h2 id="navegacion">Navegación<a class="headerlink" href="#navegacion" title="Permanent link">&para;</a></h2>
+<p>Barra inferior flotante con cinco pestañas:</p>
+<ul>
+<li><strong>Inicio</strong> — descubrimiento: banner promocional activo, accesos rápidos por categoría, sección "Lo nuevo" y recomendaciones.</li>
+<li><strong>Explorar</strong> — búsqueda en vivo (debounced), filtros (categoría, rango de precio), orden y chips de filtros activos.</li>
+<li><strong>Carrito</strong> — gestión del carrito y paso al checkout.</li>
+<li><strong>Notificaciones</strong> — cambios de estado de las órdenes.</li>
+<li><strong>Perfil</strong> — cuenta, compras, ventas, publicaciones y preferencias.</li>
+</ul>
+<p>Más rutas stack: detalle de producto, reviews, perfil público de vendedor, checkout, órdenes y publicación.</p>
 <h2 id="responsabilidades">Responsabilidades<a class="headerlink" href="#responsabilidades" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Autenticación</strong>: registro, login email/contraseña, recupero y nueva contraseña (deep link del enlace de Supabase hacia <code>reset-password</code>); login con <strong>Google</strong> (OAuth en navegador in-app + intercambio de tokens con el backend).</li>
-<li><strong>Catálogo y compra</strong>: home con productos desde el <strong>product-service</strong>, filtros (categoría, texto, rango de precio), detalle por id, compartir link directo del producto (deep link), carrito persistente (hidrata desde almacenamiento).</li>
-<li><strong>Vendedor</strong>: flujo de publicación de producto con imágenes; edición de perfil en pantalla dedicada.</li>
-<li><strong>Navegación</strong>: Expo Router (tabs Home / Explore / Perfil más rutas de producto y vendedor); pestaña “Explore” aún con contenido plantilla de Expo.</li>
-<li><strong>Tema</strong>: claro/oscuro/sistema coherente con la identidad visual del proyecto.</li>
+<li><strong>Autenticación</strong>: registro, login email/contraseña, recupero y nueva contraseña (deep link de Supabase hacia <code>reset-password</code>), login con <strong>Google</strong> (OAuth in-app + intercambio de tokens), <strong>PIN</strong> ligado al dispositivo (opcional, con vinculación sugerida), refresh token sin re-login y manejo de cuenta suspendida / rate limit.</li>
+<li><strong>Catálogo</strong>: home de descubrimiento + recomendaciones basadas en historial (product-service con JWT); búsqueda en vivo y filtros (categoría, texto, rango de precio) con orden; detalle de producto con descripción y especificaciones colapsables; compartir link directo (deep link); registro de vistas recientes.</li>
+<li><strong>Carrito</strong>: persistente entre sesiones (SecureStore), sincronización con backend y verificación de stock antes del checkout; manejo de items no disponibles.</li>
+<li><strong>Checkout y órdenes</strong>: pago con <strong>MercadoPago</strong>, cupones de descuento (validación + cupón activo), dirección de envío y pantallas de éxito / pendiente / fallo; historial de compras y ventas, detalle de orden y transiciones de estado (en preparación, enviada con código de seguimiento).</li>
+<li><strong>Reviews / reputación</strong>: calificar <strong>producto</strong> y <strong>vendedor</strong> (UI de medias estrellas), sólo sobre órdenes <strong>entregadas</strong> (validado en checkout-service); reputación agregada del producto en su detalle y perfil público de reputación del vendedor.</li>
+<li><strong>Vendedor</strong>: publicación de producto con imágenes (multipart), gestión de publicaciones (con estado de moderación) y órdenes de venta.</li>
+<li><strong>Notificaciones</strong>: notificaciones in-app de cambio de estado de orden (abren el detalle) y <strong>push</strong> (Expo nativo + Web Push en PWA) con banner de opt-in y registro de dispositivo.</li>
+<li><strong>Perfil</strong>: visualización y edición, avatar, estadísticas, configuración de PIN y tema.</li>
+<li><strong>Tema</strong>: claro / oscuro / sistema, coherente con la identidad visual del proyecto.</li>
 </ul>
+<h2 id="resiliencia">Resiliencia<a class="headerlink" href="#resiliencia" title="Permanent link">&para;</a></h2>
+<p>Cliente HTTP con reintentos, manejo explícito de loading/error, timeouts y expiración de sesión (redirección a login conservando contexto cuando es posible).</p>
 <h2 id="repositorio">Repositorio<a class="headerlink" href="#repositorio" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/ids2-grupo8/mobileApp">github.com/ids2-grupo8/mobileApp</a></p>
 <p>Setup local: ver el <code>README</code> del repositorio.</p>
