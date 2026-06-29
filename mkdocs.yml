@@ -40,6 +40,11 @@ nav:
   - Arquitectura:
       - Resumen: arquitectura/index.md
       - Diagramas C4: arquitectura/diagramas-c4.md
+  - API:
+      - Contratos OpenAPI: api/index.md
+  - Guías de usuario:
+      - App Mobile: guias/mobile.md
+      - Backoffice: guias/backoffice.md
   - Pruebas de carga:
       - Resumen: pruebas-de-carga/index.md
       - Optimizaciones aplicadas: pruebas-de-carga/optimizaciones.md
@@ -60,6 +65,7 @@ nav:
       - Checkout Service: servicios/checkout-service.md
       - Backoffice: servicios/backoffice.md
       - Mobile App: servicios/mobile-app.md
+  - Retrospectiva: retrospectiva.md
 
 extra_css:
   - stylesheets/extra.css
