@@ -10,31 +10,29 @@
       
       
       
-        <link rel="canonical" href="https://ids2-grupo8.github.io/Documentacion/site/adr/adr-0005-resiliencia-http-retry-y-circuit-breaker/">
+        <link rel="canonical" href="https://ids2-grupo8.github.io/Documentacion/site/retrospectiva/">
       
       
-        <link rel="prev" href="../adr-0004-consistencia-distribuida-saga-compensacion/">
+        <link rel="prev" href="../servicios/mobile-app/">
       
-      
-        <link rel="next" href="../adr-0006-despliegue-gke-en-gcp/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>ADR-0005 — Resiliencia HTTP (Retry + CB) - Bazaar — Grupo 8</title>
+        <title>Retrospectiva - Bazaar — Grupo 8</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adr-0005-resiliencia-en-llamadas-http-entre-servicios-retry-exponencial-y-circuit-breaker" class="md-skip">
+        <a href="#retrospectiva-final-del-proyecto" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -96,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href="../.." title="Bazaar — Grupo 8" class="md-header__button md-logo" aria-label="Bazaar — Grupo 8" data-md-component="logo">
+    <a href=".." title="Bazaar — Grupo 8" class="md-header__button md-logo" aria-label="Bazaar — Grupo 8" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 13a5 5 0 0 1-5-5h2a3 3 0 0 0 3 3 3 3 0 0 0 3-3h2a5 5 0 0 1-5 5m0-10a3 3 0 0 1 3 3H9a3 3 0 0 1 3-3m7 3h-2a5 5 0 0 0-5-5 5 5 0 0 0-5 5H5c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"/></svg>
@@ -116,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ADR-0005 — Resiliencia HTTP (Retry + CB)
+              Retrospectiva
             
           </span>
         </div>
@@ -222,7 +220,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Bazaar — Grupo 8" class="md-nav__button md-logo" aria-label="Bazaar — Grupo 8" data-md-component="logo">
+    <a href=".." title="Bazaar — Grupo 8" class="md-nav__button md-logo" aria-label="Bazaar — Grupo 8" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 13a5 5 0 0 1-5-5h2a3 3 0 0 0 3 3 3 3 0 0 0 3-3h2a5 5 0 0 1-5 5m0-10a3 3 0 0 1 3 3H9a3 3 0 0 1 3-3m7 3h-2a5 5 0 0 0-5-5 5 5 0 0 0-5 5H5c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"/></svg>
@@ -240,7 +238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -324,7 +322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sprints/sprint-1/" class="md-nav__link">
+      <a href="../sprints/sprint-1/" class="md-nav__link">
         
   
   
@@ -352,7 +350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sprints/sprint-2/" class="md-nav__link">
+      <a href="../sprints/sprint-2/" class="md-nav__link">
         
   
   
@@ -380,7 +378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sprints/sprint-3/" class="md-nav__link">
+      <a href="../sprints/sprint-3/" class="md-nav__link">
         
   
   
@@ -408,7 +406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sprints/sprint-4/" class="md-nav__link">
+      <a href="../sprints/sprint-4/" class="md-nav__link">
         
   
   
@@ -463,7 +461,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../arquitectura/" class="md-nav__link ">
+            <a href="../arquitectura/" class="md-nav__link ">
               
   
   
@@ -507,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../arquitectura/diagramas-c4/" class="md-nav__link">
+      <a href="../arquitectura/diagramas-c4/" class="md-nav__link">
         
   
   
@@ -560,7 +558,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../api/" class="md-nav__link ">
+            <a href="../api/" class="md-nav__link ">
               
   
   
@@ -659,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guias/mobile/" class="md-nav__link">
+      <a href="../guias/mobile/" class="md-nav__link">
         
   
   
@@ -687,7 +685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guias/backoffice/" class="md-nav__link">
+      <a href="../guias/backoffice/" class="md-nav__link">
         
   
   
@@ -744,7 +742,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../pruebas-de-carga/" class="md-nav__link ">
+            <a href="../pruebas-de-carga/" class="md-nav__link ">
               
   
   
@@ -788,7 +786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pruebas-de-carga/optimizaciones/" class="md-nav__link">
+      <a href="../pruebas-de-carga/optimizaciones/" class="md-nav__link">
         
   
   
@@ -816,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pruebas-de-carga/como-ejecutar/" class="md-nav__link">
+      <a href="../pruebas-de-carga/como-ejecutar/" class="md-nav__link">
         
   
   
@@ -848,8 +846,6 @@
       
   
   
-    
-  
   
   
     
@@ -879,15 +875,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../adr/" class="md-nav__link ">
               
   
   
@@ -911,7 +907,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -931,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plantilla/" class="md-nav__link">
+      <a href="../adr/plantilla/" class="md-nav__link">
         
   
   
@@ -959,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr-0001-una-orden-por-vendedor-en-checkout/" class="md-nav__link">
+      <a href="../adr/adr-0001-una-orden-por-vendedor-en-checkout/" class="md-nav__link">
         
   
   
@@ -987,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr-0002-kong-como-api-gateway/" class="md-nav__link">
+      <a href="../adr/adr-0002-kong-como-api-gateway/" class="md-nav__link">
         
   
   
@@ -1015,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr-0003-stack-heterogeneo-python-go-postgres-mongo/" class="md-nav__link">
+      <a href="../adr/adr-0003-stack-heterogeneo-python-go-postgres-mongo/" class="md-nav__link">
         
   
   
@@ -1043,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr-0004-consistencia-distribuida-saga-compensacion/" class="md-nav__link">
+      <a href="../adr/adr-0004-consistencia-distribuida-saga-compensacion/" class="md-nav__link">
         
   
   
@@ -1068,37 +1064,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ADR-0005 — Resiliencia HTTP (Retry + CB)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../adr/adr-0005-resiliencia-http-retry-y-circuit-breaker/" class="md-nav__link">
         
   
   
@@ -1114,120 +1083,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#estado" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Estado
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contexto" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contexto
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#decision" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decisión
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Decisión">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#retry-con-backoff-exponencial" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Retry con backoff exponencial
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#circuit-breaker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Circuit Breaker
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#integracion-en-los-clientes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Integración en los clientes
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tests
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#consecuencias" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consecuencias
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1240,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr-0006-despliegue-gke-en-gcp/" class="md-nav__link">
+      <a href="../adr/adr-0006-despliegue-gke-en-gcp/" class="md-nav__link">
         
   
   
@@ -1268,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr-0007-recomendaciones-en-home/" class="md-nav__link">
+      <a href="../adr/adr-0007-recomendaciones-en-home/" class="md-nav__link">
         
   
   
@@ -1362,7 +1217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../servicios/user-service/" class="md-nav__link">
+      <a href="../servicios/user-service/" class="md-nav__link">
         
   
   
@@ -1390,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../servicios/product-service/" class="md-nav__link">
+      <a href="../servicios/product-service/" class="md-nav__link">
         
   
   
@@ -1418,7 +1273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../servicios/checkout-service/" class="md-nav__link">
+      <a href="../servicios/checkout-service/" class="md-nav__link">
         
   
   
@@ -1446,7 +1301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../servicios/backoffice/" class="md-nav__link">
+      <a href="../servicios/backoffice/" class="md-nav__link">
         
   
   
@@ -1474,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../servicios/mobile-app/" class="md-nav__link">
+      <a href="../servicios/mobile-app/" class="md-nav__link">
         
   
   
@@ -1506,10 +1361,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../retrospectiva/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retrospectiva
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1525,6 +1407,92 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-del-recorrido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen del recorrido
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-salio-bien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué salió bien 👍
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-nos-costo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué nos costó 👎
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-aprendimos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué aprendimos 💡
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metricas-finales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métricas finales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cierre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cierre
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1556,10 +1524,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#estado" class="md-nav__link">
+  <a href="#resumen-del-recorrido" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Estado
+        Resumen del recorrido
       
     </span>
   </a>
@@ -1567,10 +1535,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#contexto" class="md-nav__link">
+  <a href="#que-salio-bien" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contexto
+        Qué salió bien 👍
       
     </span>
   </a>
@@ -1578,71 +1546,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#decision" class="md-nav__link">
+  <a href="#que-nos-costo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Decisión
+        Qué nos costó 👎
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Decisión">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#retry-con-backoff-exponencial" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Retry con backoff exponencial
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#circuit-breaker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Circuit Breaker
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#integracion-en-los-clientes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Integración en los clientes
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tests
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#consecuencias" class="md-nav__link">
+  <a href="#que-aprendimos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Consecuencias
+        Qué aprendimos 💡
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metricas-finales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métricas finales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cierre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cierre
       
     </span>
   </a>
@@ -1666,91 +1606,140 @@
 
 
 
-<h1 id="adr-0005-resiliencia-en-llamadas-http-entre-servicios-retry-exponencial-y-circuit-breaker">ADR-0005: Resiliencia en llamadas HTTP entre servicios — Retry exponencial y Circuit Breaker<a class="headerlink" href="#adr-0005-resiliencia-en-llamadas-http-entre-servicios-retry-exponencial-y-circuit-breaker" title="Permanent link">&para;</a></h1>
-<h2 id="estado">Estado<a class="headerlink" href="#estado" title="Permanent link">&para;</a></h2>
-<p>Aceptada</p>
-<p><strong>Fecha:</strong> 2026-06-02</p>
-<h2 id="contexto">Contexto<a class="headerlink" href="#contexto" title="Permanent link">&para;</a></h2>
-<p><code>checkout-service</code> realiza llamadas HTTP sincrónicas a otros microservicios durante el flujo de compra y los listados administrativos:</p>
+<h1 id="retrospectiva-final-del-proyecto">Retrospectiva final del proyecto<a class="headerlink" href="#retrospectiva-final-del-proyecto" title="Permanent link">&para;</a></h1>
+<p><strong>Proyecto:</strong> Bazaar — Marketplace
+<strong>Grupo 8</strong> — Ingeniería de Software II
+<strong>Período:</strong> 27/03/2026 — 29/06/2026 (4 sprints)
+<strong>Puntos totales entregados:</strong> 95</p>
+<hr />
+<h2 id="resumen-del-recorrido">Resumen del recorrido<a class="headerlink" href="#resumen-del-recorrido" title="Permanent link">&para;</a></h2>
+<p>Arrancamos en el Sprint 1 montando las bases: infraestructura en GKE, API Gateway con Kong,
+CI/CD por repositorio y los primeros flujos de autenticación y catálogo. En el Sprint 2
+completamos el core de compra (home, búsqueda, carrito y checkout con Mercado Pago). El
+Sprint 3 cerró el ciclo post-compra (seguimiento de órdenes, historiales, reseñas con
+reputación, cupones y métricas en el backoffice). Finalmente, el Sprint 4 sumó las
+notificaciones push (mobile y web) con un nuevo microservicio en Go, y endureció el flujo
+crítico de compra con pruebas de carga y un set de optimizaciones de resiliencia.</p>
+<p>Terminamos con un marketplace funcional de punta a punta: el mismo usuario puede comprar y
+vender, pagar con Mercado Pago, seguir sus órdenes y recibir notificaciones, mientras los
+administradores gestionan usuarios, órdenes y métricas desde el backoffice.</p>
+<hr />
+<h2 id="que-salio-bien">Qué salió bien 👍<a class="headerlink" href="#que-salio-bien" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>product-service</code>: <code>get_product</code>, <code>get_products</code>, <code>reserve_products</code> (crítico para el checkout — sin él no se reserva stock).</li>
-<li><code>user-service</code>: <code>get_user_by_email</code>, <code>get_user_role_by_email</code> (usado en listados admin y validación de roles).</li>
+<li><strong>La arquitectura de microservicios se sostuvo.</strong> Dividir por dominio (user, product,
+  checkout, notification) nos permitió trabajar en paralelo sin pisarnos y desplegar cada
+  servicio de forma independiente. <em>Database per service</em> evitó acoplamientos.</li>
+<li><strong>El API Gateway centralizó lo transversal.</strong> Validar JWT y propagar identidad en Kong
+  (ver <a href="../adr/adr-0002-kong-como-api-gateway/">ADR-0002</a>) simplificó muchísimo los
+  servicios: no tuvieron que reimplementar autenticación cada uno.</li>
+<li><strong>GitOps con ArgoCD.</strong> Una vez configurado, desplegar fue pushear y olvidarse. El estado
+  del cluster quedó versionado y auditable.</li>
+<li><strong>La saga de stock por eventos funcionó.</strong> Desacoplar el descuento de stock del cobro
+  (ver <a href="../adr/adr-0004-consistencia-distribuida-saga-compensacion/">ADR-0004</a>) nos evitó
+  problemas de consistencia y nos dio idempotencia ante reintentos.</li>
+<li><strong>Cerramos con hardening real, no improvisado.</strong> Las pruebas de carga con k6 en el Sprint 4
+  nos dieron números concretos para decidir las optimizaciones (retry + circuit breaker,
+  cache, pool de conexiones).</li>
 </ul>
-<p>Estas llamadas son susceptibles a <strong>fallos transitorios</strong> típicos de un sistema distribuido en Kubernetes: pods recién levantados con startup tardío, timeouts puntuales por GC o I/O, errores 502/503 durante un rolling update de ArgoCD, throttling temporal, problemas de red intermitentes.</p>
-<p>Hasta este ADR la estrategia consistía únicamente en:</p>
+<hr />
+<h2 id="que-nos-costo">Qué nos costó 👎<a class="headerlink" href="#que-nos-costo" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Timeout configurable</strong> (<code>*_TIMEOUT_SECONDS</code>).</li>
-<li><strong>Fail-soft</strong>: ante cualquier error los clientes devolvían <code>None</code>/<code>[]</code>, y los endpoints respondían con datos parciales.</li>
+<li><strong>La complejidad operativa de los microservicios.</strong> Debuggear un request que pasa por
+  Kong, un servicio y RabbitMQ es más indirecto que en un monolito: hay que mirar varios
+  logs antes de encontrar la causa.</li>
+<li><strong>La integración con Mercado Pago.</strong> Las credenciales, URLs de notificación y el webhook
+  dependían del entorno y nos costó tener pruebas E2E estables. Lo mitigamos con un modo
+  mock para poder desarrollar y hacer load testing sin pegarle al sandbox real.</li>
+<li><strong>Coordinación de contratos entre front y back.</strong> Cuando cambiaba un endpoint, el cliente
+  a veces se enteraba tarde. Apoyarnos más temprano en el OpenAPI autogenerado hubiera
+  ayudado.</li>
 </ul>
-<p>Esa estrategia tiene dos debilidades:</p>
-<ol>
-<li><strong>Pierde requests recuperables</strong>: un timeout aislado o un 503 momentáneo se traducen directamente en degradación funcional, cuando un único reintento hubiera resuelto el problema.</li>
-<li><strong>No protege contra cascadas de fallo</strong>: si <code>product-service</code> queda caído por minutos, cada checkout sigue pagando el timeout completo (3s) antes de degradarse, consumiendo workers de FastAPI y propagando latencia al cliente.</li>
-</ol>
-<p>La cátedra sugiere explícitamente aplicar <strong>Retry con backoff exponencial</strong> y <strong>Circuit Breaker</strong> para evitar cascadas. La asíncrona vía RabbitMQ ya está cubierta por <code>connect_robust</code> + DLX (ver <a href="../adr-0004-consistencia-distribuida-saga-compensacion/">ADR-0004</a>); este ADR cubre el plano HTTP.</p>
-<p>Alternativas consideradas:</p>
+<hr />
+<h2 id="que-aprendimos">Qué aprendimos 💡<a class="headerlink" href="#que-aprendimos" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Sólo timeouts (estado previo):</strong> simple pero no recupera transitorios ni evita cascadas.</li>
-<li><strong>Retry sin Circuit Breaker:</strong> mejora la tolerancia a errores puntuales pero amplifica el daño cuando el upstream está caído de verdad (multiplica la carga sobre el servicio en problemas).</li>
-<li><strong>Circuit Breaker sin Retry:</strong> evita cascadas pero pierde la recuperación automática de transitorios genuinos.</li>
-<li><strong>Retry + Circuit Breaker combinados:</strong> Retry absorbe el ruido transitorio, Breaker corta el flujo cuando el problema es persistente. Es la combinación recomendada y la que adoptamos.</li>
-<li><strong>Sidecar de service mesh</strong> (Istio/Linkerd): da retry y outlier detection a nivel infra sin tocar código, pero introduce un componente operativo de peso elevado, fuera del scope del proyecto académico y con curva de aprendizaje no justificada.</li>
+<li>Invertir el tiempo necesario en infraestructura y en el gateway al principio nos ahorro muchos posibles dolores de cabeza.</li>
+<li>La consistencia eventual por eventos es poderosa pero es necesario que sea idempotente,
+  <em>dead letter queues</em> y pensar bien los reintentos desde el día uno.</li>
+<li>Medir antes de optimizar. Las pruebas de carga nos mostraron que el cuello estaba en el
+  checkout y en las llamadas HTTP entre servicios, no donde lo intuíamos.</li>
+<li>Documentar decisiones en el momento (ADRs) aclara las ideas y evita rediscutir después.</li>
 </ul>
-<h2 id="decision">Decisión<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
-<p>Adoptamos un módulo de resiliencia in-house (<code>app/clients/resilience.py</code>) que combina:</p>
-<h3 id="retry-con-backoff-exponencial">Retry con backoff exponencial<a class="headerlink" href="#retry-con-backoff-exponencial" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Implementado con <strong><code>tenacity</code></strong> (<code>AsyncRetrying</code>).</li>
-<li><strong><code>max_attempts = 3</code></strong> (1 intento + 2 reintentos).</li>
-<li><strong>Backoff exponencial</strong> entre <code>0.2s</code> y <code>2.0s</code> (configurable vía <code>HTTP_CLIENT_BACKOFF_INITIAL_SECONDS</code> y <code>HTTP_CLIENT_BACKOFF_MAX_SECONDS</code>).</li>
-<li><strong>Predicado de retry selectivo</strong>: sólo errores transitorios se reintentan.<ul>
-<li><strong>Sí se reintenta:</strong> <code>httpx.TimeoutException</code>, <code>httpx.ConnectError</code>, <code>httpx.NetworkError</code>, <code>httpx.RemoteProtocolError</code>, HTTP <code>5xx</code> y <code>429</code>.</li>
-<li><strong>No se reintenta:</strong> HTTP <code>4xx</code> (404, 400, 403...), errores de validación, excepciones de dominio. Reintentar un 404 sólo desperdicia latencia.</li>
-</ul>
-</li>
-</ul>
-<h3 id="circuit-breaker">Circuit Breaker<a class="headerlink" href="#circuit-breaker" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Implementación <strong>in-house</strong> (<code>AsyncCircuitBreaker</code>, ~50 LoC) por simplicidad y para evitar dependencia de versión de <code>pybreaker</code>/equivalentes.</li>
-<li><strong>Tres estados estándar:</strong> <code>closed → open → half_open → closed</code>.</li>
-<li>Una <strong>instancia por upstream</strong>: <code>product_service_breaker</code> y <code>user_service_breaker</code>. No se mezclan: un product-service caído no debe afectar el circuito de user-service.</li>
-<li><strong>Parámetros configurables por servicio:</strong><ul>
-<li><code>*_CB_FAIL_MAX = 5</code>: cantidad de fallos consecutivos antes de abrir.</li>
-<li><code>*_CB_RESET_TIMEOUT_SECONDS = 30.0</code>: tiempo en estado <code>open</code> antes de pasar a <code>half_open</code>.</li>
-</ul>
-</li>
-<li><strong>Conteo de fallos:</strong> un éxito resetea el contador a cero; sólo cuentan los fallos <em>consecutivos</em>.</li>
-</ul>
-<h3 id="integracion-en-los-clientes">Integración en los clientes<a class="headerlink" href="#integracion-en-los-clientes" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>ProductServiceClient</code> y <code>UserServiceClient</code> envuelven cada llamada httpx con <code>call_with_resilience(breaker, fn, ...)</code>.</li>
-<li><strong>El contrato externo se preserva fail-soft:</strong> después de que retry+breaker hicieron su trabajo, los clientes siguen capturando la excepción final (<code>HTTPError</code>, <code>CircuitOpenError</code>) y devolviendo <code>None</code>/<code>[]</code> para que los endpoints sigan respondiendo con datos parciales en vez de devolver 500.</li>
-<li><strong>Logging diferenciado:</strong> apertura del circuito (<code>WARNING</code>) y recuperación (<code>INFO</code>) quedan en logs para diagnóstico operativo.</li>
-</ul>
-<h3 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">&para;</a></h3>
-<p><code>tests/test_clients_resilience.py</code> cubre 13 casos: clasificación de errores retryables, retry con éxito eventual, no-retry de errores definitivos, agotamiento de reintentos, apertura del circuito tras N fallos, transición half-open, y reseteo del contador ante éxito.</p>
-<h2 id="consecuencias">Consecuencias<a class="headerlink" href="#consecuencias" title="Permanent link">&para;</a></h2>
-<p><strong>Positivas</strong></p>
-<ul>
-<li><strong>Recuperación automática de transitorios:</strong> un timeout aislado o un 503 durante un rolling update ya no se traducen en degradación de la respuesta — el segundo intento normalmente lo absorbe.</li>
-<li><strong>Protección contra cascadas:</strong> cuando un upstream queda caído de verdad, después de 5 fallos consecutivos el circuito abre y las siguientes llamadas fallan en microsegundos (<code>CircuitOpenError</code>) en lugar de bloquear el worker FastAPI 3 segundos cada vez.</li>
-<li><strong>Aislamiento entre upstreams:</strong> un product-service caído no propaga su tasa de fallos al breaker de user-service ni viceversa.</li>
-<li><strong>Recuperación automática:</strong> tras <code>reset_timeout</code> el breaker hace half-open y vuelve a closed apenas el upstream responde bien.</li>
-<li><strong>Sin cambios en el contrato de los clientes:</strong> los callers (services y endpoints) no necesitan saber de retry ni breaker — siguen viendo el mismo fail-soft.</li>
-</ul>
-<p><strong>Negativas</strong></p>
-<ul>
-<li><strong>Latencia incrementada en el peor caso:</strong> un fallo definitivo después de 3 intentos paga la suma de los backoffs (~0.2 + 0.4 + 0.8 ≈ 1.4s adicional). Aceptable dado que para llegar ahí ya hubo errores reales.</li>
-<li><strong>Más complejidad operativa:</strong> hay un módulo más para mantener y dos parámetros nuevos por upstream (<code>CB_FAIL_MAX</code>, <code>CB_RESET_TIMEOUT_SECONDS</code>). Mitigación: defaults razonables y configurables vía env.</li>
-<li><strong>Riesgo de "thundering herd" al cerrar el circuito:</strong> cuando el circuito pasa de <code>open</code> a <code>half_open</code> no hay control de concurrencia para limitar a una sola request de prueba. En el escenario actual (FastAPI con pocos workers) el riesgo es bajo, pero si en el futuro escalamos horizontalmente conviene considerar <code>jitter</code> en el backoff o limitar la cantidad de half-open trials.</li>
-<li><strong>Métricas no expuestas a Prometheus todavía:</strong> las transiciones del breaker quedan sólo en logs. Una mejora futura sería emitir counters/gauges.</li>
-</ul>
-<p><strong>Neutras</strong></p>
-<ul>
-<li>La asíncrona (RabbitMQ) <strong>no se ve afectada por este ADR</strong>: ya tenía <code>connect_robust</code> y DLX/idempotencia.</li>
-<li>El módulo es reutilizable: si en el futuro <code>product-service</code> o <code>user-service</code> agregan llamadas a otros upstreams, basta con declarar un nuevo <code>AsyncCircuitBreaker</code> y envolver las llamadas.</li>
-<li>Mantenemos la dependencia liviana: una sola lib nueva (<code>tenacity</code>), sin frameworks de service mesh.</li>
-</ul>
+<hr />
+<h2 id="metricas-finales">Métricas finales<a class="headerlink" href="#metricas-finales" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Sprint</th>
+<th style="text-align: right;">Obligatorios</th>
+<th style="text-align: right;">Optativos</th>
+<th style="text-align: right;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sprint 1</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">29</td>
+</tr>
+<tr>
+<td>Sprint 2</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">31</td>
+</tr>
+<tr>
+<td>Sprint 3</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr>
+<td>Sprint 4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>63</strong></td>
+<td style="text-align: right;"><strong>32</strong></td>
+<td style="text-align: right;"><strong>95</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microservicios backend</td>
+<td style="text-align: right;">4 (user, product, checkout, notification)</td>
+</tr>
+<tr>
+<td>Clientes</td>
+<td style="text-align: right;">2 (mobile + backoffice)</td>
+</tr>
+<tr>
+<td>ADRs registrados</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>Servicios externos integrados</td>
+<td style="text-align: right;">Supabase, Cloudinary, Mercado Pago, Expo Push</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cierre">Cierre<a class="headerlink" href="#cierre" title="Permanent link">&para;</a></h2>
+<p>Bazaar nos sirvió para llevar a la práctica un sistema distribuido completo: desde la
+infraestructura y el despliegue continuo hasta los patrones de resiliencia y la mensajería
+orientada a eventos. Más allá de las funcionalidades, nos llevamos la experiencia de
+diseñar, discutir y documentar decisiones de arquitectura en equipo.</p>
 
 
 
@@ -1806,10 +1795,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
